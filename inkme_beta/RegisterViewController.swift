@@ -49,8 +49,13 @@ class RegisterViewController: ViewController {
     
     
     @IBAction func botonRegistrar(_ sender: Any) {
-        checkTelefono()
+       
         validarNickName(field: nombre)
+        checkTelefono()
+        
+        if validateEmail(field: email) == nil{
+            showAlert(error: "Email erróneo", mensaje: "El email es obligatorio, no debe contener espacios en blanco, y debe seguir un formato correcto xxx@xxx.xx")
+        }
         
         if validarPassword(field: password.text!) == false{
             showAlert(error: "Password erróneo", mensaje: "La contraseña debe llevar minimo un caracter especial, una mayuscula y 8 dígitos")
@@ -59,10 +64,7 @@ class RegisterViewController: ViewController {
         if repetirPassword(field: repetir.text!) == false{
             showAlert(error: "La contraseña no coincide", mensaje: "La contraseña repetida no coincide con la contraseña introducida")
         }
-        
-        if validateEmail(field: email) == nil{
-            showAlert(error: "Email erróneo", mensaje: "El email es obligatorio, no debe contener espacios en blanco, y debe seguir un formato correcto xxx@xxx.xx")
-        }
+      
         
         //REGISTRAR EN LA API
     }
