@@ -26,11 +26,24 @@ class LoginViewController: ViewController {
         )
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func iniciarSesion(_ sender: Any) {
+        if password.text!.count < 10{
+            showAlert(error: "Contraseña inválida", mensaje: "Contraseña incorrecta")
+        }
+        
+    }
     @objc func tapGestureHandler() {
         email.endEditing(true)
         password.endEditing(true)
       }
-    
+    func showAlert(error: String, mensaje: String){
+        let alert = UIAlertController(title: "\(error)", message: "\(mensaje)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { action in
+            print("Tapped Acept")
+        }))
+        present(alert, animated: true)
+    }
 
     /*
     // MARK: - Navigation
