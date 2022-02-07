@@ -45,7 +45,7 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Do any additional setup after loading the view.
         if(isAppAlreadyLaunchedOnce() == false){
             self.performSegue(withIdentifier: "AtutorialUsuario", sender: nil)
-            print(defaults.string(forKey: "isAppAlreadyLaunchedOnce"))
+            
         }
     }
     
