@@ -21,7 +21,6 @@ class ListaTableViewCell: UITableViewCell {
         img3.image = UIImage(named: "harry3")
         profilePic.layer.cornerRadius = profilePic.frame.size.width / 2
         profilePic.clipsToBounds = true
-        vista.layer.cornerRadius = 20
     }
     
    

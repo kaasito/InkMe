@@ -64,6 +64,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Por favor, permita que accedamos a sus fotos</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Por favor, permita el acceso a la cámara</string>
 	<key>UIUserInterfaceStyle</key>

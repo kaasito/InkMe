@@ -12,7 +12,7 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     @IBOutlet weak var barraBusca: UISearchBar!
     @IBOutlet weak var tabla: UITableView!
-    
+    let defaults = UserDefaults.standard
    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,7 +43,27 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //yourSearchBar.searchTextField.textColor = .yourColor
         barraBusca.searchTextField.textColor = .white
         // Do any additional setup after loading the view.
+        if(isAppAlreadyLaunchedOnce() == false){
+            self.performSegue(withIdentifier: "AtutorialUsuario", sender: nil)
+            print(defaults.string(forKey: "isAppAlreadyLaunchedOnce"))
+        }
     }
+    
+  
+    
+    
+    func isAppAlreadyLaunchedOnce()->Bool{
+            let defaults = UserDefaults.standard
+            
+            if defaults.bool(forKey: "isAppAlreadyLaunchedOnce"){
+                print("App already launched : \(String(describing: isAppAlreadyLaunchedOnce))")
+                return true
+            }else{
+                defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+                print("App launched first time")
+                return false
+            }
+        }
     
     
 
