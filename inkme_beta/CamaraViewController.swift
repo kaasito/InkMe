@@ -9,12 +9,14 @@ import UIKit
 
 class CamaraViewController: ViewController {
     
+    
+    @IBOutlet weak var botonBuscar: UIButton!
     @IBOutlet var imagenSeleccionada: UIImageView!
     @IBOutlet weak var botonCamara: UIButton!
     @IBOutlet weak var botonGaleria: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+     
     }
     
     @IBAction func abrirGaleria(_ sender: Any) {
@@ -34,6 +36,25 @@ class CamaraViewController: ViewController {
     
     
     
+    @IBAction func buscarPulsado(_ sender: Any) {
+        if imagenSeleccionada.image == nil{
+            let alert = UIAlertController(title: "Error", message: "Tienes que subir una foto para realizar una busqueda", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Vale", style: .default, handler: { action in
+                switch action.style{
+                    case .default:
+                    print("default")
+                    
+                    case .cancel:
+                    print("cancel")
+                    
+                    case .destructive:
+                    print("destructive")
+                    
+                }
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }
 
 extension CamaraViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{

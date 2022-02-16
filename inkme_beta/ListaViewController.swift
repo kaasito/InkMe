@@ -10,7 +10,7 @@ import Alamofire
 
 class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-
+    var usuarios: [User]?
     @IBOutlet weak var barraBusca: UISearchBar!
     @IBOutlet weak var tabla: UITableView!
     let defaults = UserDefaults.standard
@@ -39,6 +39,13 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NetWorkingProvider.shared.getUser() { arrayUsuarios in
+            self.usuarios = arrayUsuarios
+          
+            
+        } failure: { error in
+            print(error)
+        }
         tabla.delegate = self
         tabla.dataSource = self
         //yourSearchBar.searchTextField.textColor = .yourColor

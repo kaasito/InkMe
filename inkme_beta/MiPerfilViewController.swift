@@ -10,13 +10,14 @@ import UIKit
 class MiPerfilViewController: UIViewController {
 
     
+    @IBOutlet weak var vistaInfo: UIView!
     @IBOutlet weak var imagenPerfil: UIImageView!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var postView: UIView!
     @IBOutlet weak var merchView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        vistaInfo.layer.cornerRadius = 10
         imagenPerfil.layer.cornerRadius = imagenPerfil.frame.size.width / 2
         imagenPerfil.clipsToBounds = true
         postView.alpha = 1
@@ -27,10 +28,10 @@ class MiPerfilViewController: UIViewController {
         //button.setImage(UIImage(named: "image_name"), for: .normal) // You can set image direct from Storyboard
         //button.setImageTintColor(UIColor.white)
        
-        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "id") as? NavViewController {
-            viewController.modalPresentationStyle = .fullScreen
-            self.present(viewController, animated: true, completion: nil)
-        }
+//        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "id") as? NavViewController {
+//            viewController.modalPresentationStyle = .fullScreen
+//            self.present(viewController, animated: true, completion: nil)
+//        }
         
      
     }
