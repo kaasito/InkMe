@@ -27,6 +27,7 @@
 		6B5D89F627B1B04E00D71869 /* PerfilAjenoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5D89F527B1B04E00D71869 /* PerfilAjenoViewController.swift */; };
 		6B5D8A1A27B2A18300D71869 /* PerfilItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5D8A1927B2A18200D71869 /* PerfilItemViewController.swift */; };
 		6BDA282827BBD25100C4B2D9 /* NetWorkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDA282727BBD25100C4B2D9 /* NetWorkProvider.swift */; };
+		6BDA282A27BD2D9F00C4B2D9 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDA282927BD2D9F00C4B2D9 /* NavViewController.swift */; };
 		6BE315EC279729D1007D4A37 /* CamaraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE315EB279729D1007D4A37 /* CamaraViewController.swift */; };
 		6BE315EE27974E92007D4A37 /* TutorialInicialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE315ED27974E92007D4A37 /* TutorialInicialViewController.swift */; };
 		E7F74B61C7FB94904289F494 /* Pods_inkme_beta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD219B557230611D48A255D /* Pods_inkme_beta.framework */; };
@@ -57,6 +58,7 @@
 		6B5D89F527B1B04E00D71869 /* PerfilAjenoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilAjenoViewController.swift; sourceTree = "<group>"; };
 		6B5D8A1927B2A18200D71869 /* PerfilItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilItemViewController.swift; sourceTree = "<group>"; };
 		6BDA282727BBD25100C4B2D9 /* NetWorkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkProvider.swift; sourceTree = "<group>"; };
+		6BDA282927BD2D9F00C4B2D9 /* NavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		6BE315EB279729D1007D4A37 /* CamaraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamaraViewController.swift; sourceTree = "<group>"; };
 		6BE315ED27974E92007D4A37 /* TutorialInicialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialInicialViewController.swift; sourceTree = "<group>"; };
 		CCD219B557230611D48A255D /* Pods_inkme_beta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_inkme_beta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +137,7 @@
 				6B5D89F527B1B04E00D71869 /* PerfilAjenoViewController.swift */,
 				6B5D8A1927B2A18200D71869 /* PerfilItemViewController.swift */,
 				6BDA282727BBD25100C4B2D9 /* NetWorkProvider.swift */,
+				6BDA282927BD2D9F00C4B2D9 /* NavViewController.swift */,
 			);
 			path = inkme_beta;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				6BDA282827BBD25100C4B2D9 /* NetWorkProvider.swift in Sources */,
 				6B42FEDC279AE32400575242 /* gifLoader.swift in Sources */,
 				6B0DFB0E2796310C003DF5EF /* ImagenCircular.swift in Sources */,
+				6BDA282A27BD2D9F00C4B2D9 /* NavViewController.swift in Sources */,
 				6B0DFB0C279630BA003DF5EF /* ListaViewController.swift in Sources */,
 				6B42FED8279AB69F00575242 /* UltimoTutoViewController.swift in Sources */,
 				6B14FA792790BD2D008BFF46 /* MainProfileViewController.swift in Sources */,
