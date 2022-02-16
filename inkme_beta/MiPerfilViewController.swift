@@ -16,6 +16,7 @@ class MiPerfilViewController: UIViewController {
     @IBOutlet weak var merchView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         imagenPerfil.layer.cornerRadius = imagenPerfil.frame.size.width / 2
         imagenPerfil.clipsToBounds = true
         postView.alpha = 1
@@ -25,7 +26,9 @@ class MiPerfilViewController: UIViewController {
         
         //button.setImage(UIImage(named: "image_name"), for: .normal) // You can set image direct from Storyboard
         //button.setImageTintColor(UIColor.white)
+       
         
+        performSegue(withIdentifier: "modalmente", sender: nil)
     }
     
 
@@ -59,3 +62,16 @@ extension UIButton{
     }
 
 }
+
+func isAppAlreadyLaunchedOnce()->Bool{
+        let defaults = UserDefaults.standard
+        
+        if defaults.bool(forKey: "isAppAlreadyLaunchedOnce"){
+            print("App already launched : \(String(describing: isAppAlreadyLaunchedOnce))")
+            return true
+        }else{
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            print("App launched first time")
+            return false
+        }
+    }

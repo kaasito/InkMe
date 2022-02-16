@@ -9,6 +9,7 @@ import UIKit
 
 class ListaTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var tarjeta: UIView!
     @IBOutlet weak var img3: UIImageView!
     @IBOutlet weak var img2: UIImageView!
     @IBOutlet weak var img1: UIImageView!
@@ -16,6 +17,7 @@ class ListaTableViewCell: UITableViewCell {
     @IBOutlet weak var profilePic: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        tarjeta.layer.cornerRadius = 10
         img1.image = UIImage(named: "harry")
         img2.image = UIImage(named: "harry2")
         img3.image = UIImage(named: "harry3")
