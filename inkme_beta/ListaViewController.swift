@@ -17,12 +17,12 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return usuarios?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListaCell", for: indexPath) as! ListaTableViewCell
-            cell.profilePic.image = UIImage(named: "harry")
+        cell.user = usuarios?[indexPath.row]
         cell.backgroundColor = .clear
             return cell
     }
@@ -39,15 +39,17 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabla.delegate = self
+        self.tabla.dataSource = self
         NetWorkingProvider.shared.getUser() { arrayUsuarios in
             self.usuarios = arrayUsuarios
-          
+            self.tabla.reloadData()
             
         } failure: { error in
             print(error)
         }
-        tabla.delegate = self
-        tabla.dataSource = self
+        
+        
         //yourSearchBar.searchTextField.textColor = .yourColor
         barraBusca.searchTextField.textColor = .white
         // Do any additional setup after loading the view.

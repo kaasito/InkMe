@@ -5,7 +5,8 @@ struct Response:Decodable {
 }
 struct User:Decodable  {
     let name: String
-
+    let profile_picture: String?
+    let posts:[Post]
     
 }
 

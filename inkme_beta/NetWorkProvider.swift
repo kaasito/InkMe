@@ -16,6 +16,12 @@ final class NetWorkingProvider{
                 success(users)
                 for user in users {
                     print(user.name)
+                    if user.posts.count > 2{
+                        print("esta es",user.posts[0].photo)
+                        print("que miras",user.posts[0])
+                    }
+                   
+                    
                 }
             }else{
                 print("no se ha podido hacer fetch")
