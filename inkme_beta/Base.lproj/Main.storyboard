@@ -174,7 +174,7 @@
                             <constraint firstItem="3wc-la-uXe" firstAttribute="bottom" secondItem="8ks-J4-Ag2" secondAttribute="bottom" constant="28" id="egN-tE-wH5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ase-Uw-VVA"/>
+                    <navigationItem key="navigationItem" title="Lista" id="ase-Uw-VVA"/>
                     <connections>
                         <outlet property="barraBusca" destination="yf7-2d-DEo" id="6V7-HR-rOx"/>
                         <outlet property="tabla" destination="8ks-J4-Ag2" id="ZwH-Hj-fad"/>
@@ -190,7 +190,7 @@
             <objects>
                 <viewController id="LjQ-7W-oMT" customClass="CamaraViewController" customModule="inkme_beta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qq7-1y-Tby">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fYt-t6-6fB">
@@ -251,7 +251,7 @@
             <objects>
                 <viewController id="N5K-Az-zUg" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Sc-AH-dzq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="kbh-Pp-EFa"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
@@ -267,6 +267,7 @@
         <scene sceneID="FTo-Fc-znG">
             <objects>
                 <navigationController storyboardIdentifier="id" id="pun-zg-tce" customClass="NavViewController" customModule="inkme_beta" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="bXs-S2-5Yo">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -735,20 +736,21 @@
         <!-- -->
         <scene sceneID="idh-Xj-glP">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2h4-aX-Di5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="g6a-jd-GZ5" customClass="MiPerfilViewController" customModule="inkme_beta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lx1-GP-wAV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iZw-DF-5QI">
-                                <rect key="frame" x="24" y="296" width="370" height="444"/>
+                                <rect key="frame" x="24" y="340" width="370" height="454"/>
                                 <color key="backgroundColor" red="1" green="0.39886295570000002" blue="0.30049749450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="TR5-aR-zlk" kind="embed" id="vMJ-Ta-yhR"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bxo-Lq-Lol">
-                                <rect key="frame" x="20" y="0.0" width="374" height="187"/>
+                                <rect key="frame" x="20" y="44" width="374" height="187"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="harry2" translatesAutoresizingMaskIntoConstraints="NO" id="tBP-xi-6f6">
                                         <rect key="frame" x="8" y="8" width="128" height="128"/>
@@ -830,7 +832,7 @@
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YsI-0S-rQd">
-                                <rect key="frame" x="113" y="234" width="188" height="32"/>
+                                <rect key="frame" x="113" y="278" width="188" height="32"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="188" id="2kg-Nl-3Aa"/>
@@ -845,7 +847,7 @@
                                 </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cs-cd-tpe">
-                                <rect key="frame" x="24" y="296" width="370" height="444"/>
+                                <rect key="frame" x="24" y="340" width="370" height="454"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="myc-lO-oHo" kind="embed" id="GW1-Lt-jHv"/>
@@ -881,7 +883,6 @@
                         <outlet property="vistaInfo" destination="Bxo-Lq-Lol" id="dMa-Xr-tS4"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2h4-aX-Di5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7195.652173913044" y="585.9375"/>
         </scene>
@@ -1236,7 +1237,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" backgroundImage="Button"/>
                                 <connections>
-                                    <segue destination="fLT-sP-SvN" kind="presentation" modalTransitionStyle="coverVertical" id="mCP-Li-sDD"/>
+                                    <segue destination="fLT-sP-SvN" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="mCP-Li-sDD"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Ao-eT-UkM">
@@ -1297,7 +1298,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FkO-Va-dDS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Lista" image="􀎞" id="p2s-X3-PYB"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="fa7-vP-Wp9"/>
+                    <navigationItem key="navigationItem" title="Lista" id="fa7-vP-Wp9"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0g8-cX-6ws">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1320,7 +1321,7 @@
             <objects>
                 <viewController id="TR5-aR-zlk" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dqN-PX-SP6">
-                        <rect key="frame" x="0.0" y="0.0" width="370" height="444"/>
+                        <rect key="frame" x="0.0" y="0.0" width="370" height="454"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="POST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4d-om-zvN">
@@ -1344,7 +1345,7 @@
             <objects>
                 <viewController id="myc-lO-oHo" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8WX-x3-Pib">
-                        <rect key="frame" x="0.0" y="0.0" width="370" height="444"/>
+                        <rect key="frame" x="0.0" y="0.0" width="370" height="454"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Merch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXC-dP-4ua">

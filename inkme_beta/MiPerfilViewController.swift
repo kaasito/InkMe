@@ -27,7 +27,7 @@ class MiPerfilViewController: UIViewController {
         
         //button.setImage(UIImage(named: "image_name"), for: .normal) // You can set image direct from Storyboard
         //button.setImageTintColor(UIColor.white)
-       
+//
 //        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "id") as? NavViewController {
 //            viewController.modalPresentationStyle = .fullScreen
 //            self.present(viewController, animated: true, completion: nil)
