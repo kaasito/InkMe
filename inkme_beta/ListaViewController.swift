@@ -9,8 +9,23 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ListaTableViewCellDelgate {
     
+    var imageURL: String?
+    func listaTableViewCell(_ cell: ListaTableViewCell, didSelectImageAtIndex index: Int) {
+        print("informacion pasada")
+        imageURL = cell.user?.posts[0].photo//patron delegate/proxy
+        performSegue(withIdentifier: "post", sender: nil)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "post"{
+            let sv = segue.destination as! PostViewController
+            sv.url = imageURL!
+        }
+        
+    }
     var usuarios: [User] = []
     @IBOutlet weak var barraBusca: UISearchBar!
     @IBOutlet weak var tabla: UITableView!
@@ -25,6 +40,7 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListaCell", for: indexPath) as! ListaTableViewCell
         cell.user = usuarios[indexPath.row]
+        cell.delegate = self
         cell.backgroundColor = .clear
             return cell
     }
@@ -36,10 +52,10 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor.black
         cell.selectedBackgroundView = bgColorView
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-        cell.img1.isUserInteractionEnabled = true
-        cell.img1.addGestureRecognizer(tapGestureRecognizer)
+//
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+//        cell.img1.isUserInteractionEnabled = true
+//        cell.img1.addGestureRecognizer(tapGestureRecognizer)
 //
 //        if let vc = storyboard?.instantiateViewController(identifier: "PerfilAjenoViewController") as? PerfilAjenoViewController{
 //            let user = usuarios[indexPath.row]
@@ -102,10 +118,10 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Pass the selected object to the new view controller.
     }
     */
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
-    {
-        let tappedImage = tapGestureRecognizer.view as! UIImageView
-        
-        print("tocado")
-    }
+//    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+//    {
+//        let tappedImage = tapGestureRecognizer.view as! UIImageView
+//        
+//        print("tocado")
+//    }
 }

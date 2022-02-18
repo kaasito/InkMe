@@ -7,13 +7,21 @@
 
 import UIKit
 import AlamofireImage
+
+protocol ListaTableViewCellDelgate {
+    func listaTableViewCell(_ cell:ListaTableViewCell, didSelectImageAtIndex index: Int)
+    
+}
+
+
 class ListaTableViewCell: UITableViewCell {
+    var delegate: ListaTableViewCellDelgate?
     var user: User? {
         didSet {
             renderUI()
         }
     }
-    let tableview = ListaViewController()
+    
     @IBOutlet weak var nickname: UIButton!
     @IBOutlet weak var tarjeta: UIView!
     @IBOutlet weak var img3: UIImageView!
@@ -27,9 +35,12 @@ class ListaTableViewCell: UITableViewCell {
     @IBOutlet weak var location: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-//            img1.isUserInteractionEnabled = true
-//            img1.addGestureRecognizer(tapGestureRecognizer)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        img1.isUserInteractionEnabled = true
+        img1.addGestureRecognizer(tapGestureRecognizer)
+        
+        
+        
         tarjeta.layer.cornerRadius = 10
         img1.image = UIImage(named: "harry")
         img2.image = UIImage(named: "harry2")
@@ -38,20 +49,20 @@ class ListaTableViewCell: UITableViewCell {
         profilePic.clipsToBounds = true
     }
     
-//    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
-//    {
-//        let tappedImage = tapGestureRecognizer.view as! UIImageView
-//
-//
-//    }
-   
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        delegate?.listaTableViewCell(self, didSelectImageAtIndex: 0)
+        
+    }
+    
     
     
     private func renderUI() {
         guard let user = user else { return }
         
         nickname.setTitle(user.name, for: .normal)
-       
+        
         
         if user.posts.count > 2{
             let url = URL(string:user.posts[0].photo)
@@ -72,8 +83,8 @@ class ListaTableViewCell: UITableViewCell {
             profilePic.image = UIImage(named: "harry")
         }
         
-       
-      
+        
+        
         
     }
     

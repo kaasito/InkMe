@@ -6,14 +6,19 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class PostViewController: UIViewController {
 
+    var url = ""
     @IBOutlet weak var imagen: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       //let url = URL()
+        let url1 = URL(string:url)
+        imagen.af.setImage(withURL: url1!)
+        
+      
     }
     
 
