@@ -21,10 +21,15 @@ class ListaTableViewCell: UITableViewCell {
     @IBOutlet weak var img1: UIImageView!
     @IBOutlet weak var vista: UIView!
     @IBOutlet weak var profilePic: UIImageView!
+    @IBOutlet weak var categoria: UILabel!
     
+    
+    @IBOutlet weak var location: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+//            img1.isUserInteractionEnabled = true
+//            img1.addGestureRecognizer(tapGestureRecognizer)
         tarjeta.layer.cornerRadius = 10
         img1.image = UIImage(named: "harry")
         img2.image = UIImage(named: "harry2")
@@ -33,7 +38,15 @@ class ListaTableViewCell: UITableViewCell {
         profilePic.clipsToBounds = true
     }
     
+//    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+//    {
+//        let tappedImage = tapGestureRecognizer.view as! UIImageView
+//
+//
+//    }
    
+    
+    
     private func renderUI() {
         guard let user = user else { return }
         
@@ -49,6 +62,8 @@ class ListaTableViewCell: UITableViewCell {
             img3.af.setImage(withURL: url2!)
             let profilepicurl = URL(string: user.profile_picture!)
             profilePic.af.setImage(withURL: profilepicurl!)
+            location.text = user.location
+            categoria.text = user.styles
             
         }else{
             img1.image = UIImage(named: "harry")

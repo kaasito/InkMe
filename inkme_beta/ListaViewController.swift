@@ -7,22 +7,24 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 
 class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var usuarios: [User]?
+    var usuarios: [User] = []
     @IBOutlet weak var barraBusca: UISearchBar!
     @IBOutlet weak var tabla: UITableView!
     let defaults = UserDefaults.standard
    
     
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return usuarios?.count ?? 0
+        return usuarios.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListaCell", for: indexPath) as! ListaTableViewCell
-        cell.user = usuarios?[indexPath.row]
+        cell.user = usuarios[indexPath.row]
         cell.backgroundColor = .clear
             return cell
     }
@@ -34,6 +36,20 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor.black
         cell.selectedBackgroundView = bgColorView
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        cell.img1.isUserInteractionEnabled = true
+        cell.img1.addGestureRecognizer(tapGestureRecognizer)
+//
+//        if let vc = storyboard?.instantiateViewController(identifier: "PerfilAjenoViewController") as? PerfilAjenoViewController{
+//            let user = usuarios[indexPath.row]
+//            print(user.name)
+//            vc.nombre = String(user.name)
+//            vc.ubicacion = user.location
+//            vc.estilo = user.styles
+//            vc.URLimagenPerfil = user.profile_picture ?? ""
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
     }
     
 
@@ -86,5 +102,10 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Pass the selected object to the new view controller.
     }
     */
-
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        
+        print("tocado")
+    }
 }
