@@ -327,7 +327,7 @@
         <scene sceneID="nqr-2z-lSm">
             <objects>
                 <viewController id="yyw-R1-aeF" customClass="MainProfileViewController" customModule="inkme_beta" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vRL-vO-SR5">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="vRL-vO-SR5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

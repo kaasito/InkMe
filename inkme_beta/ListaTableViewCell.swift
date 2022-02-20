@@ -35,9 +35,16 @@ class ListaTableViewCell: UITableViewCell {
     @IBOutlet weak var location: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        let tapGestureRecognizerImg1 = UITapGestureRecognizer(target: self, action: #selector(imageTappedImg1(tapGestureRecognizer:)))
+        let tapGestureRecognizerImg2 = UITapGestureRecognizer(target: self, action: #selector(imageTappedImg2(tapGestureRecognizer:)))
+        let tapGestureRecognizerImg3 = UITapGestureRecognizer(target: self, action: #selector(imageTappedImg3(tapGestureRecognizer:)))
         img1.isUserInteractionEnabled = true
-        img1.addGestureRecognizer(tapGestureRecognizer)
+        img1.addGestureRecognizer(tapGestureRecognizerImg1)
+        img2.isUserInteractionEnabled = true
+        img2.addGestureRecognizer(tapGestureRecognizerImg2)
+        img3.isUserInteractionEnabled = true
+        img3.addGestureRecognizer(tapGestureRecognizerImg3)
+        
         
         
         
@@ -49,12 +56,27 @@ class ListaTableViewCell: UITableViewCell {
         profilePic.clipsToBounds = true
     }
     
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    @objc func imageTappedImg1(tapGestureRecognizer: UITapGestureRecognizer)
     {
         let tappedImage = tapGestureRecognizer.view as! UIImageView
         delegate?.listaTableViewCell(self, didSelectImageAtIndex: 0)
         
     }
+    
+    @objc func imageTappedImg2(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        delegate?.listaTableViewCell(self, didSelectImageAtIndex: 1)
+        
+    }
+    
+    @objc func imageTappedImg3(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        delegate?.listaTableViewCell(self, didSelectImageAtIndex: 2)
+        
+    }
+    
     
     
     

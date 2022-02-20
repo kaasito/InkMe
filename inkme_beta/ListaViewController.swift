@@ -14,7 +14,18 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var imageURL: String?
     func listaTableViewCell(_ cell: ListaTableViewCell, didSelectImageAtIndex index: Int) {
         print("informacion pasada")
-        imageURL = cell.user?.posts[0].photo//patron delegate/proxy
+        if index == 0{
+            imageURL = cell.user?.posts[0].photo//patron delegate/proxy
+        }
+        
+        if index == 1{
+            imageURL = cell.user?.posts[1].photo//patron delegate/proxy
+        }
+        
+        if index == 2{
+            imageURL = cell.user?.posts[2].photo//patron delegate/proxy
+        }
+      
         performSegue(withIdentifier: "post", sender: nil)
     }
     
