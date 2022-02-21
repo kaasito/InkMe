@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import Alamofire
 
 class MiPerfilViewController: UIViewController {
 
+    @IBOutlet weak var nombrePerfil: UILabel!
     @IBOutlet weak var segmentado: UISegmentedControl!
+    @IBOutlet weak var ubicacionLabel: UILabel!
+    @IBOutlet weak var estiloLabel: UILabel!
     let defaults = UserDefaults.standard
     @IBOutlet weak var tutorial: UIView!
     @IBOutlet weak var vistaInfo: UIView!
@@ -25,6 +29,25 @@ class MiPerfilViewController: UIViewController {
             postView.isHidden = true
             merchView.isHidden = true
             segmentado.isHidden = true
+        }else{
+            tutorial.isHidden = true
+            let url = "http://localhost:8888/inkme/public/api/cargarPerfil"
+            let idUsuario = defaults.integer(forKey: "id")
+            let json = ["usuario_id": String(idUsuario)]
+            print(json)
+            AF.request(url, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: PerfilResponse.self) { [self] response in
+                print("response",response)
+                if (response.value?.status) == 1 {
+                    self.nombrePerfil.text = response.value?.usuario?.nombre
+                    let url = URL(string: response.value?.usuario?.foto ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg")
+                    self.imagenPerfil.af.setImage(withURL: url!)
+                    self.estiloLabel.text = response.value?.usuario?.styles ?? "sin estilo"
+                    self.ubicacionLabel.text = response.value?.usuario?.ubicacion ?? "sin ubicacion"
+                    
+                }else{
+                    print("no se ha podido hacer fetch")
+                }
+            }
         }
         vistaInfo.layer.cornerRadius = 10
         imagenPerfil.layer.cornerRadius = imagenPerfil.frame.size.width / 2
@@ -71,3 +94,44 @@ func isAppAlreadyLaunchedOnce()->Bool{
             return false
         }
     }
+
+
+struct PerfilResponse:Decodable {
+    let status: Int?
+    let usuario: UsuarioPropio?
+}
+
+struct UsuarioPropio:Decodable{
+ 
+    let nombre: String?
+    let email: String?
+    let foto: String?
+    let ubicacion: String?
+    let styles: String?
+}
+
+
+/*
+ "nombre": "Lucas",
+         "email": "lucas@gmail.com",
+         "foto": "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2021/01/18/16109969864752.png",
+         "ubicacion": "Madrid",
+         "estudio_id": null,
+         "styles": "blackwork",
+         "posts": [
+             {
+                 "id": 1,
+                 "photo": "https://image-service.onefootball.com/transform?w=280&h=210&dpr=2&image=https%3A%2F%2Findependientehoy.com%2Fwp-content%2Fuploads%2F2021%2F06%2Flucas-romero-en-entrevista.jpg"
+             },
+             {
+                 "id": 2,
+                 "photo": "https://pbs.twimg.com/media/FI1TuXtXoBI9h_E?format=jpg&name=large"
+             },
+             {
+                 "id": 3,
+                 "photo": "https://pbs.twimg.com/media/EY6DDjcXsAM6rB0.jpg"
+             }
+         ]
+     }
+ }
+ */

@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import Alamofire
 
 class LoginViewController: ViewController {
-
+    var idUsuarioLogueado = 0
+    var api_token = ""
+    let defaults = UserDefaults.standard
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     override func viewDidLoad() {
@@ -28,10 +31,22 @@ class LoginViewController: ViewController {
     }
     
     @IBAction func iniciarSesion(_ sender: Any) {
-        if password.text!.count < 10{
-            showAlert(error: "Contraseña inválida", mensaje: "Contraseña incorrecta")
+        let correo = email.text
+        let contra = password.text
+        let url = "http://localhost:8888/inkme/public/api/login"
+        let json = ["email": correo, "password": contra]
+        AF.request(url, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: LoginPantalla.self) { [self] response in
+            print(response)
+            if (response.value?.status) == 1 {
+                self.api_token = "\(response.value?.api_token)"
+                self.idUsuarioLogueado = (response.value?.id)!
+                defaults.setValue(self.api_token, forKey:"token")
+                defaults.setValue(self.idUsuarioLogueado, forKey:"id")
+                performSegue(withIdentifier: "fromLogin", sender: nil)
+            }else{
+                print("no se ha podido hacer fetch")
+            }
         }
-        
     }
     @objc func tapGestureHandler() {
         email.endEditing(true)
@@ -45,14 +60,14 @@ class LoginViewController: ViewController {
         present(alert, animated: true)
     }
 
-    /*
-    // MARK: - Navigation
+  
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+}
 
+
+struct LoginPantalla:Decodable{
+    let status: Int?
+    let msg: String?
+    let api_token: String?
+    let id: Int?
 }

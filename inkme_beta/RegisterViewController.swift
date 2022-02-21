@@ -6,10 +6,13 @@
 //
 //nombre, telefono, email, contraseña, repetir contraseña
 import UIKit
+import Alamofire
 
 class RegisterViewController: ViewController {
     
-    
+    let defaults = UserDefaults.standard
+    var token = ""
+    var userId = 0
     @IBOutlet weak var nombre: UITextField!
     @IBOutlet weak var telefono: UITextField!
     @IBOutlet weak var email: UITextField!
@@ -50,23 +53,43 @@ class RegisterViewController: ViewController {
     
     @IBAction func botonRegistrar(_ sender: Any) {
        
-        validarNickName(field: nombre)
-        checkTelefono()
+//        validarNickName(field: nombre)
+//        checkTelefono()
+//
+//        if validateEmail(field: email) == nil{
+//            showAlert(error: "Email erróneo", mensaje: "El email es obligatorio, no debe contener espacios en blanco, y debe seguir un formato correcto xxx@xxx.xx")
+//        }
+//
+//        if repetirPassword(field: repetir.text!) == false{
+//            showAlert(error: "La contraseña no coincide", mensaje: "La contraseña repetida no coincide con la contraseña introducida")
+//        }
         
-        if validateEmail(field: email) == nil{
-            showAlert(error: "Email erróneo", mensaje: "El email es obligatorio, no debe contener espacios en blanco, y debe seguir un formato correcto xxx@xxx.xx")
-        }
-        
-        if validarPassword(field: password.text!) == false{
-            showAlert(error: "Password erróneo", mensaje: "La contraseña debe llevar minimo un caracter especial, una mayuscula y 8 dígitos")
-        }
-        
-        if repetirPassword(field: repetir.text!) == false{
-            showAlert(error: "La contraseña no coincide", mensaje: "La contraseña repetida no coincide con la contraseña introducida")
+        let url = "http://localhost:8888/inkme/public/api/register"
+        let name = nombre.text
+        let email = email.text
+        let password = password.text
+        let numtlf = telefono.text
+        let json = ["name": name, "password": password,"email": email, "numtlf": numtlf]
+        AF.request(url, method: .put, parameters: json as Parameters, encoding: JSONEncoding.default).responseDecodable (of: RegisterResponse.self) { [self] response in
+            print(response)
+            if (response.value?.status) == 1 {
+                self.token = (response.value?.api_token)!
+                defaults.setValue(self.token, forKey: "token")
+                self.userId = (response.value?.id)!
+                defaults.setValue(self.userId, forKey: "id")
+                performSegue(withIdentifier: "AtutorialUsuario", sender: nil)
+            }else{
+                print("no se ha podido hacer fetch")
+            }
         }
       
-        
-        //REGISTRAR EN LA API
+        /*
+             "name": "Adri",
+             "email": "adri@gmail.com",
+             "password": "Lui$11",
+             "numtlf": "665679453"
+         */
+      
     }
     
     
@@ -145,4 +168,10 @@ class RegisterViewController: ViewController {
     }
     
     
+}
+
+struct RegisterResponse:Decodable{
+    let status: Int?
+    let api_token: String?
+    let id:Int?
 }

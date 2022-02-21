@@ -13,8 +13,12 @@ protocol ListaTableViewCellDelgate {
     
 }
 
+protocol DestinoTableViewCellDelegate {
+    func didPressFotoPerfil(_ cell:ListaTableViewCell)
+}
 
 class ListaTableViewCell: UITableViewCell {
+    var delegateNickname: DestinoTableViewCellDelegate?
     var delegate: ListaTableViewCellDelgate?
     var user: User? {
         didSet {
@@ -22,6 +26,7 @@ class ListaTableViewCell: UITableViewCell {
         }
     }
     
+    var id = 0
     @IBOutlet weak var nickname: UIButton!
     @IBOutlet weak var tarjeta: UIView!
     @IBOutlet weak var img3: UIImageView!
@@ -47,7 +52,6 @@ class ListaTableViewCell: UITableViewCell {
         
         
         
-        
         tarjeta.layer.cornerRadius = 10
         img1.image = UIImage(named: "harry")
         img2.image = UIImage(named: "harry2")
@@ -56,28 +60,26 @@ class ListaTableViewCell: UITableViewCell {
         profilePic.clipsToBounds = true
     }
     
+   
+    
     @objc func imageTappedImg1(tapGestureRecognizer: UITapGestureRecognizer)
     {
-        let tappedImage = tapGestureRecognizer.view as! UIImageView
-        delegate?.listaTableViewCell(self, didSelectImageAtIndex: 0)
         
+        delegate?.listaTableViewCell(self, didSelectImageAtIndex: 0)
     }
+   
     
     @objc func imageTappedImg2(tapGestureRecognizer: UITapGestureRecognizer)
     {
-        let tappedImage = tapGestureRecognizer.view as! UIImageView
-        delegate?.listaTableViewCell(self, didSelectImageAtIndex: 1)
         
+        delegate?.listaTableViewCell(self, didSelectImageAtIndex: 1)
     }
     
     @objc func imageTappedImg3(tapGestureRecognizer: UITapGestureRecognizer)
     {
-        let tappedImage = tapGestureRecognizer.view as! UIImageView
-        delegate?.listaTableViewCell(self, didSelectImageAtIndex: 2)
         
+        delegate?.listaTableViewCell(self, didSelectImageAtIndex: 2)
     }
-    
-    
     
     
     private func renderUI() {
@@ -86,10 +88,11 @@ class ListaTableViewCell: UITableViewCell {
         nickname.setTitle(user.name, for: .normal)
         
         
-        if user.posts.count > 2{
-            let url = URL(string:user.posts[0].photo)
-            let url1 = URL(string:user.posts[1].photo)
-            let url2 = URL(string:user.posts[2].photo)
+        if user.posts!.count > 2{
+            
+            let url = URL(string:user.posts![0].photo!)
+            let url1 = URL(string:user.posts![1].photo!)
+            let url2 = URL(string:user.posts![2].photo!)
             img1.af.setImage(withURL: url!)
             img2.af.setImage(withURL: url1!)
             img3.af.setImage(withURL: url2!)

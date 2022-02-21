@@ -10,22 +10,56 @@ import Alamofire
 import AlamofireImage
 
 class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ListaTableViewCellDelgate {
+   
     
+    
+    
+    var nombreUsuario = ""
     var imageURL: String?
+    var postId: Int?
+    var usuarios: [User] = []
+    @IBOutlet weak var barraBusca: UISearchBar!
+    @IBOutlet weak var tabla: UITableView!
+    let defaults = UserDefaults.standard
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tabla.delegate = self
+        self.tabla.dataSource = self
+        barraBusca.searchTextField.textColor = .white
+        
+        NetWorkingProvider.shared.getUser() { arrayUsuarios in
+            self.usuarios = arrayUsuarios
+            self.tabla.reloadData()
+        } failure: { error in
+            print(error)
+        }
+        
+        if(isAppAlreadyLaunchedOnce() == false){
+            self.performSegue(withIdentifier: "AtutorialUsuario", sender: nil)
+        }
+    }
+    
+//
+//    func didPressFotoPerfil(_ cell: ListaTableViewCell) {
+//        nombreUsuario = cell.user!.name
+//        performSegue(withIdentifier: "fromnickname", sender: nil)
+//    }
+    
     func listaTableViewCell(_ cell: ListaTableViewCell, didSelectImageAtIndex index: Int) {
-        print("informacion pasada")
-        if index == 0{
-            imageURL = cell.user?.posts[0].photo//patron delegate/proxy
+        switch index {
+        case 0:
+            imageURL = cell.user?.posts![0].photo//patron delegate/proxy
+            postId = cell.user?.posts![0].id
+            
+        case 1:
+            imageURL = cell.user?.posts![1].photo//patron delegate/proxy
+            postId = cell.user?.posts![1].id
+        case 2:
+            imageURL = cell.user?.posts![2].photo//patron delegate/proxy
+            postId = cell.user?.posts![2].id
+        default:
+            print("fallo")
         }
-        
-        if index == 1{
-            imageURL = cell.user?.posts[1].photo//patron delegate/proxy
-        }
-        
-        if index == 2{
-            imageURL = cell.user?.posts[2].photo//patron delegate/proxy
-        }
-      
         performSegue(withIdentifier: "post", sender: nil)
     }
     
@@ -34,18 +68,16 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if segue.identifier == "post"{
             let sv = segue.destination as! PostViewController
             sv.url = imageURL!
+            sv.id = postId!
         }
-        
+        if segue.identifier == "fromnickname"{
+            let sv = segue.destination as! PerfilAjenoViewController
+            sv.nombre = nombreUsuario
+        }
     }
-    var usuarios: [User] = []
-    @IBOutlet weak var barraBusca: UISearchBar!
-    @IBOutlet weak var tabla: UITableView!
-    let defaults = UserDefaults.standard
-   
     
-   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return usuarios.count ?? 0
+        return usuarios.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,7 +85,7 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.user = usuarios[indexPath.row]
         cell.delegate = self
         cell.backgroundColor = .clear
-            return cell
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -63,76 +95,21 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor.black
         cell.selectedBackgroundView = bgColorView
-//
-//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-//        cell.img1.isUserInteractionEnabled = true
-//        cell.img1.addGestureRecognizer(tapGestureRecognizer)
-//
-//        if let vc = storyboard?.instantiateViewController(identifier: "PerfilAjenoViewController") as? PerfilAjenoViewController{
-//            let user = usuarios[indexPath.row]
-//            print(user.name)
-//            vc.nombre = String(user.name)
-//            vc.ubicacion = user.location
-//            vc.estilo = user.styles
-//            vc.URLimagenPerfil = user.profile_picture ?? ""
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
     }
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.tabla.delegate = self
-        self.tabla.dataSource = self
-        NetWorkingProvider.shared.getUser() { arrayUsuarios in
-            self.usuarios = arrayUsuarios
-            self.tabla.reloadData()
-            
-        } failure: { error in
-            print(error)
-        }
-        
-        
-        //yourSearchBar.searchTextField.textColor = .yourColor
-        barraBusca.searchTextField.textColor = .white
-        // Do any additional setup after loading the view.
-        if(isAppAlreadyLaunchedOnce() == false){
-            self.performSegue(withIdentifier: "AtutorialUsuario", sender: nil)
-            
-        }
-    }
-    
-  
-    
     
     func isAppAlreadyLaunchedOnce()->Bool{
-            let defaults = UserDefaults.standard
-            
-            if defaults.bool(forKey: "isAppAlreadyLaunchedOnce"){
-                print("App already launched : \(String(describing: isAppAlreadyLaunchedOnce))")
-                return true
-            }else{
-                defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
-                print("App launched first time")
-                return false
-            }
+        let defaults = UserDefaults.standard
+        if defaults.bool(forKey: "isAppAlreadyLaunchedOnce"){
+            print("App already launched : \(String(describing: isAppAlreadyLaunchedOnce))")
+            return true
+        }else{
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            print("App launched first time")
+            return false
         }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
-//    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
-//    {
-//        let tappedImage = tapGestureRecognizer.view as! UIImageView
-//        
-//        print("tocado")
-//    }
+    
+    
+    
+    
 }
