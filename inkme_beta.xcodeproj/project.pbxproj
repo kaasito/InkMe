@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,7 +27,10 @@
 		6B5D89F627B1B04E00D71869 /* PerfilAjenoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5D89F527B1B04E00D71869 /* PerfilAjenoViewController.swift */; };
 		6B5D8A1A27B2A18300D71869 /* PerfilItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5D8A1927B2A18200D71869 /* PerfilItemViewController.swift */; };
 		6B77C9FD27BDB32A00D09B2A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B77C9FC27BDB32A00D09B2A /* User.swift */; };
+		6B8ACA6727C5611000F83868 /* TabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 6B8ACA6627C5611000F83868 /* TabBar */; };
 		6BD4AABD27BF8E7700BD41C5 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD4AABC27BF8E7700BD41C5 /* PostViewController.swift */; };
+		6BD4AAC727C436A500BD41C5 /* MiPerfilPostCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD4AAC627C436A400BD41C5 /* MiPerfilPostCollectionViewController.swift */; };
+		6BD4AAC927C4381C00BD41C5 /* MiPerfilPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD4AAC827C4381C00BD41C5 /* MiPerfilPostCollectionViewCell.swift */; };
 		6BDA282827BBD25100C4B2D9 /* NetWorkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDA282727BBD25100C4B2D9 /* NetWorkProvider.swift */; };
 		6BDA282A27BD2D9F00C4B2D9 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDA282927BD2D9F00C4B2D9 /* NavViewController.swift */; };
 		6BE315EC279729D1007D4A37 /* CamaraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE315EB279729D1007D4A37 /* CamaraViewController.swift */; };
@@ -61,6 +64,8 @@
 		6B5D8A1927B2A18200D71869 /* PerfilItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilItemViewController.swift; sourceTree = "<group>"; };
 		6B77C9FC27BDB32A00D09B2A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6BD4AABC27BF8E7700BD41C5 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		6BD4AAC627C436A400BD41C5 /* MiPerfilPostCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiPerfilPostCollectionViewController.swift; sourceTree = "<group>"; };
+		6BD4AAC827C4381C00BD41C5 /* MiPerfilPostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiPerfilPostCollectionViewCell.swift; sourceTree = "<group>"; };
 		6BDA282727BBD25100C4B2D9 /* NetWorkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkProvider.swift; sourceTree = "<group>"; };
 		6BDA282927BD2D9F00C4B2D9 /* NavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		6BE315EB279729D1007D4A37 /* CamaraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamaraViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B8ACA6727C5611000F83868 /* TabBar in Frameworks */,
 				E7F74B61C7FB94904289F494 /* Pods_inkme_beta.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,6 +150,8 @@
 				6BDA282927BD2D9F00C4B2D9 /* NavViewController.swift */,
 				6B77C9FC27BDB32A00D09B2A /* User.swift */,
 				6BD4AABC27BF8E7700BD41C5 /* PostViewController.swift */,
+				6BD4AAC627C436A400BD41C5 /* MiPerfilPostCollectionViewController.swift */,
+				6BD4AAC827C4381C00BD41C5 /* MiPerfilPostCollectionViewCell.swift */,
 			);
 			path = inkme_beta;
 			sourceTree = "<group>";
@@ -166,6 +174,9 @@
 			dependencies = (
 			);
 			name = inkme_beta;
+			packageProductDependencies = (
+				6B8ACA6627C5611000F83868 /* TabBar */,
+			);
 			productName = inkme_beta;
 			productReference = 6B14FA3D278EEDD0008BFF46 /* inkme_beta.app */;
 			productType = "com.apple.product-type.application";
@@ -193,6 +204,9 @@
 				Base,
 			);
 			mainGroup = 6B14FA34278EEDD0008BFF46;
+			packageReferences = (
+				6B8ACA6527C5610F00F83868 /* XCRemoteSwiftPackageReference "TabBar" */,
+			);
 			productRefGroup = 6B14FA3E278EEDD0008BFF46 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -277,12 +291,14 @@
 				6BE315EC279729D1007D4A37 /* CamaraViewController.swift in Sources */,
 				6B14FA7B2790BD4E008BFF46 /* LoginViewController.swift in Sources */,
 				6BDA282827BBD25100C4B2D9 /* NetWorkProvider.swift in Sources */,
+				6BD4AAC927C4381C00BD41C5 /* MiPerfilPostCollectionViewCell.swift in Sources */,
 				6B42FEDC279AE32400575242 /* gifLoader.swift in Sources */,
 				6B0DFB0E2796310C003DF5EF /* ImagenCircular.swift in Sources */,
 				6BDA282A27BD2D9F00C4B2D9 /* NavViewController.swift in Sources */,
 				6B0DFB0C279630BA003DF5EF /* ListaViewController.swift in Sources */,
 				6B42FED8279AB69F00575242 /* UltimoTutoViewController.swift in Sources */,
 				6B14FA792790BD2D008BFF46 /* MainProfileViewController.swift in Sources */,
+				6BD4AAC727C436A500BD41C5 /* MiPerfilPostCollectionViewController.swift in Sources */,
 				6B5D8A1A27B2A18300D71869 /* PerfilItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,6 +503,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6B8ACA6527C5610F00F83868 /* XCRemoteSwiftPackageReference "TabBar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onl1ner/TabBar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6B8ACA6627C5611000F83868 /* TabBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6B8ACA6527C5610F00F83868 /* XCRemoteSwiftPackageReference "TabBar" */;
+			productName = TabBar;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6B14FA35278EEDD0008BFF46 /* Project object */;
 }

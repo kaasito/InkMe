@@ -10,9 +10,6 @@ import Alamofire
 import AlamofireImage
 
 class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ListaTableViewCellDelgate {
-   
-    
-    
     
     var nombreUsuario = ""
     var imageURL: String?
@@ -39,23 +36,23 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-//
-//    func didPressFotoPerfil(_ cell: ListaTableViewCell) {
-//        nombreUsuario = cell.user!.name
-//        performSegue(withIdentifier: "fromnickname", sender: nil)
-//    }
+    //
+    //    func didPressFotoPerfil(_ cell: ListaTableViewCell) {
+    //        nombreUsuario = cell.user!.name
+    //        performSegue(withIdentifier: "fromnickname", sender: nil)
+    //    }
     
     func listaTableViewCell(_ cell: ListaTableViewCell, didSelectImageAtIndex index: Int) {
         switch index {
         case 0:
-            imageURL = cell.user?.posts![0].photo//patron delegate/proxy
+            imageURL = cell.user?.posts![0].photo ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg"//patron delegate/proxy
             postId = cell.user?.posts![0].id
             
         case 1:
-            imageURL = cell.user?.posts![1].photo//patron delegate/proxy
+            imageURL = cell.user?.posts![1].photo ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg"//patron delegate/proxy
             postId = cell.user?.posts![1].id
         case 2:
-            imageURL = cell.user?.posts![2].photo//patron delegate/proxy
+            imageURL = cell.user?.posts![2].photo ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg"//patron delegate/proxy
             postId = cell.user?.posts![2].id
         default:
             print("fallo")
@@ -108,8 +105,5 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
             return false
         }
     }
-    
-    
-    
     
 }

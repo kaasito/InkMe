@@ -84,8 +84,10 @@ class ListaTableViewCell: UITableViewCell {
     
     private func renderUI() {
         guard let user = user else { return }
-        
-        nickname.setTitle(user.name, for: .normal)
+        let nombreusuariovalor:String = user.name!
+        let arroba = "@"
+        let mostrar = arroba + nombreusuariovalor
+        nickname.setTitle(mostrar, for: .normal)
         
         
         if user.posts!.count > 2{

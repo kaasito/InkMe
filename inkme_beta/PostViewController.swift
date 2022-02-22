@@ -13,6 +13,7 @@ class PostViewController: UIViewController {
 
     
     
+    @IBOutlet weak var vistaLabel: UIView!
     @IBOutlet weak var desc: UILabel!
     @IBOutlet weak var imagenPerfil: UIImageView!
     @IBOutlet weak var nicknamelabel: UILabel!
@@ -26,7 +27,8 @@ class PostViewController: UIViewController {
         imagenPerfil.clipsToBounds = true
         let url1 = URL(string:url)
         imagen.af.setImage(withURL: url1!)
-        
+        desc.numberOfLines = 0
+        desc.lineBreakMode = NSLineBreakMode.byWordWrapping
         let url2 = "http://localhost:8888/inkme/public/api/cargarPost"
         let json = ["post_id": id]
         AF.request(url2, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: ResponsePost.self) { response in

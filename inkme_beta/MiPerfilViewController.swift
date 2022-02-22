@@ -38,7 +38,9 @@ class MiPerfilViewController: UIViewController {
             AF.request(url, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: PerfilResponse.self) { [self] response in
                 print("response",response)
                 if (response.value?.status) == 1 {
-                    self.nombrePerfil.text = response.value?.usuario?.nombre
+                    let valor:String = (response.value?.usuario?.nombre)!
+                    let arroba = "@"
+                    self.nombrePerfil.text = arroba + valor
                     let url = URL(string: response.value?.usuario?.foto ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg")
                     self.imagenPerfil.af.setImage(withURL: url!)
                     self.estiloLabel.text = response.value?.usuario?.styles ?? "sin estilo"
