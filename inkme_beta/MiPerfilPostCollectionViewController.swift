@@ -15,6 +15,31 @@ class MiPerfilPostCollectionViewController: UICollectionViewController {
     var fotos:[PostMiGrid] = []
     let datasource = ["1","2","3","4","5","6"]
     let defaults = UserDefaults.standard
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let url = "http://desarrolladorapp.com/inkme/public/api/cargarPerfil"
+        let usuarioId = defaults.integer(forKey: "id")
+        let json = ["usuario_id": usuarioId]
+        AF.request(url, method: .put, parameters: json as Parameters, encoding: JSONEncoding.default).responseDecodable (of: ResponseGridMiPerfil.self) { [self] response in
+            print(response)
+            if (response.value?.status) == 1 {
+                self.fotos = (response.value?.usuario?.posts)!
+                collectionView.reloadData()
+            }else{
+                print("no se ha podido hacer fetch")
+            }
+        }
+        self.collectionView?.delegate = self
+        self.collectionView?.dataSource = self
+        self.collectionView.reloadData()
+    }
+    
+    
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -70,4 +95,8 @@ struct UsuarioMiGrid:Decodable {
 
 struct PostMiGrid:Decodable {
     let photo:String?
+}
+
+func cogerData(){
+    
 }

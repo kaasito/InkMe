@@ -64,7 +64,7 @@ class RegisterViewController: ViewController {
 //            showAlert(error: "La contraseña no coincide", mensaje: "La contraseña repetida no coincide con la contraseña introducida")
 //        }
         
-        let url = "http://localhost:8888/inkme/public/api/register"
+        let url = "http://desarrolladorapp.com/inkme/public/api/register"
         let name = nombre.text
         let email = email.text
         let password = password.text

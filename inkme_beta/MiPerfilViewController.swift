@@ -23,7 +23,7 @@ class MiPerfilViewController: UIViewController {
     @IBOutlet weak var merchView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        postView.layer.cornerRadius = 10
         if defaults.string(forKey: "token") == nil{
             vistaInfo.isHidden = true
             postView.isHidden = true
@@ -31,7 +31,8 @@ class MiPerfilViewController: UIViewController {
             segmentado.isHidden = true
         }else{
             tutorial.isHidden = true
-            let url = "http://localhost:8888/inkme/public/api/cargarPerfil"
+           
+            let url = "http://desarrolladorapp.com/inkme/public/api/cargarPerfil"
             let idUsuario = defaults.integer(forKey: "id")
             let json = ["usuario_id": String(idUsuario)]
             print(json)

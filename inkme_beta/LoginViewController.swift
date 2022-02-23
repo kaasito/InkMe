@@ -33,7 +33,7 @@ class LoginViewController: ViewController {
     @IBAction func iniciarSesion(_ sender: Any) {
         let correo = email.text
         let contra = password.text
-        let url = "http://localhost:8888/inkme/public/api/login"
+        let url = "http://desarrolladorapp.com/inkme/public/api/login"
         let json = ["email": correo, "password": contra]
         AF.request(url, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: LoginPantalla.self) { [self] response in
             print(response)

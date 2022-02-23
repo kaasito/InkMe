@@ -23,13 +23,14 @@ class PostViewController: UIViewController {
     @IBOutlet weak var imagen: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        vistaLabel.layer.cornerRadius = 10
         imagenPerfil.layer.cornerRadius = imagenPerfil.frame.size.width / 2
         imagenPerfil.clipsToBounds = true
         let url1 = URL(string:url)
         imagen.af.setImage(withURL: url1!)
         desc.numberOfLines = 0
         desc.lineBreakMode = NSLineBreakMode.byWordWrapping
-        let url2 = "http://localhost:8888/inkme/public/api/cargarPost"
+        let url2 = "http://desarrolladorapp.com/inkme/public/api/cargarPost"
         let json = ["post_id": id]
         AF.request(url2, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: ResponsePost.self) { response in
             print(response)
@@ -37,7 +38,7 @@ class PostViewController: UIViewController {
                 
                 self.nombreUsuario = response.value?.usuario?.name
                 self.nicknamelabel.text = self.nombreUsuario
-                let url = URL(string: (response.value?.usuario?.profile_picture)!)
+                let url = URL(string: (response.value?.usuario?.profile_picture) ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg")
                 self.imagenPerfil.af.setImage(withURL: url!)
                 self.desc.text = response.value?.post?.description
                 
@@ -61,7 +62,7 @@ struct ResponsePost: Decodable{
 
 struct Foto:Decodable {
     let id: Int?
-    let user_id: Int?
+    let user_id: String?
     let description: String?
 }
 

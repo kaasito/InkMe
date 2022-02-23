@@ -26,8 +26,8 @@ class PerfilAjenoViewController: UIViewController {
         nickname.text = nombre
         ubicacionLabel.text = ubicacion
         estiloLabel.text = estilo
-        let url = URL(string:URLimagenPerfil)
-        imagenPerfil.af.setImage(withURL: url!)
+//        let url = URL(string:URLimagenPerfil )
+//        imagenPerfil.af.setImage(withURL: url!)
         nickname.text = nombre
         
         imagenPerfil.layer.cornerRadius = imagenPerfil.frame.size.width / 2

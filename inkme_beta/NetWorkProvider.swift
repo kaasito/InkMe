@@ -5,7 +5,7 @@ final class NetWorkingProvider{
     static let shared = NetWorkingProvider()
     
     func getUser(success: @escaping (_ users: [User]) ->(), failure: @escaping (_ error: String) -> ()){
-        let url = "http://localhost:8888/inkme/public/api/fetchFeed"
+        let url = "http://desarrolladorapp.com/inkme/public/api/fetchFeed"
         
         
         

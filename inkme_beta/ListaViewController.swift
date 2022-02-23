@@ -10,6 +10,15 @@ import Alamofire
 import AlamofireImage
 
 class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ListaTableViewCellDelgate {
+    func didPressFotoPerfil(_ cell: ListaTableViewCell, didSelecProfilePic index: Bool) {
+        if index == true{
+            print("hey")
+            performSegue(withIdentifier: "fromnickname", sender: nil)
+        }else{
+            print("NO")
+        }
+    }
+    
     
     var nombreUsuario = ""
     var imageURL: String?
@@ -18,8 +27,15 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var barraBusca: UISearchBar!
     @IBOutlet weak var tabla: UITableView!
     let defaults = UserDefaults.standard
+    let refreshControl = UIRefreshControl()
     override func viewDidLoad() {
         super.viewDidLoad()
+        refreshControl.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0);
+        let attr = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: attr)
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tabla.addSubview(refreshControl) // not required when using UITableViewController
         self.tabla.delegate = self
         self.tabla.dataSource = self
         barraBusca.searchTextField.textColor = .white
@@ -36,11 +52,18 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    //
-    //    func didPressFotoPerfil(_ cell: ListaTableViewCell) {
-    //        nombreUsuario = cell.user!.name
-    //        performSegue(withIdentifier: "fromnickname", sender: nil)
-    //    }
+   
+    @objc func refresh(_ sender: AnyObject) {
+        NetWorkingProvider.shared.getUser() { arrayUsuarios in
+            self.usuarios = arrayUsuarios
+            self.tabla.reloadData()
+        } failure: { error in
+            print(error)
+        }
+        tabla.reloadData()
+        refreshControl.endRefreshing()
+    }
+ 
     
     func listaTableViewCell(_ cell: ListaTableViewCell, didSelectImageAtIndex index: Int) {
         switch index {

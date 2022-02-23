@@ -10,15 +10,12 @@ import AlamofireImage
 
 protocol ListaTableViewCellDelgate {
     func listaTableViewCell(_ cell:ListaTableViewCell, didSelectImageAtIndex index: Int)
-    
+    func didPressFotoPerfil(_ cell:ListaTableViewCell, didSelecProfilePic index: Bool)
 }
 
-protocol DestinoTableViewCellDelegate {
-    func didPressFotoPerfil(_ cell:ListaTableViewCell)
-}
+
 
 class ListaTableViewCell: UITableViewCell {
-    var delegateNickname: DestinoTableViewCellDelegate?
     var delegate: ListaTableViewCellDelgate?
     var user: User? {
         didSet {
@@ -43,12 +40,15 @@ class ListaTableViewCell: UITableViewCell {
         let tapGestureRecognizerImg1 = UITapGestureRecognizer(target: self, action: #selector(imageTappedImg1(tapGestureRecognizer:)))
         let tapGestureRecognizerImg2 = UITapGestureRecognizer(target: self, action: #selector(imageTappedImg2(tapGestureRecognizer:)))
         let tapGestureRecognizerImg3 = UITapGestureRecognizer(target: self, action: #selector(imageTappedImg3(tapGestureRecognizer:)))
+        let tapGestureRecognizerPp = UITapGestureRecognizer(target: self, action: #selector(imageTappedPp(tapGestureRecognizer:)))
         img1.isUserInteractionEnabled = true
         img1.addGestureRecognizer(tapGestureRecognizerImg1)
         img2.isUserInteractionEnabled = true
         img2.addGestureRecognizer(tapGestureRecognizerImg2)
         img3.isUserInteractionEnabled = true
         img3.addGestureRecognizer(tapGestureRecognizerImg3)
+        profilePic.isUserInteractionEnabled = true
+        profilePic.addGestureRecognizer(tapGestureRecognizerPp)
         
         
         
@@ -81,6 +81,12 @@ class ListaTableViewCell: UITableViewCell {
         delegate?.listaTableViewCell(self, didSelectImageAtIndex: 2)
     }
     
+    @objc func imageTappedPp(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        
+        delegate?.didPressFotoPerfil(self, didSelecProfilePic: true)
+    }
+    
     
     private func renderUI() {
         guard let user = user else { return }
@@ -98,7 +104,7 @@ class ListaTableViewCell: UITableViewCell {
             img1.af.setImage(withURL: url!)
             img2.af.setImage(withURL: url1!)
             img3.af.setImage(withURL: url2!)
-            let profilepicurl = URL(string: user.profile_picture!)
+            let profilepicurl = URL(string: user.profile_picture ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg")
             profilePic.af.setImage(withURL: profilepicurl!)
             location.text = user.location
             categoria.text = user.styles
