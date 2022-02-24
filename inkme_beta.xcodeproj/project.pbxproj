@@ -19,6 +19,9 @@
 		6B14FA792790BD2D008BFF46 /* MainProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B14FA782790BD2D008BFF46 /* MainProfileViewController.swift */; };
 		6B14FA7B2790BD4E008BFF46 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B14FA7A2790BD4E008BFF46 /* LoginViewController.swift */; };
 		6B14FA7D2790EBD7008BFF46 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B14FA7C2790EBD7008BFF46 /* RegisterViewController.swift */; };
+		6B3EE05C27C77F7E00B32BF2 /* PerfilAjenoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3EE05B27C77F7E00B32BF2 /* PerfilAjenoCollectionViewController.swift */; };
+		6B3EE05E27C7807100B32BF2 /* PerfilAjenoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3EE05D27C7807100B32BF2 /* PerfilAjenoCollectionViewCell.swift */; };
+		6B3EE06027C79D5800B32BF2 /* SubirViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3EE05F27C79D5800B32BF2 /* SubirViewController.swift */; };
 		6B42FED8279AB69F00575242 /* UltimoTutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B42FED7279AB69F00575242 /* UltimoTutoViewController.swift */; };
 		6B42FEDA279AE22800575242 /* Desliza-hacia-abajo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6B42FED9279AE22800575242 /* Desliza-hacia-abajo.gif */; };
 		6B42FEDC279AE32400575242 /* gifLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B42FEDB279AE32400575242 /* gifLoader.swift */; };
@@ -55,6 +58,9 @@
 		6B14FA782790BD2D008BFF46 /* MainProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProfileViewController.swift; sourceTree = "<group>"; };
 		6B14FA7A2790BD4E008BFF46 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6B14FA7C2790EBD7008BFF46 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		6B3EE05B27C77F7E00B32BF2 /* PerfilAjenoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilAjenoCollectionViewController.swift; sourceTree = "<group>"; };
+		6B3EE05D27C7807100B32BF2 /* PerfilAjenoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilAjenoCollectionViewCell.swift; sourceTree = "<group>"; };
+		6B3EE05F27C79D5800B32BF2 /* SubirViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubirViewController.swift; sourceTree = "<group>"; };
 		6B42FED7279AB69F00575242 /* UltimoTutoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimoTutoViewController.swift; sourceTree = "<group>"; };
 		6B42FED9279AE22800575242 /* Desliza-hacia-abajo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Desliza-hacia-abajo.gif"; sourceTree = "<group>"; };
 		6B42FEDB279AE32400575242 /* gifLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gifLoader.swift; sourceTree = "<group>"; };
@@ -152,6 +158,9 @@
 				6BD4AABC27BF8E7700BD41C5 /* PostViewController.swift */,
 				6BD4AAC627C436A400BD41C5 /* MiPerfilPostCollectionViewController.swift */,
 				6BD4AAC827C4381C00BD41C5 /* MiPerfilPostCollectionViewCell.swift */,
+				6B3EE05B27C77F7E00B32BF2 /* PerfilAjenoCollectionViewController.swift */,
+				6B3EE05D27C7807100B32BF2 /* PerfilAjenoCollectionViewCell.swift */,
+				6B3EE05F27C79D5800B32BF2 /* SubirViewController.swift */,
 			);
 			path = inkme_beta;
 			sourceTree = "<group>";
@@ -290,9 +299,12 @@
 				6B5D89F627B1B04E00D71869 /* PerfilAjenoViewController.swift in Sources */,
 				6BE315EC279729D1007D4A37 /* CamaraViewController.swift in Sources */,
 				6B14FA7B2790BD4E008BFF46 /* LoginViewController.swift in Sources */,
+				6B3EE05E27C7807100B32BF2 /* PerfilAjenoCollectionViewCell.swift in Sources */,
 				6BDA282827BBD25100C4B2D9 /* NetWorkProvider.swift in Sources */,
+				6B3EE05C27C77F7E00B32BF2 /* PerfilAjenoCollectionViewController.swift in Sources */,
 				6BD4AAC927C4381C00BD41C5 /* MiPerfilPostCollectionViewCell.swift in Sources */,
 				6B42FEDC279AE32400575242 /* gifLoader.swift in Sources */,
+				6B3EE06027C79D5800B32BF2 /* SubirViewController.swift in Sources */,
 				6B0DFB0E2796310C003DF5EF /* ImagenCircular.swift in Sources */,
 				6BDA282A27BD2D9F00C4B2D9 /* NavViewController.swift in Sources */,
 				6B0DFB0C279630BA003DF5EF /* ListaViewController.swift in Sources */,

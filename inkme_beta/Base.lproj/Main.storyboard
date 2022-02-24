@@ -867,6 +867,9 @@
                                         <state key="normal" title="Subir">
                                             <color key="titleColor" systemColor="systemBlueColor"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Crb-8G-UDB" kind="presentation" id="UPI-Fo-Z92"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Mb-4p-f6o">
                                         <rect key="frame" x="183" y="135.5" width="40" height="43.5"/>
@@ -1123,6 +1126,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O5Q-Pk-ni2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8282.608695652174" y="585.9375"/>
+        </scene>
+        <!--Subir View Controller-->
+        <scene sceneID="uRL-Sv-ucg">
+            <objects>
+                <viewController id="Crb-8G-UDB" customClass="SubirViewController" customModule="inkme_beta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="itT-Qr-4yS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swV-rF-WfA">
+                                <rect key="frame" x="139" y="660" width="137" height="30"/>
+                                <state key="normal" title="Subir desde cámara">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="botonCamara:" destination="Crb-8G-UDB" eventType="touchUpInside" id="gcI-kf-BF0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zbn-vz-VKy">
+                                <rect key="frame" x="140" y="706" width="134" height="30"/>
+                                <state key="normal" title="Subir desde Galería">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="botonGaleria:" destination="Crb-8G-UDB" eventType="touchUpInside" id="fuZ-dv-L4A"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6L-FN-d9C">
+                                <rect key="frame" x="186" y="537" width="42" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Enviar"/>
+                                <connections>
+                                    <action selector="enviarBoton:" destination="Crb-8G-UDB" eventType="touchUpInside" id="j7q-4L-jBP"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ERi-zq-gYt">
+                                <rect key="frame" x="87" y="132" width="240" height="230"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="awW-jt-4VA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="swV-rF-WfA" firstAttribute="leading" secondItem="awW-jt-4VA" secondAttribute="leading" constant="139" id="3U0-Bn-zq3"/>
+                            <constraint firstItem="awW-jt-4VA" firstAttribute="bottom" secondItem="Zbn-vz-VKy" secondAttribute="bottom" constant="72" id="66d-Dl-gm4"/>
+                            <constraint firstItem="Zbn-vz-VKy" firstAttribute="top" secondItem="swV-rF-WfA" secondAttribute="bottom" constant="16" id="994-XK-muW"/>
+                            <constraint firstItem="awW-jt-4VA" firstAttribute="trailing" secondItem="Zbn-vz-VKy" secondAttribute="trailing" constant="140" id="CZc-Ia-1cp"/>
+                            <constraint firstItem="ERi-zq-gYt" firstAttribute="leading" secondItem="awW-jt-4VA" secondAttribute="leading" constant="87" id="Duh-oa-UJH"/>
+                            <constraint firstItem="swV-rF-WfA" firstAttribute="top" secondItem="ERi-zq-gYt" secondAttribute="bottom" constant="298" id="Ggv-6g-LhX"/>
+                            <constraint firstItem="ERi-zq-gYt" firstAttribute="top" secondItem="awW-jt-4VA" secondAttribute="top" constant="132" id="LQK-1w-N6c"/>
+                            <constraint firstItem="awW-jt-4VA" firstAttribute="trailing" secondItem="swV-rF-WfA" secondAttribute="trailing" constant="138" id="S0B-TX-6WE"/>
+                            <constraint firstItem="Zbn-vz-VKy" firstAttribute="top" secondItem="swV-rF-WfA" secondAttribute="bottom" constant="16" id="frA-84-xWF"/>
+                            <constraint firstItem="swV-rF-WfA" firstAttribute="top" secondItem="ERi-zq-gYt" secondAttribute="bottom" constant="298" id="luP-DW-ayT"/>
+                            <constraint firstItem="Zbn-vz-VKy" firstAttribute="leading" secondItem="awW-jt-4VA" secondAttribute="leading" constant="140" id="mFn-fG-PKy"/>
+                            <constraint firstItem="awW-jt-4VA" firstAttribute="trailing" secondItem="ERi-zq-gYt" secondAttribute="trailing" constant="87" id="zMc-lC-3hG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imagenSeleccionada" destination="ERi-zq-gYt" id="aOt-KJ-4a6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1rR-ix-cZZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9438" y="578"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="vIq-TM-giP">
@@ -1434,10 +1500,10 @@
             </objects>
             <point key="canvasLocation" x="-1030" y="1339"/>
         </scene>
-        <!--Mi Perfil Post Collection View Controller-->
+        <!--Collection View Controller-->
         <scene sceneID="ckN-XX-KDE">
             <objects>
-                <collectionViewController restorationIdentifier="MiPerfilPostCollectionViewController" storyboardIdentifier="MiPerfilPostCollectionViewController" id="YNg-c0-oTA" customClass="MiPerfilPostCollectionViewController" customModule="inkme_beta" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController restorationIdentifier="MiPerfilPostCollectionViewController" storyboardIdentifier="MiPerfilPostCollectionViewController" id="YNg-c0-oTA" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="C5e-rj-J7C">
                         <rect key="frame" x="0.0" y="0.0" width="370" height="454"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1449,7 +1515,7 @@
                             <inset key="sectionInset" minX="20" minY="30" maxX="20" maxY="30"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="celdagrid" id="L1o-e0-Wdg" customClass="MiPerfilPostCollectionViewCell" customModule="inkme_beta" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="celdagridAjeno" id="L1o-e0-Wdg" customClass="MiPerfilPostCollectionViewCell" customModule="inkme_beta" customModuleProvider="target">
                                 <rect key="frame" x="20" y="30" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7qr-H4-UrP">
@@ -1510,6 +1576,54 @@
             </objects>
             <point key="canvasLocation" x="7785" y="1269"/>
         </scene>
+        <!--Perfil Ajeno Collection View Controller-->
+        <scene sceneID="nmb-4a-Ehd">
+            <objects>
+                <collectionViewController id="uEz-q7-Ly1" customClass="PerfilAjenoCollectionViewController" customModule="inkme_beta" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="DO9-V6-bh1">
+                        <rect key="frame" x="0.0" y="0.0" width="367" height="313"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6eE-hs-NAE">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="celdagridAjeno" id="eNo-95-RFO" customClass="PerfilAjenoCollectionViewCell" customModule="inkme_beta" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Y3r-G4-RJN">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mgF-ah-SjO">
+                                            <rect key="frame" x="-56" y="0.0" width="240" height="128"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="mgF-ah-SjO" secondAttribute="bottom" id="BLh-OR-oym"/>
+                                        <constraint firstItem="mgF-ah-SjO" firstAttribute="leading" secondItem="Y3r-G4-RJN" secondAttribute="leading" constant="-56" id="Ecl-7y-bdr"/>
+                                        <constraint firstItem="mgF-ah-SjO" firstAttribute="centerX" secondItem="Y3r-G4-RJN" secondAttribute="centerX" id="ZCn-yE-ez8"/>
+                                        <constraint firstItem="mgF-ah-SjO" firstAttribute="top" secondItem="Y3r-G4-RJN" secondAttribute="top" id="nBk-gG-BRk"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="imagenCelda" destination="mgF-ah-SjO" id="Z02-Cf-cHi"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="uEz-q7-Ly1" id="Yme-k4-e4a"/>
+                            <outlet property="delegate" destination="uEz-q7-Ly1" id="vJL-Te-yLZ"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QXX-5o-MLe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2180" y="3146"/>
+        </scene>
         <!--Perfil Ajeno View Controller-->
         <scene sceneID="bGG-yr-69l">
             <objects>
@@ -1532,13 +1646,13 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cT3-kL-aH0">
                                 <rect key="frame" x="27" y="406" width="367" height="313"/>
                                 <connections>
-                                    <segue destination="tbv-xS-plg" kind="embed" id="2ZT-cg-4NO"/>
+                                    <segue destination="uEz-q7-Ly1" kind="embed" id="g6V-Ny-W07"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgP-DO-quU">
                                 <rect key="frame" x="27" y="406" width="367" height="313"/>
                                 <connections>
-                                    <segue destination="iM7-5D-kQz" kind="embed" id="L9N-6a-Oc2"/>
+                                    <segue destination="tbv-xS-plg" kind="embed" id="pya-VG-Fh5"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oIv-N8-IcR">
@@ -1644,8 +1758,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="367" height="313"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Post Ajenos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGp-Xf-1FO">
-                                <rect key="frame" x="162" y="199" width="90" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Merch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGp-Xf-1FO">
+                                <rect key="frame" x="162" y="199" width="49" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -1658,22 +1772,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gSC-ev-hNU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-259" y="2999"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="SE7-lK-VvE">
-            <objects>
-                <viewController id="iM7-5D-kQz" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1vX-f3-tqE">
-                        <rect key="frame" x="0.0" y="0.0" width="367" height="313"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="rO8-41-ZA4"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PwE-l7-tSv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2244" y="2999"/>
+            <point key="canvasLocation" x="-262" y="3146"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

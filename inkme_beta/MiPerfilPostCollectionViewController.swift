@@ -45,7 +45,7 @@ class MiPerfilPostCollectionViewController: UICollectionViewController {
 
         collectionView.dataSource = self
         collectionView.delegate = self
-        let url = "http://localhost:8888/inkme/public/api/cargarPerfil"
+        let url = "http://desarrolladorapp.com/inkme/public/api/cargarPerfil"
         let usuarioId = defaults.integer(forKey: "id")
         let json = ["usuario_id": usuarioId]
         AF.request(url, method: .put, parameters: json as Parameters, encoding: JSONEncoding.default).responseDecodable (of: ResponseGridMiPerfil.self) { [self] response in
@@ -97,6 +97,3 @@ struct PostMiGrid:Decodable {
     let photo:String?
 }
 
-func cogerData(){
-    
-}

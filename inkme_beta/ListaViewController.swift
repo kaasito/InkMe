@@ -10,16 +10,12 @@ import Alamofire
 import AlamofireImage
 
 class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ListaTableViewCellDelgate {
-    func didPressFotoPerfil(_ cell: ListaTableViewCell, didSelecProfilePic index: Bool) {
-        if index == true{
-            print("hey")
-            performSegue(withIdentifier: "fromnickname", sender: nil)
-        }else{
-            print("NO")
-        }
-    }
     
     
+    var profilepicture = ""
+    var estilos = ""
+    var ubicacion = ""
+    var userId = 0
     var nombreUsuario = ""
     var imageURL: String?
     var postId: Int?
@@ -64,6 +60,18 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         refreshControl.endRefreshing()
     }
  
+    func didPressFotoPerfil(_ cell: ListaTableViewCell, didSelecProfilePic index: Bool) {
+        if index == true{
+            
+            
+            userId = (cell.user?.id)!
+            ubicacion = (cell.user?.location)!
+            estilos = (cell.user?.styles)!
+            profilepicture = (cell.user?.profile_picture) ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg"
+            nombreUsuario = (cell.user?.name)!
+            performSegue(withIdentifier: "fromnickname", sender: nil)
+        }
+    }
     
     func listaTableViewCell(_ cell: ListaTableViewCell, didSelectImageAtIndex index: Int) {
         switch index {
@@ -92,7 +100,11 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         if segue.identifier == "fromnickname"{
             let sv = segue.destination as! PerfilAjenoViewController
+            sv.id = userId
+            sv.imagenPerfilString = profilepicture
             sv.nombre = nombreUsuario
+            sv.estilo = estilos
+            sv.ubicacion = ubicacion
         }
     }
     
