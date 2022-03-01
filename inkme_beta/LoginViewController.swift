@@ -38,7 +38,7 @@ class LoginViewController: ViewController {
         AF.request(url, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: LoginPantalla.self) { [self] response in
             print(response)
             if (response.value?.status) == 1 {
-                self.api_token = "\(response.value?.api_token)"
+                self.api_token = (response.value?.api_token)!
                 self.idUsuarioLogueado = (response.value?.id)!
                 defaults.setValue(self.api_token, forKey:"token")
                 defaults.setValue(self.idUsuarioLogueado, forKey:"id")
