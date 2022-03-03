@@ -30,6 +30,7 @@
 		6B3EE0C627D0BB4300B32BF2 /* MiMerchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3EE0C527D0BB4300B32BF2 /* MiMerchCollectionViewController.swift */; };
 		6B3EE0C927D0EB1A00B32BF2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6B3EE0C827D0EB1A00B32BF2 /* Alamofire */; };
 		6B3EE0CC27D0EBF300B32BF2 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 6B3EE0CB27D0EBF300B32BF2 /* AlamofireImage */; };
+		6B3EE0CF27D1128500B32BF2 /* CalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6B3EE0CE27D1128500B32BF2 /* CalendarKit */; };
 		6B42FED8279AB69F00575242 /* UltimoTutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B42FED7279AB69F00575242 /* UltimoTutoViewController.swift */; };
 		6B42FEDA279AE22800575242 /* Desliza-hacia-abajo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6B42FED9279AE22800575242 /* Desliza-hacia-abajo.gif */; };
 		6B42FEDC279AE32400575242 /* gifLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B42FEDB279AE32400575242 /* gifLoader.swift */; };
@@ -95,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B8ACA6727C5611000F83868 /* TabBar in Frameworks */,
+				6B3EE0CF27D1128500B32BF2 /* CalendarKit in Frameworks */,
 				6B3EE0C927D0EB1A00B32BF2 /* Alamofire in Frameworks */,
 				6B3EE0CC27D0EBF300B32BF2 /* AlamofireImage in Frameworks */,
 			);
@@ -183,6 +185,7 @@
 				6B8ACA6627C5611000F83868 /* TabBar */,
 				6B3EE0C827D0EB1A00B32BF2 /* Alamofire */,
 				6B3EE0CB27D0EBF300B32BF2 /* AlamofireImage */,
+				6B3EE0CE27D1128500B32BF2 /* CalendarKit */,
 			);
 			productName = inkme_beta;
 			productReference = 6B14FA3D278EEDD0008BFF46 /* inkme_beta.app */;
@@ -215,6 +218,7 @@
 				6B8ACA6527C5610F00F83868 /* XCRemoteSwiftPackageReference "TabBar" */,
 				6B3EE0C727D0EB1A00B32BF2 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				6B3EE0CA27D0EBF200B32BF2 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+				6B3EE0CD27D1128500B32BF2 /* XCRemoteSwiftPackageReference "CalendarKit" */,
 			);
 			productRefGroup = 6B14FA3E278EEDD0008BFF46 /* Products */;
 			projectDirPath = "";
@@ -495,6 +499,14 @@
 				minimumVersion = 4.2.0;
 			};
 		};
+		6B3EE0CD27D1128500B32BF2 /* XCRemoteSwiftPackageReference "CalendarKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/richardtop/CalendarKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.2;
+			};
+		};
 		6B8ACA6527C5610F00F83868 /* XCRemoteSwiftPackageReference "TabBar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onl1ner/TabBar.git";
@@ -515,6 +527,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6B3EE0CA27D0EBF200B32BF2 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
 			productName = AlamofireImage;
+		};
+		6B3EE0CE27D1128500B32BF2 /* CalendarKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6B3EE0CD27D1128500B32BF2 /* XCRemoteSwiftPackageReference "CalendarKit" */;
+			productName = CalendarKit;
 		};
 		6B8ACA6627C5611000F83868 /* TabBar */ = {
 			isa = XCSwiftPackageProductDependency;
