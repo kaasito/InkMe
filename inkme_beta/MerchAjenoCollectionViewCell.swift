@@ -8,5 +8,6 @@
 import UIKit
 
 class MerchAjenoCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var imagenCelda: UIImageView!
     
 }
