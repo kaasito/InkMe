@@ -355,7 +355,7 @@
             <objects>
                 <viewController id="N5K-Az-zUg" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Sc-AH-dzq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="kbh-Pp-EFa"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
@@ -1720,10 +1720,10 @@
             </objects>
             <point key="canvasLocation" x="-2180" y="3146"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Merch Ajeno Collection View Controller-->
         <scene sceneID="Nd2-pB-3gm">
             <objects>
-                <collectionViewController id="RBB-ma-ZcZ" sceneMemberID="viewController">
+                <collectionViewController id="RBB-ma-ZcZ" customClass="MerchAjenoCollectionViewController" customModule="inkme_beta" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="rUa-2E-n39">
                         <rect key="frame" x="0.0" y="0.0" width="367" height="362"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1735,7 +1735,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="8hJ-mU-He2">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="8hJ-mU-He2" customClass="MerchAjenoCollectionViewCell" customModule="inkme_beta" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="8qD-4Y-oOJ">
@@ -1749,6 +1749,9 @@
                             <outlet property="delegate" destination="RBB-ma-ZcZ" id="DgO-8w-OSn"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <segue destination="Gcd-ar-mPn" kind="show" identifier="itemmerchajenotap" id="Vts-w4-euP"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HAY-sK-RS8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2034,6 +2037,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="Vts-w4-euP"/>
         <segue reference="xyM-r6-hTw"/>
         <segue reference="tuK-WS-S6b"/>
         <segue reference="saX-5Z-NEW"/>
