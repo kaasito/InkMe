@@ -28,6 +28,8 @@
 		6B3EE0C227CFFA0800B32BF2 /* MerchAjenoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3EE0C127CFFA0800B32BF2 /* MerchAjenoCollectionViewCell.swift */; };
 		6B3EE0C427D0BB3200B32BF2 /* MiMerchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3EE0C327D0BB3200B32BF2 /* MiMerchCollectionViewCell.swift */; };
 		6B3EE0C627D0BB4300B32BF2 /* MiMerchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3EE0C527D0BB4300B32BF2 /* MiMerchCollectionViewController.swift */; };
+		6B3EE0C927D0EB1A00B32BF2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6B3EE0C827D0EB1A00B32BF2 /* Alamofire */; };
+		6B3EE0CC27D0EBF300B32BF2 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 6B3EE0CB27D0EBF300B32BF2 /* AlamofireImage */; };
 		6B42FED8279AB69F00575242 /* UltimoTutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B42FED7279AB69F00575242 /* UltimoTutoViewController.swift */; };
 		6B42FEDA279AE22800575242 /* Desliza-hacia-abajo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6B42FED9279AE22800575242 /* Desliza-hacia-abajo.gif */; };
 		6B42FEDC279AE32400575242 /* gifLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B42FEDB279AE32400575242 /* gifLoader.swift */; };
@@ -44,12 +46,9 @@
 		6BDA282A27BD2D9F00C4B2D9 /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDA282927BD2D9F00C4B2D9 /* NavViewController.swift */; };
 		6BE315EC279729D1007D4A37 /* CamaraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE315EB279729D1007D4A37 /* CamaraViewController.swift */; };
 		6BE315EE27974E92007D4A37 /* TutorialInicialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE315ED27974E92007D4A37 /* TutorialInicialViewController.swift */; };
-		E7F74B61C7FB94904289F494 /* Pods_inkme_beta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD219B557230611D48A255D /* Pods_inkme_beta.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		06AC53B61D4CF4155C1B46DF /* Pods-inkme_beta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inkme_beta.debug.xcconfig"; path = "Target Support Files/Pods-inkme_beta/Pods-inkme_beta.debug.xcconfig"; sourceTree = "<group>"; };
-		36BA821F97622B97E91352A8 /* Pods-inkme_beta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inkme_beta.release.xcconfig"; path = "Target Support Files/Pods-inkme_beta/Pods-inkme_beta.release.xcconfig"; sourceTree = "<group>"; };
 		6B0DFB0B279630B9003DF5EF /* ListaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaViewController.swift; sourceTree = "<group>"; };
 		6B0DFB0D2796310C003DF5EF /* ImagenCircular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagenCircular.swift; sourceTree = "<group>"; };
 		6B0DFB0F27963186003DF5EF /* ListaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaTableViewCell.swift; sourceTree = "<group>"; };
@@ -88,7 +87,6 @@
 		6BDA282927BD2D9F00C4B2D9 /* NavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		6BE315EB279729D1007D4A37 /* CamaraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamaraViewController.swift; sourceTree = "<group>"; };
 		6BE315ED27974E92007D4A37 /* TutorialInicialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialInicialViewController.swift; sourceTree = "<group>"; };
-		CCD219B557230611D48A255D /* Pods_inkme_beta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_inkme_beta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,37 +95,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B8ACA6727C5611000F83868 /* TabBar in Frameworks */,
-				E7F74B61C7FB94904289F494 /* Pods_inkme_beta.framework in Frameworks */,
+				6B3EE0C927D0EB1A00B32BF2 /* Alamofire in Frameworks */,
+				6B3EE0CC27D0EBF300B32BF2 /* AlamofireImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A4200262A9E785481A49932 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				06AC53B61D4CF4155C1B46DF /* Pods-inkme_beta.debug.xcconfig */,
-				36BA821F97622B97E91352A8 /* Pods-inkme_beta.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		1BC391174841A450EEB9F2FC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CCD219B557230611D48A255D /* Pods_inkme_beta.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		6B14FA34278EEDD0008BFF46 = {
 			isa = PBXGroup;
 			children = (
 				6B14FA3F278EEDD0008BFF46 /* inkme_beta */,
 				6B14FA3E278EEDD0008BFF46 /* Products */,
-				0A4200262A9E785481A49932 /* Pods */,
-				1BC391174841A450EEB9F2FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -190,11 +170,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6B14FA51278EEDD5008BFF46 /* Build configuration list for PBXNativeTarget "inkme_beta" */;
 			buildPhases = (
-				3890A1EF38E4F9E30CF6B497 /* [CP] Check Pods Manifest.lock */,
 				6B14FA39278EEDD0008BFF46 /* Sources */,
 				6B14FA3A278EEDD0008BFF46 /* Frameworks */,
 				6B14FA3B278EEDD0008BFF46 /* Resources */,
-				1C74130C4A352A60B78240DB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -203,6 +181,8 @@
 			name = inkme_beta;
 			packageProductDependencies = (
 				6B8ACA6627C5611000F83868 /* TabBar */,
+				6B3EE0C827D0EB1A00B32BF2 /* Alamofire */,
+				6B3EE0CB27D0EBF300B32BF2 /* AlamofireImage */,
 			);
 			productName = inkme_beta;
 			productReference = 6B14FA3D278EEDD0008BFF46 /* inkme_beta.app */;
@@ -233,6 +213,8 @@
 			mainGroup = 6B14FA34278EEDD0008BFF46;
 			packageReferences = (
 				6B8ACA6527C5610F00F83868 /* XCRemoteSwiftPackageReference "TabBar" */,
+				6B3EE0C727D0EB1A00B32BF2 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				6B3EE0CA27D0EBF200B32BF2 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
 			productRefGroup = 6B14FA3E278EEDD0008BFF46 /* Products */;
 			projectDirPath = "";
@@ -256,48 +238,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1C74130C4A352A60B78240DB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-inkme_beta/Pods-inkme_beta-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-inkme_beta/Pods-inkme_beta-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-inkme_beta/Pods-inkme_beta-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3890A1EF38E4F9E30CF6B497 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-inkme_beta-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6B14FA39278EEDD0008BFF46 /* Sources */ = {
@@ -479,7 +419,6 @@
 		};
 		6B14FA52278EEDD5008BFF46 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 06AC53B61D4CF4155C1B46DF /* Pods-inkme_beta.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -499,7 +438,6 @@
 		};
 		6B14FA53278EEDD5008BFF46 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36BA821F97622B97E91352A8 /* Pods-inkme_beta.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -541,6 +479,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6B3EE0C727D0EB1A00B32BF2 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		6B3EE0CA27D0EBF200B32BF2 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
 		6B8ACA6527C5610F00F83868 /* XCRemoteSwiftPackageReference "TabBar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onl1ner/TabBar.git";
@@ -552,6 +506,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6B3EE0C827D0EB1A00B32BF2 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6B3EE0C727D0EB1A00B32BF2 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		6B3EE0CB27D0EBF300B32BF2 /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6B3EE0CA27D0EBF200B32BF2 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
+		};
 		6B8ACA6627C5611000F83868 /* TabBar */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6B8ACA6527C5610F00F83868 /* XCRemoteSwiftPackageReference "TabBar" */;
