@@ -10,6 +10,8 @@ import Alamofire
 
 class MiPerfilViewController: UIViewController {
 
+    @IBOutlet weak var subirpost: UIButton!
+    @IBOutlet weak var subirmerch: UIButton!
     @IBOutlet weak var nombrePerfil: UILabel!
     @IBOutlet weak var segmentado: UISegmentedControl!
     @IBOutlet weak var ubicacionLabel: UILabel!
@@ -23,6 +25,8 @@ class MiPerfilViewController: UIViewController {
     @IBOutlet weak var merchView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        subirmerch.isHidden = true
         postView.layer.cornerRadius = 10
         if defaults.string(forKey: "token") == nil{
             vistaInfo.isHidden = true
@@ -68,9 +72,14 @@ class MiPerfilViewController: UIViewController {
         if sender.selectedSegmentIndex == 0{
             postView.alpha = 1
             merchView.alpha = 0
+            subirmerch.isHidden = true
+            subirpost.isHidden = false
+            
         }else{
             postView.alpha = 0
             merchView.alpha = 1
+            subirmerch.isHidden = false
+            subirpost.isHidden = true
         }
     }
 

@@ -12,15 +12,16 @@ private let reuseIdentifier = "Cell"
 
 class PerfilAjenoCollectionViewController: UICollectionViewController {
     var fotos:[PostGridAjeno] = []
-    var usuarioId = 1
+    var usuarioId:Int?
+    let defaults = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        usuarioId = defaults.integer(forKey: "usuarioIdLista")
         collectionView.delegate = self
         collectionView.dataSource = self
         let url = "http://desarrolladorapp.com/inkme/public/api/cargarPerfil"
 
-        print("el user bro",usuarioId)
+        print("el user bro",usuarioId!)
         let json = ["usuario_id": usuarioId]
         AF.request(url, method: .put, parameters: json as Parameters, encoding: JSONEncoding.default).responseDecodable (of: ResponseGridPerfilAjeno.self) { [self] response in
             print(response)
@@ -36,6 +37,12 @@ class PerfilAjenoCollectionViewController: UICollectionViewController {
         return fotos.count
     }
 
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       
+        defaults.set(fotos[indexPath.row].photo, forKey: "urlPostAjeno")
+       performSegue(withIdentifier: "itemtapAjeno", sender: nil)
+     
+     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = UICollectionViewCell()
 

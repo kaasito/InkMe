@@ -65,6 +65,7 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             
             userId = (cell.user?.id)!
+            defaults.set(userId, forKey: "usuarioIdLista")
             ubicacion = (cell.user?.location)!
             estilos = (cell.user?.styles)!
             profilepicture = (cell.user?.profile_picture) ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg"

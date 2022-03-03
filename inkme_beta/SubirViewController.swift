@@ -8,8 +8,23 @@
 import UIKit
 import Alamofire
 import AlamofireImage
-class SubirViewController: UIViewController {
+
+
+class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData!.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        <#code#>
+    }
+    
+    @IBOutlet weak var picker: UIPickerView!
     var imageURL: URL?
+    var pickerData:[String]?
     let defaults = UserDefaults.standard
     var token = ""
     @IBOutlet weak var imagenSeleccionada: UIImageView!
@@ -17,6 +32,9 @@ class SubirViewController: UIViewController {
         super.viewDidLoad()
         token = defaults.string(forKey: "token")!
         print(token)
+        self.picker.delegate = self
+        self.picker.dataSource = self
+        pickerData = ["BlackWork", "Neotradicional", "Tradicional", "Tradicional Japonés", "Realista"]
     }
     
    
@@ -34,9 +52,39 @@ class SubirViewController: UIViewController {
             let urlpeticion = "http://desarrolladorapp.com/inkme/public/api/crearPost"
             let json = ["api_token": self.token, "description": "hola", "photo": url!, "title": "nueva foto", "style": "blackwork", "bcolor": 1] as [String : Any]
             AF.request(urlpeticion, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: ResponseSubirPost.self) { response in
-                print(response.value?.post_id)
-                print(response.value?.status)
-                print(response.value?.msg)
+                if response.value?.status == 1{
+                    let alert = UIAlertController(title: "Foto publicada con éxito!", message: "La foto se ha subido exitosamente", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Vale", style: .default, handler: { action in
+                        switch action.style{
+                            case .default:
+                            print("default")
+                            
+                            case .cancel:
+                            print("cancel")
+                            
+                            case .destructive:
+                            print("destructive")
+                            
+                        }
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }else{
+                    let alert = UIAlertController(title: "Ha habido un error", message: "No se ha podido subir la foto, revisa tu conexión.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Vale", style: .destructive, handler: { action in
+                        switch action.style{
+                            case .default:
+                            print("default")
+                            
+                            case .cancel:
+                            print("cancel")
+                            
+                            case .destructive:
+                            print("destructive")
+                            
+                        }
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
                
             }
         }
@@ -61,31 +109,6 @@ class SubirViewController: UIViewController {
     
 }
 
-extension SubirViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-    
-   
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-        
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        picker.dismiss(animated: true, completion: nil)
-        
-       
-        
-        let image = info[.imageURL] as? URL
-        guard let imagen = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else{
-            return
-        }
-
-        imageURL = image
-        imagenSeleccionada.image = imagen
-    }
-    
-    
-}
 
 
 struct ResponseSubir:Decodable{
