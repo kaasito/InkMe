@@ -765,14 +765,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="34316" translatesAutoresizingMaskIntoConstraints="NO" id="KRD-VJ-ub8">
-                                <rect key="frame" x="35" y="80" width="344" height="275"/>
+                                <rect key="frame" x="35" y="80" width="344" height="151"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="344" id="13v-JP-7J5"/>
                                     <constraint firstAttribute="height" constant="195" id="TIY-qD-dYs"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQa-Mx-MtN">
-                                <rect key="frame" x="100" y="667.5" width="214" height="49"/>
+                                <rect key="frame" x="100" y="543.5" width="214" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="2ab-cb-ezM"/>
                                     <constraint firstAttribute="width" constant="214" id="ZBA-e3-q6C"/>
@@ -783,7 +783,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JqX-kW-0Kg">
-                                <rect key="frame" x="60" y="447" width="294" height="115.5"/>
+                                <rect key="frame" x="60" y="323" width="294" height="115.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consulta estadisticas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGW-4Y-T22">
                                         <rect key="frame" x="0.0" y="0.0" width="294" height="38.5"/>
@@ -1170,28 +1170,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="swV-rF-WfA">
-                                <rect key="frame" x="139" y="291" width="137" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dk5-YL-Sve">
+                                <rect key="frame" x="39" y="50" width="336" height="303"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Subir desde cámara">
+                                <state key="normal">
                                     <color key="titleColor" systemColor="linkColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="botonCamara:" destination="Crb-8G-UDB" eventType="touchUpInside" id="gcI-kf-BF0"/>
+                                    <action selector="seleccionarSource:" destination="Crb-8G-UDB" eventType="touchUpInside" id="rW6-En-kDE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zbn-vz-VKy">
-                                <rect key="frame" x="140" y="314" width="134" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6L-FN-d9C">
+                                <rect key="frame" x="186" y="741" width="42" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Subir desde Galería">
-                                    <color key="titleColor" systemColor="linkColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="botonGaleria:" destination="Crb-8G-UDB" eventType="touchUpInside" id="fuZ-dv-L4A"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6L-FN-d9C">
-                                <rect key="frame" x="186" y="706" width="42" height="30"/>
                                 <state key="normal" title="Enviar">
                                     <color key="titleColor" systemColor="linkColor"/>
                                 </state>
@@ -1199,59 +1190,57 @@
                                     <action selector="enviarBoton:" destination="Crb-8G-UDB" eventType="touchUpInside" id="j7q-4L-jBP"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ERi-zq-gYt">
-                                <rect key="frame" x="87" y="42" width="240" height="230"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ERi-zq-gYt">
+                                <rect key="frame" x="39" y="50" width="336" height="322"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cET-yd-u6f">
-                                <rect key="frame" x="30" y="394" width="354" height="34"/>
+                                <rect key="frame" x="30" y="396" width="354" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YjL-B3-ufc">
-                                <rect key="frame" x="30" y="525" width="354" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YjL-B3-ufc">
+                                <rect key="frame" x="30" y="619" width="354" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Título" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3X-Ql-pxS">
-                                <rect key="frame" x="30" y="365" width="43" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Estilo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zqi-QI-ckI">
-                                <rect key="frame" x="30" y="445" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tcg-Uy-UE1">
-                                <rect key="frame" x="0.0" y="421" width="414" height="162"/>
+                                <rect key="frame" x="0.0" y="438" width="414" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toca para subir imagen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NX9-sS-Tft">
+                                <rect key="frame" x="119" y="323" width="177" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="awW-jt-4VA"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="R6L-FN-d9C" firstAttribute="top" secondItem="YjL-B3-ufc" secondAttribute="bottom" constant="30" id="3fE-hq-Yd4"/>
-                            <constraint firstItem="awW-jt-4VA" firstAttribute="trailing" secondItem="YjL-B3-ufc" secondAttribute="trailing" constant="30" id="F61-Aj-nXx"/>
-                            <constraint firstItem="YjL-B3-ufc" firstAttribute="leading" secondItem="awW-jt-4VA" secondAttribute="leading" constant="30" id="lxb-Ca-5MU"/>
+                            <constraint firstItem="awW-jt-4VA" firstAttribute="trailing" secondItem="NX9-sS-Tft" secondAttribute="trailing" constant="118" id="K0o-xz-Qwc"/>
+                            <constraint firstItem="NX9-sS-Tft" firstAttribute="leading" secondItem="awW-jt-4VA" secondAttribute="leading" constant="119" id="MSY-Uc-C7r"/>
+                            <constraint firstItem="NX9-sS-Tft" firstAttribute="top" secondItem="awW-jt-4VA" secondAttribute="top" constant="323" id="pjy-9S-71b"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imagenSeleccionada" destination="ERi-zq-gYt" id="aOt-KJ-4a6"/>
-                        <outlet property="picker" destination="Tcg-Uy-UE1" id="olh-Np-Oz3"/>
+                        <outlet property="pickerStyles" destination="Tcg-Uy-UE1" id="g1M-Oi-Kko"/>
+                        <outlet property="textView" destination="YjL-B3-ufc" id="1qg-1F-uFg"/>
+                        <outlet property="textoSeleccion" destination="NX9-sS-Tft" id="sJ1-eo-ngl"/>
+                        <outlet property="tituloField" destination="cET-yd-u6f" id="VRS-JW-Ymk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rR-ix-cZZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9438" y="578"/>
+            <point key="canvasLocation" x="9437.68115942029" y="577.90178571428567"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="vIq-TM-giP">
@@ -1691,7 +1680,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mgF-ah-SjO">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mgF-ah-SjO">
                                             <rect key="frame" x="-56" y="0.0" width="212" height="100"/>
                                         </imageView>
                                     </subviews>
@@ -2051,7 +2040,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Vts-w4-euP"/>
+        <segue reference="x9d-dN-oUR"/>
         <segue reference="xyM-r6-hTw"/>
         <segue reference="coq-bb-gqt"/>
         <segue reference="saX-5Z-NEW"/>

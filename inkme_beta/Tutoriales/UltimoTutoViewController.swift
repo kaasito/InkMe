@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UltimoTutoViewController: ViewController {
+class UltimoTutoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

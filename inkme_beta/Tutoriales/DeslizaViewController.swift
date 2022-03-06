@@ -1,18 +1,19 @@
 //
-//  TutorialInicialViewController.swift
+//  DeslizaViewController.swift
 //  inkme_beta
 //
-//  Created by Lucas Romero Magaña on 18/1/22.
+//  Created by Lucas Romero Magaña on 21/1/22.
 //
 
 import UIKit
 
-class TutorialInicialViewController: ViewController {
+class DeslizaViewController: UIViewController {
 
+    @IBOutlet weak var imagen: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let deslizaGif = UIImage.gifImageWithName("Desliza-hacia-abajo")
+        imagen.image = deslizaGif// Do any additional setup after loading the view.
     }
     
 

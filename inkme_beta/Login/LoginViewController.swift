@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class LoginViewController: ViewController {
+class LoginViewController: UIViewController {
     var idUsuarioLogueado = 0
     var api_token = ""
     let defaults = UserDefaults.standard

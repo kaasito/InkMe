@@ -127,6 +127,7 @@
 				6B3EE0D027D50C3E00B32BF2 /* Lista */,
 				6B14FA40278EEDD0008BFF46 /* AppDelegate.swift */,
 				6B14FA42278EEDD0008BFF46 /* SceneDelegate.swift */,
+				6B42FED9279AE22800575242 /* Desliza-hacia-abajo.gif */,
 				6B14FA46278EEDD0008BFF46 /* Main.storyboard */,
 				6B14FA49278EEDD5008BFF46 /* Assets.xcassets */,
 				6B14FA4B278EEDD5008BFF46 /* LaunchScreen.storyboard */,
@@ -150,7 +151,6 @@
 		6B3EE0D127D50C5100B32BF2 /* Mi Perfil */ = {
 			isa = PBXGroup;
 			children = (
-				6B14FA782790BD2D008BFF46 /* MainProfileViewController.swift */,
 				6B5D89F327B1A2D400D71869 /* MiPerfilViewController.swift */,
 				6BD4AAC627C436A400BD41C5 /* MiPerfilPostCollectionViewController.swift */,
 				6BD4AAC827C4381C00BD41C5 /* MiPerfilPostCollectionViewCell.swift */,
@@ -172,6 +172,7 @@
 				6B3EE0BD27CFF60A00B32BF2 /* PostAjenoViewController.swift */,
 				6B3EE0BF27CFF9F200B32BF2 /* MerchAjenoCollectionViewController.swift */,
 				6B3EE0C127CFFA0800B32BF2 /* MerchAjenoCollectionViewCell.swift */,
+				6B14FA782790BD2D008BFF46 /* MainProfileViewController.swift */,
 			);
 			path = "Perfil Ajeno";
 			sourceTree = "<group>";
@@ -179,7 +180,6 @@
 		6B3EE0D327D50CB900B32BF2 /* Tutoriales */ = {
 			isa = PBXGroup;
 			children = (
-				6B42FED9279AE22800575242 /* Desliza-hacia-abajo.gif */,
 				6BE315ED27974E92007D4A37 /* TutorialInicialViewController.swift */,
 				6B42FED7279AB69F00575242 /* UltimoTutoViewController.swift */,
 				6B42FEDB279AE32400575242 /* gifLoader.swift */,

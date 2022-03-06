@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class RegisterViewController: ViewController {
+class RegisterViewController: UIViewController {
     
     let defaults = UserDefaults.standard
     var token = ""

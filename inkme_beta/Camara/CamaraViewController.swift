@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CamaraViewController: ViewController {
+class CamaraViewController: UIViewController {
     
     
     @IBOutlet weak var botonBuscar: UIButton!
