@@ -1,21 +1,21 @@
 //
-//  PerfilItemViewController.swift
+//  MainProfileViewController.swift
 //  inkme_beta
 //
-//  Created by Lucas Romero Magaña on 8/2/22.
+//  Created by Lucas Romero Magaña on 13/1/22.
 //
 
 import UIKit
 
-class PerfilItemViewController: UIViewController {
+class MainProfileViewController: UIViewController {
 
-    @IBOutlet weak var vistaPerfil: UIView!
-    @IBOutlet weak var vistaIniciarSesion: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        vistaPerfil.alpha = 1
-        vistaIniciarSesion.alpha = 0
+        title = "Perfil"
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes //pone el titulo en blanco
+      
+        // Do any additional setup after loading the view.
     }
     
 
