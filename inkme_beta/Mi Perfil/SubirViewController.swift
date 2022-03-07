@@ -14,7 +14,7 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var textoSeleccion: UILabel!
     @IBOutlet weak var tituloField: UITextField!
     var imageURL: URL?
-    var pickerItemSeleccionado:String?
+    var pickerItemSeleccionado = ""
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var pickerStyles: UIPickerView!
     let defaults = UserDefaults.standard
@@ -23,6 +23,7 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var imagenSeleccionada: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        pickerItemSeleccionado = pickerData[2]
         tituloField.backgroundColor = #colorLiteral(red: 0.1058823529, green: 0.1058823529, blue: 0.1137254902, alpha: 1)
         tituloField.attributedPlaceholder = NSAttributedString(
             string: "Título del Post",
@@ -70,16 +71,16 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerData.count
     }
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 50.0
+    }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
     }
-    private func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
-       {
-            pickerItemSeleccionado = pickerData[row] as String
-        
-        
-        }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        pickerItemSeleccionado = pickerData[row]
+    }
     
     @IBAction func enviarBoton(_ sender: Any) {
         let url = "http://desarrolladorapp.com/inkme/public/api/subirImagen"
@@ -88,9 +89,12 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }, to: url, method: .post).responseDecodable(of: ResponseSubir.self){ response in
             let url = response.value?.url
             let urlpeticion = "http://desarrolladorapp.com/inkme/public/api/crearPost"
-            let json = ["api_token": self.token, "description": "hola", "photo": url!, "title": "nueva foto", "style": "blackwork", "bcolor": 1] as [String : Any]
+            let json = ["api_token": self.token, "description": self.textView.text, "photo": url!, "title": self.tituloField.text!, "style": self.pickerItemSeleccionado, "bcolor": 1] as [String : Any]
             AF.request(urlpeticion, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: ResponseSubirPost.self) { response in
+                print("pickk",self.pickerItemSeleccionado)
+                print(response)
                 if response.value?.status == 1{
+                    
                     let alert = UIAlertController(title: "Foto publicada con éxito!", message: "La foto se ha subido exitosamente", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Vale", style: .default, handler: { action in
                         switch action.style{
@@ -144,7 +148,7 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         actionSheet.addAction(UIAlertAction(title: "Galeria", style: .default, handler: { (action: UIAlertAction) in
             picker.sourceType = .photoLibrary
-           // picker.allowsEditing = true
+            // picker.allowsEditing = true
             self.present(picker, animated: true, completion: nil)
             
         }))
