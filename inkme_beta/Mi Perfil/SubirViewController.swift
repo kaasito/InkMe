@@ -14,6 +14,7 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var textoSeleccion: UILabel!
     @IBOutlet weak var tituloField: UITextField!
     var imageURL: URL?
+    var pickerItemSeleccionado:String?
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var pickerStyles: UIPickerView!
     let defaults = UserDefaults.standard
@@ -73,6 +74,12 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
     }
+    private func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+       {
+            pickerItemSeleccionado = pickerData[row] as String
+        
+        
+        }
     
     @IBAction func enviarBoton(_ sender: Any) {
         let url = "http://desarrolladorapp.com/inkme/public/api/subirImagen"

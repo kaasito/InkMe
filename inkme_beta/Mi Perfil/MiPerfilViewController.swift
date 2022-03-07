@@ -21,7 +21,6 @@ class MiPerfilViewController: UIViewController {
     @IBOutlet weak var tutorial: UIView!
     @IBOutlet weak var vistaInfo: UIView!
     @IBOutlet weak var imagenPerfil: UIImageView!
-    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var postView: UIView!
     @IBOutlet weak var merchView: UIView!
     override func viewDidLoad() {
@@ -62,8 +61,6 @@ class MiPerfilViewController: UIViewController {
         imagenPerfil.clipsToBounds = true
         postView.alpha = 1
         merchView.alpha = 0
-        shareButton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
-        shareButton.setImageTintColor(UIColor.systemBlue)
      
     }
     
