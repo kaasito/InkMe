@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "f82c23a8a7ef8dc1a49a8bfc6a96883e79121864",
+          "version": "5.5.0"
+        }
+      },
+      {
+        "package": "AlamofireImage",
+        "repositoryURL": "https://github.com/Alamofire/AlamofireImage.git",
+        "state": {
+          "branch": null,
+          "revision": "98cbb00ce0ec5fc8e52a5b50a6bfc08d3e5aee10",
+          "version": "4.2.0"
+        }
+      },
+      {
+        "package": "CalendarKit",
+        "repositoryURL": "https://github.com/richardtop/CalendarKit.git",
+        "state": {
+          "branch": null,
+          "revision": "53f0ca94c07a00db410bbbc5cd0ae962fb4927a2",
+          "version": "1.1.2"
+        }
+      },
+      {
+        "package": "TabBar",
+        "repositoryURL": "https://github.com/onl1ner/TabBar.git",
+        "state": {
+          "branch": null,
+          "revision": "23f403a7b257a3ae9f130d7df9178eaaf7170a69",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

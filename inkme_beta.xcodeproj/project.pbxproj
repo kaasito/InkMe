@@ -44,6 +44,8 @@
 		6BDA282827BBD25100C4B2D9 /* NetWorkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDA282727BBD25100C4B2D9 /* NetWorkProvider.swift */; };
 		6BE315EC279729D1007D4A37 /* CamaraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE315EB279729D1007D4A37 /* CamaraViewController.swift */; };
 		6BE315EE27974E92007D4A37 /* TutorialInicialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE315ED27974E92007D4A37 /* TutorialInicialViewController.swift */; };
+		FE68575127D630BD00FC8D85 /* CalendarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE68575027D630BD00FC8D85 /* CalendarioViewController.swift */; };
+		FE68575327D6313700FC8D85 /* EKWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE68575227D6313700FC8D85 /* EKWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +84,8 @@
 		6BDA282727BBD25100C4B2D9 /* NetWorkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkProvider.swift; sourceTree = "<group>"; };
 		6BE315EB279729D1007D4A37 /* CamaraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamaraViewController.swift; sourceTree = "<group>"; };
 		6BE315ED27974E92007D4A37 /* TutorialInicialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialInicialViewController.swift; sourceTree = "<group>"; };
+		FE68575027D630BD00FC8D85 /* CalendarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarioViewController.swift; sourceTree = "<group>"; };
+		FE68575227D6313700FC8D85 /* EKWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EKWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,7 @@
 		6B14FA3F278EEDD0008BFF46 /* inkme_beta */ = {
 			isa = PBXGroup;
 			children = (
+				FE68574F27D6309100FC8D85 /* Calendario */,
 				6B3EE0D627D50EB900B32BF2 /* Register */,
 				6B3EE0D527D50E4700B32BF2 /* Login */,
 				6B3EE0D427D50E2900B32BF2 /* Camara */,
@@ -210,6 +215,15 @@
 				6B14FA7C2790EBD7008BFF46 /* RegisterViewController.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		FE68574F27D6309100FC8D85 /* Calendario */ = {
+			isa = PBXGroup;
+			children = (
+				FE68575027D630BD00FC8D85 /* CalendarioViewController.swift */,
+				FE68575227D6313700FC8D85 /* EKWrapper.swift */,
+			);
+			path = Calendario;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +319,7 @@
 				6B14FA7D2790EBD7008BFF46 /* RegisterViewController.swift in Sources */,
 				6B77C9FD27BDB32A00D09B2A /* User.swift in Sources */,
 				6BD4AABD27BF8E7700BD41C5 /* PostViewController.swift in Sources */,
+				FE68575127D630BD00FC8D85 /* CalendarioViewController.swift in Sources */,
 				6B5D89F627B1B04E00D71869 /* PerfilAjenoViewController.swift in Sources */,
 				6BE315EC279729D1007D4A37 /* CamaraViewController.swift in Sources */,
 				6B14FA7B2790BD4E008BFF46 /* LoginViewController.swift in Sources */,
@@ -312,6 +327,7 @@
 				6BDA282827BBD25100C4B2D9 /* NetWorkProvider.swift in Sources */,
 				6B3EE0C627D0BB4300B32BF2 /* MiMerchCollectionViewController.swift in Sources */,
 				6B3EE05C27C77F7E00B32BF2 /* PerfilAjenoCollectionViewController.swift in Sources */,
+				FE68575327D6313700FC8D85 /* EKWrapper.swift in Sources */,
 				6BD4AAC927C4381C00BD41C5 /* MiPerfilPostCollectionViewCell.swift in Sources */,
 				6B42FEDC279AE32400575242 /* gifLoader.swift in Sources */,
 				6B3EE06027C79D5800B32BF2 /* SubirViewController.swift in Sources */,
