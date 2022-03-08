@@ -186,15 +186,17 @@ extension SubirViewController: UIImagePickerControllerDelegate, UINavigationCont
         imagenSeleccionada.image = imagen
     }
     
-    struct ResponseSubir:Decodable{
-        let status: Int?
-        let url: String?
-    }
     
-    struct ResponseSubirPost:Decodable {
-        let status: Int?
-        let msg: String?
-        let post_id: Int?
-    }
-    
+}
+
+
+struct ResponseSubir:Decodable{
+    let status: Int?
+    let url: String?
+}
+
+struct ResponseSubirPost:Decodable {
+    let status: Int?
+    let msg: String?
+    let post_id: Int?
 }

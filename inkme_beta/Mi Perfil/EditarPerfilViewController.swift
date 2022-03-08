@@ -45,6 +45,28 @@ class EditarPerfilViewController: UIViewController {
     
     
     @IBAction func editarImagenTapped(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        
+        let actionSheet = UIAlertController(title: "Origen de la Foto", message: "Selecciona una opción", preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Camara", style: .default, handler: { (action: UIAlertAction) in
+            
+            picker.sourceType = .camera
+            self.present(picker, animated: true, completion: nil)
+            
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Galeria", style: .default, handler: { (action: UIAlertAction) in
+            picker.sourceType = .photoLibrary
+            // picker.allowsEditing = true
+            self.present(picker, animated: true, completion: nil)
+            
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(actionSheet, animated: true, completion: nil)
     }
     
     
@@ -53,6 +75,32 @@ class EditarPerfilViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+    }
+    
+    
+}
+extension EditarPerfilViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+        
+        
+       let image = info[.imageURL] as? URL
+       
+        guard let imagen = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else{
+            return
+        }
+        
+        //imageURL = image
+        imagenPerfil.image = imagen
     }
     
     
