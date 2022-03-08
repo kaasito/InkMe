@@ -16,7 +16,9 @@ class EditarPerfilViewController: UIViewController {
     @IBOutlet weak var nombreField: UITextField!
     @IBOutlet weak var editarImagenButton: UIButton!
     @IBOutlet weak var imagenPerfil: UIImageView!
+    var token = ""
     let defaults = UserDefaults.standard
+    var imageURL: URL?
     override func viewDidLoad() {
         super.viewDidLoad()
 //        defaults.setValue(response.value?.user?.email, forKey:"email")
@@ -25,8 +27,8 @@ class EditarPerfilViewController: UIViewController {
         
         telefonoField.text = defaults.string(forKey: "tlf")
         emailField.text = defaults.string(forKey: "email")
-        //nombreField.text = defaults.string(forKey: "name")
-        nombreField.text = "si"
+        nombreField.text = defaults.string(forKey: "name")
+      
         imagenPerfil.layer.cornerRadius = imagenPerfil.frame.size.width / 2
         imagenPerfil.clipsToBounds = true
         let url = "http://desarrolladorapp.com/inkme/public/api/cargarPerfil"
@@ -71,6 +73,58 @@ class EditarPerfilViewController: UIViewController {
     
     
     @IBAction func guardarCambiosTapped(_ sender: Any) {
+        let url = "http://desarrolladorapp.com/inkme/public/api/subirImagen"
+        AF.upload(multipartFormData: { multipartformdata in
+            multipartformdata.append(self.imageURL!, withName: "imagen")
+        }, to: url, method: .post).responseDecodable(of: ResponseSubir.self){ [self] response in
+            let url = response.value?.url
+            token = defaults.string(forKey: "token")!
+            let urlpeticion = "http://desarrolladorapp.com/inkme/public/api/editarPerfil"
+            let nombre = nombreField.text
+            let email = emailField.text
+            let tlf = telefonoField.text
+            print("nombreusuario", email)
+            let json = ["api_token": self.token, "name": nombre, "email": email, "numtlf": tlf, "profile_picture": url!]
+            AF.request(urlpeticion, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: PerfilResponseEditar.self) {
+                response in
+                
+                if response.value?.status == 1{
+                    defaults.setValue(nombre, forKey: "name")
+                    defaults.setValue(tlf, forKey: "tlf")
+                    defaults.setValue(email, forKey: "email")
+                    let alert = UIAlertController(title: "Usuario editado con éxito!", message: "El usuario se ha editado exitosamente", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Vale", style: .default, handler: { action in
+                        switch action.style{
+                        case .default:
+                            print("default")
+                            
+                        case .cancel:
+                            print("cancel")
+                            
+                        case .destructive:
+                            print("destructive")
+                            
+                        }
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }else{
+                    let alert = UIAlertController(title: "Ha habido un error", message: "No se ha podido editar el usuario, revisa tu conexión.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Vale", style: .destructive, handler: { action in
+                        switch action.style{
+                        case .default:
+                            print("default")
+                            
+                        case .cancel:
+                            print("cancel")
+                            
+                        case .destructive:
+                            print("destructive")
+                        }
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -79,6 +133,8 @@ class EditarPerfilViewController: UIViewController {
     
     
 }
+
+
 extension EditarPerfilViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     
@@ -99,7 +155,7 @@ extension EditarPerfilViewController: UIImagePickerControllerDelegate, UINavigat
             return
         }
         
-        //imageURL = image
+        imageURL = image
         imagenPerfil.image = imagen
     }
     
@@ -109,6 +165,7 @@ extension EditarPerfilViewController: UIImagePickerControllerDelegate, UINavigat
 struct PerfilResponseEditar:Decodable {
     let status: Int?
     let usuario: UsuarioPropioEditar?
+    let msg: String?
 }
 
 struct UsuarioPropioEditar:Decodable{
