@@ -39,9 +39,12 @@ class LoginViewController: UIViewController {
             print(response)
             if (response.value?.status) == 1 {
                 self.api_token = (response.value?.api_token)!
-                self.idUsuarioLogueado = (response.value?.id)!
+                self.idUsuarioLogueado = (response.value?.user?.id)!
                 defaults.setValue(self.api_token, forKey:"token")
                 defaults.setValue(self.idUsuarioLogueado, forKey:"id")
+                defaults.setValue(response.value?.user?.email, forKey:"email")
+                defaults.setValue(response.value?.user?.numtlf, forKey:"tlf")
+                defaults.setValue(response.value?.user?.name, forKey:"name")
                 performSegue(withIdentifier: "fromLogin", sender: nil)
             }else{
                 print("no se ha podido hacer fetch")
@@ -69,5 +72,12 @@ struct LoginPantalla:Decodable{
     let status: Int?
     let msg: String?
     let api_token: String?
+    let user: UsuarioLogin?
+}
+
+struct UsuarioLogin: Decodable{
     let id: Int?
+    let name: String?
+    let email: String?
+    let numtlf: String?
 }

@@ -1050,6 +1050,10 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="85g-8m-69o">
                                                 <rect key="frame" x="0.0" y="20.5" width="250" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="HuX-c4-tlq"/>
+                                                    <constraint firstAttribute="width" constant="250" id="Rrk-ZK-pLU"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -1066,6 +1070,10 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gw4-cf-TXF">
                                                 <rect key="frame" x="0.0" y="20.5" width="250" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="250" id="2zH-ri-lwK"/>
+                                                    <constraint firstAttribute="height" constant="34" id="jmo-Ko-Mzp"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -1082,6 +1090,10 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pCU-Xk-X1B">
                                                 <rect key="frame" x="0.0" y="20.5" width="250" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="h43-cO-GOY"/>
+                                                    <constraint firstAttribute="width" constant="250" id="iAW-yt-3tJ"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -1098,26 +1110,24 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Id0-tJ-Cmc">
                                                 <rect key="frame" x="0.0" y="20.5" width="250" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="250" id="6ZY-BS-pl7"/>
+                                                    <constraint firstAttribute="height" constant="34" id="Kuo-qH-dy3"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Id0-tJ-Cmc" secondAttribute="bottom" id="Tsh-PA-7MD"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="332.5" id="4jj-UX-JZi"/>
-                                    <constraint firstAttribute="width" constant="250" id="Kun-Ua-RH4"/>
+                                    <constraint firstAttribute="height" constant="263" id="GKE-nQ-G7p"/>
+                                    <constraint firstAttribute="width" constant="250" id="RRj-U3-miI"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oa-0Q-a2H">
-                                <rect key="frame" x="147" y="731" width="120" height="30"/>
-                                <state key="normal" title="Guardar Cambios">
-                                    <color key="titleColor" systemColor="systemBlueColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="guardarCambiosTapped:" destination="zct-Sg-wxn" eventType="touchUpInside" id="OvK-5k-109"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Ra-kK-jfb">
                                 <rect key="frame" x="143" y="106" width="128" height="128"/>
                                 <constraints>
@@ -1134,23 +1144,31 @@
                                     <action selector="editarImagenTapped:" destination="zct-Sg-wxn" eventType="touchUpInside" id="cAQ-rc-xpD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oa-0Q-a2H">
+                                <rect key="frame" x="143" y="651.5" width="120" height="30"/>
+                                <state key="normal" title="Guardar Cambios">
+                                    <color key="titleColor" systemColor="systemBlueColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="guardarCambiosTapped:" destination="zct-Sg-wxn" eventType="touchUpInside" id="OvK-5k-109"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rap-zI-ECp"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
                         <constraints>
-                            <constraint firstItem="0oa-0Q-a2H" firstAttribute="top" secondItem="aDm-TN-ber" secondAttribute="bottom" constant="54.5" id="FPy-ea-0ZS"/>
+                            <constraint firstItem="rap-zI-ECp" firstAttribute="trailing" secondItem="aDm-TN-ber" secondAttribute="trailing" constant="82" id="4VS-NE-xyI"/>
+                            <constraint firstItem="aDm-TN-ber" firstAttribute="top" secondItem="4Vu-dm-Cf9" secondAttribute="bottom" constant="72" id="K6c-vX-Jxb"/>
                             <constraint firstItem="rap-zI-ECp" firstAttribute="trailing" secondItem="3Ra-kK-jfb" secondAttribute="trailing" constant="143" id="NEs-Yc-4A8"/>
-                            <constraint firstItem="aDm-TN-ber" firstAttribute="top" secondItem="rap-zI-ECp" secondAttribute="top" constant="344" id="QcV-Dp-r4V"/>
-                            <constraint firstItem="0oa-0Q-a2H" firstAttribute="leading" secondItem="rap-zI-ECp" secondAttribute="leading" constant="147" id="RmL-ft-qno"/>
-                            <constraint firstItem="aDm-TN-ber" firstAttribute="top" secondItem="4Vu-dm-Cf9" secondAttribute="bottom" constant="72" id="f5k-Nz-tUY"/>
-                            <constraint firstItem="rap-zI-ECp" firstAttribute="trailing" secondItem="0oa-0Q-a2H" secondAttribute="trailing" constant="147" id="g3V-9N-UxB"/>
+                            <constraint firstItem="0oa-0Q-a2H" firstAttribute="leading" secondItem="rap-zI-ECp" secondAttribute="leading" constant="143" id="RmL-ft-qno"/>
+                            <constraint firstItem="rap-zI-ECp" firstAttribute="trailing" secondItem="0oa-0Q-a2H" secondAttribute="trailing" constant="151" id="g3V-9N-UxB"/>
                             <constraint firstItem="rap-zI-ECp" firstAttribute="trailing" secondItem="4Vu-dm-Cf9" secondAttribute="trailing" constant="159" id="hXp-wK-erH"/>
                             <constraint firstItem="3Ra-kK-jfb" firstAttribute="leading" secondItem="rap-zI-ECp" secondAttribute="leading" constant="143" id="joP-Td-KrD"/>
-                            <constraint firstItem="rap-zI-ECp" firstAttribute="trailing" secondItem="aDm-TN-ber" secondAttribute="trailing" constant="82" id="lgS-3J-G31"/>
-                            <constraint firstItem="aDm-TN-ber" firstAttribute="leading" secondItem="rap-zI-ECp" secondAttribute="leading" constant="82" id="oHh-v3-fgx"/>
+                            <constraint firstItem="0oa-0Q-a2H" firstAttribute="top" secondItem="aDm-TN-ber" secondAttribute="bottom" constant="44.5" id="maP-2E-ioF"/>
                             <constraint firstItem="3Ra-kK-jfb" firstAttribute="top" secondItem="rap-zI-ECp" secondAttribute="top" constant="106" id="pZw-Cl-jhg"/>
                             <constraint firstItem="4Vu-dm-Cf9" firstAttribute="leading" secondItem="rap-zI-ECp" secondAttribute="leading" constant="160" id="psp-Zs-xgB"/>
-                            <constraint firstItem="rap-zI-ECp" firstAttribute="bottom" secondItem="0oa-0Q-a2H" secondAttribute="bottom" constant="194" id="xKn-L7-Tqe"/>
+                            <constraint firstItem="rap-zI-ECp" firstAttribute="bottom" secondItem="0oa-0Q-a2H" secondAttribute="bottom" constant="126.5" id="xKn-L7-Tqe"/>
+                            <constraint firstItem="aDm-TN-ber" firstAttribute="leading" secondItem="rap-zI-ECp" secondAttribute="leading" constant="82" id="yXG-Ps-KWJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8tU-3Z-T4i"/>

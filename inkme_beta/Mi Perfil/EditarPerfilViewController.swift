@@ -19,7 +19,14 @@ class EditarPerfilViewController: UIViewController {
     let defaults = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
+//        defaults.setValue(response.value?.user?.email, forKey:"email")
+//        defaults.setValue(response.value?.user?.numtlf, forKey:"tlf")
+//        defaults.setValue(response.value?.user?.name, forKey:"name")
         
+        telefonoField.text = defaults.string(forKey: "tlf")
+        emailField.text = defaults.string(forKey: "email")
+        //nombreField.text = defaults.string(forKey: "name")
+        nombreField.text = "si"
         imagenPerfil.layer.cornerRadius = imagenPerfil.frame.size.width / 2
         imagenPerfil.clipsToBounds = true
         let url = "http://desarrolladorapp.com/inkme/public/api/cargarPerfil"
