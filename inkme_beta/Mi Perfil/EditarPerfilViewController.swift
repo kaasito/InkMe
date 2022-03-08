@@ -11,12 +11,16 @@ import AlamofireImage
 
 class EditarPerfilViewController: UIViewController {
     
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var ubicacionField: UITextField!
+    @IBOutlet weak var estilosField: UITextField!
     @IBOutlet weak var telefonoField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var nombreField: UITextField!
     @IBOutlet weak var editarImagenButton: UIButton!
     @IBOutlet weak var imagenPerfil: UIImageView!
     var token = ""
+    var json:[String: Any?] = [:]
     let defaults = UserDefaults.standard
     var imageURL: URL?
     override func viewDidLoad() {
@@ -28,6 +32,12 @@ class EditarPerfilViewController: UIViewController {
         telefonoField.text = defaults.string(forKey: "tlf")
         emailField.text = defaults.string(forKey: "email")
         nombreField.text = defaults.string(forKey: "name")
+        ubicacionField.text = defaults.string(forKey: "location")
+        estilosField.text = defaults.string(forKey: "styles")
+        /*
+         defaults.setValue(response.value?.user?.location, forKey:"location")
+         defaults.setValue(response.value?.user?.styles, forKey:"styles")
+         */
       
         imagenPerfil.layer.cornerRadius = imagenPerfil.frame.size.width / 2
         imagenPerfil.clipsToBounds = true
@@ -74,8 +84,10 @@ class EditarPerfilViewController: UIViewController {
     
     @IBAction func guardarCambiosTapped(_ sender: Any) {
         let url = "http://desarrolladorapp.com/inkme/public/api/subirImagen"
+        let imagenPerfilActual = defaults.string(forKey: "profile_pic")
+        let urlimagenPerfilActual = URL(string: imagenPerfilActual!)
         AF.upload(multipartFormData: { multipartformdata in
-            multipartformdata.append(self.imageURL!, withName: "imagen")
+            multipartformdata.append((self.imageURL ?? urlimagenPerfilActual)!, withName: "imagen")
         }, to: url, method: .post).responseDecodable(of: ResponseSubir.self){ [self] response in
             let url = response.value?.url
             token = defaults.string(forKey: "token")!
@@ -83,15 +95,27 @@ class EditarPerfilViewController: UIViewController {
             let nombre = nombreField.text
             let email = emailField.text
             let tlf = telefonoField.text
-            print("nombreusuario", email)
-            let json = ["api_token": self.token, "name": nombre, "email": email, "numtlf": tlf, "profile_picture": url!]
-            AF.request(urlpeticion, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: PerfilResponseEditar.self) {
+            let tlfint = Int(tlf!)
+            print("telefono",tlf)
+            let ubicacion = ubicacionField.text
+            let estilos = estilosField.text
+            let password = passwordField.text
+            
+            if password == ""{
+                 json = ["api_token": self.token, "name": nombre, "email": email, "numtlf": tlfint, "profile_picture": url ?? imagenPerfilActual, "location": ubicacion, "styles": estilos]
+            }else{
+                 json = ["api_token": self.token, "name": nombre, "email": email, "numtlf": tlfint, "profile_picture": url ?? imagenPerfilActual, "location": ubicacion, "styles": estilos, "password": password]
+            }
+           
+            AF.request(urlpeticion, method: .put, parameters: json as Parameters, encoding: JSONEncoding.default).responseDecodable (of: PerfilResponseEditar.self) {
                 response in
-                
+                print("respuessta",response)
                 if response.value?.status == 1{
                     defaults.setValue(nombre, forKey: "name")
                     defaults.setValue(tlf, forKey: "tlf")
                     defaults.setValue(email, forKey: "email")
+                    defaults.setValue(ubicacion, forKey: "location")
+                    defaults.setValue(estilos, forKey: "styles")
                     let alert = UIAlertController(title: "Usuario editado con éxito!", message: "El usuario se ha editado exitosamente", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Vale", style: .default, handler: { action in
                         switch action.style{

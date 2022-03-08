@@ -45,6 +45,9 @@ class LoginViewController: UIViewController {
                 defaults.setValue(response.value?.user?.email, forKey:"email")
                 defaults.setValue(response.value?.user?.numtlf, forKey:"tlf")
                 defaults.setValue(response.value?.user?.name, forKey:"name")
+                defaults.setValue(response.value?.user?.profile_picture, forKey:"profile_pic")
+                defaults.setValue(response.value?.user?.location, forKey:"location")
+                defaults.setValue(response.value?.user?.styles, forKey:"styles")
                 performSegue(withIdentifier: "fromLogin", sender: nil)
             }else{
                 print("no se ha podido hacer fetch")
@@ -80,4 +83,7 @@ struct UsuarioLogin: Decodable{
     let name: String?
     let email: String?
     let numtlf: String?
+    let profile_picture: String?
+    let location: String?
+    let styles:String?
 }
