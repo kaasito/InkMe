@@ -29,6 +29,8 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             string: "Título del Post",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
+        let tapGesture = UITapGestureRecognizer(target: self, action:     #selector(tapGestureHandler))
+               view.addGestureRecognizer(tapGesture)
         token = defaults.string(forKey: "token")!
         print(token)
         self.pickerStyles.delegate = self
@@ -186,8 +188,12 @@ extension SubirViewController: UIImagePickerControllerDelegate, UINavigationCont
         imagenSeleccionada.image = imagen
     }
     
-    
+    @objc func tapGestureHandler() {
+        tituloField.endEditing(true)
+        textView.endEditing(true)
+    }
 }
+
 
 
 struct ResponseSubir:Decodable{

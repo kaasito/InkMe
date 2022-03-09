@@ -12,21 +12,27 @@ import Alamofire
 
 
 class MiPerfilPostCollectionViewController: UICollectionViewController {
+    @IBOutlet var collectionViewPost: UICollectionView!
+    var vSpinner : UIView?
     var fotos:[PostMiGrid] = []
     let datasource = ["1","2","3","4","5","6"]
     let defaults = UserDefaults.standard
     var imagenPasar:UIImage?
+    let refreshControl = UIRefreshControl()
     /*
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         let url = "http://desarrolladorapp.com/inkme/public/api/cargarPerfil"
         let usuarioId = defaults.integer(forKey: "id")
         let json = ["usuario_id": usuarioId]
         AF.request(url, method: .put, parameters: json as Parameters, encoding: JSONEncoding.default).responseDecodable (of: ResponseGridMiPerfil.self) { [self] response in
             print(response)
+           
             if (response.value?.status) == 1 {
                 self.fotos = (response.value?.usuario?.posts)!
                 collectionView.reloadData()
+                
             }else{
                 print("no se ha podido hacer fetch")
             }
@@ -35,17 +41,17 @@ class MiPerfilPostCollectionViewController: UICollectionViewController {
         self.collectionView?.dataSource = self
         self.collectionView.reloadData()
     }
-    */
     
+   */
     
-    
-    
-    
-    
-    //*
     override func viewDidLoad() {
         super.viewDidLoad()
+        refreshControl.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0);
+        let attr = [NSAttributedString.Key.foregroundColor:UIColor.white]
         
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: attr)
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        collectionView.addSubview(refreshControl) // not required when using UITableViewController
         collectionView.dataSource = self
         collectionView.delegate = self
         let url = "http://desarrolladorapp.com/inkme/public/api/cargarPerfil"
@@ -53,9 +59,11 @@ class MiPerfilPostCollectionViewController: UICollectionViewController {
         let json = ["usuario_id": usuarioId]
         AF.request(url, method: .put, parameters: json as Parameters, encoding: JSONEncoding.default).responseDecodable (of: ResponseGridMiPerfil.self) { [self] response in
             print(response)
+            
             if (response.value?.status) == 1 {
                 self.fotos = (response.value?.usuario?.posts)!
                 collectionView.reloadData()
+                
             }else{
                 print("no se ha podido hacer fetch")
             }
@@ -64,7 +72,26 @@ class MiPerfilPostCollectionViewController: UICollectionViewController {
     }
     
     
-    
+    @objc func refresh(_ sender: AnyObject) {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        let url = "http://desarrolladorapp.com/inkme/public/api/cargarPerfil"
+        let usuarioId = defaults.integer(forKey: "id")
+        let json = ["usuario_id": usuarioId]
+        AF.request(url, method: .put, parameters: json as Parameters, encoding: JSONEncoding.default).responseDecodable (of: ResponseGridMiPerfil.self) { [self] response in
+            print(response)
+            
+            if (response.value?.status) == 1 {
+                self.fotos = (response.value?.usuario?.posts)!
+                collectionView.reloadData()
+                
+            }else{
+                print("no se ha podido hacer fetch")
+            }
+        }
+        collectionView.reloadData()
+        refreshControl.endRefreshing()
+    }
    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return fotos.count
@@ -121,3 +148,27 @@ struct PostMiGrid:Decodable {
     let id: Int?
 }
 
+
+extension MiPerfilPostCollectionViewController {
+    func showSpinner(onView : UIView) {
+        let spinnerView = UIView.init(frame: onView.bounds)
+        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let ai = UIActivityIndicatorView.init(style: .whiteLarge)
+        ai.startAnimating()
+        ai.center = spinnerView.center
+        
+        DispatchQueue.main.async {
+            spinnerView.addSubview(ai)
+            onView.addSubview(spinnerView)
+        }
+        
+        vSpinner = spinnerView
+    }
+    
+    func removeSpinner() {
+        DispatchQueue.main.async { [self] in
+            vSpinner?.removeFromSuperview()
+            vSpinner = nil
+        }
+    }
+}
