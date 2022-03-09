@@ -40,6 +40,7 @@ class PerfilAjenoCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        
         defaults.set(fotos[indexPath.row].photo, forKey: "urlPostAjeno")
+        defaults.set(fotos[indexPath.row].id, forKey: "idPostAjeno")
        performSegue(withIdentifier: "itemtapAjeno", sender: nil)
      
      }
@@ -74,4 +75,5 @@ struct UsuarioGridAjeno:Decodable {
 
 struct PostGridAjeno:Decodable {
     let photo:String?
+    let id:Int?
 }
