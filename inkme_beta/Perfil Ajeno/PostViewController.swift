@@ -13,6 +13,7 @@ class PostViewController: UIViewController {
 
     
     
+    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var vistaLabel: UIView!
     @IBOutlet weak var desc: UILabel!
     @IBOutlet weak var imagenPerfil: UIImageView!
@@ -23,6 +24,8 @@ class PostViewController: UIViewController {
     @IBOutlet weak var imagen: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        shareButton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
+        shareButton.setImageTintColor(UIColor.systemBlue)
         vistaLabel.layer.cornerRadius = 10
         imagenPerfil.layer.cornerRadius = imagenPerfil.frame.size.width / 2
         imagenPerfil.clipsToBounds = true
@@ -52,7 +55,12 @@ class PostViewController: UIViewController {
     }
     
 
-   
+    @IBAction func copartirTapped(_ sender: Any) {
+        let activityVC = UIActivityViewController(activityItems: ["desarrolladorapp.com/inkme/public/post/\(id)"], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
+    }
+    
 }
 
 struct ResponsePost: Decodable{

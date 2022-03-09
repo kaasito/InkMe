@@ -226,8 +226,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVR-VL-hCe">
                                 <rect key="frame" x="20" y="584" width="374" height="184"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YpZ-Bx-Zxb">
-                                        <rect key="frame" x="8" y="8" width="50" height="50"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YpZ-Bx-Zxb">
+                                        <rect key="frame" x="8" y="8" width="50" height="51"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="eJq-VN-nKj"/>
                                         </constraints>
@@ -247,19 +247,36 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8K-Qd-aL2">
+                                        <rect key="frame" x="328" y="14" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="CPB-2j-y4j"/>
+                                            <constraint firstAttribute="width" constant="30" id="LBC-mz-4II"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <color key="titleColor" systemColor="linkColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="copartirTapped:" destination="xY6-oj-pVV" eventType="touchUpInside" id="X6Q-OT-xVp"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.10588235294117647" green="0.10588235294117647" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="DoE-NG-wIE" firstAttribute="leading" secondItem="MVR-VL-hCe" secondAttribute="leading" constant="8" id="065-Hh-lJA"/>
+                                    <constraint firstItem="DoE-NG-wIE" firstAttribute="top" secondItem="e8K-Qd-aL2" secondAttribute="bottom" constant="22" id="ArN-YK-c1c"/>
                                     <constraint firstAttribute="trailing" secondItem="DoE-NG-wIE" secondAttribute="trailing" constant="17" id="HWq-95-WsD"/>
                                     <constraint firstItem="YpZ-Bx-Zxb" firstAttribute="top" secondItem="MVR-VL-hCe" secondAttribute="topMargin" id="MIm-eR-j61"/>
+                                    <constraint firstItem="e8K-Qd-aL2" firstAttribute="top" secondItem="MVR-VL-hCe" secondAttribute="top" constant="14" id="U37-mN-gXd"/>
                                     <constraint firstItem="DoE-NG-wIE" firstAttribute="top" secondItem="80b-6y-jp7" secondAttribute="bottom" constant="22" id="VE2-5m-nAX"/>
                                     <constraint firstItem="80b-6y-jp7" firstAttribute="top" secondItem="MVR-VL-hCe" secondAttribute="top" constant="23" id="VSC-Wh-Nsg"/>
                                     <constraint firstItem="80b-6y-jp7" firstAttribute="leading" secondItem="YpZ-Bx-Zxb" secondAttribute="trailing" constant="8" symbolic="YES" id="f2C-s6-Rdb"/>
                                     <constraint firstAttribute="trailing" secondItem="80b-6y-jp7" secondAttribute="trailing" constant="17" id="fkU-OU-9gj"/>
                                     <constraint firstAttribute="bottom" secondItem="DoE-NG-wIE" secondAttribute="bottom" constant="19" id="k67-db-b11"/>
+                                    <constraint firstAttribute="trailing" secondItem="e8K-Qd-aL2" secondAttribute="trailing" constant="16" id="pcB-sI-Dad"/>
                                     <constraint firstItem="YpZ-Bx-Zxb" firstAttribute="leading" secondItem="MVR-VL-hCe" secondAttribute="leadingMargin" id="rzc-CC-TgX"/>
                                     <constraint firstItem="YpZ-Bx-Zxb" firstAttribute="centerY" secondItem="80b-6y-jp7" secondAttribute="centerY" id="tnC-FG-dvH"/>
+                                    <constraint firstItem="e8K-Qd-aL2" firstAttribute="leading" secondItem="YpZ-Bx-Zxb" secondAttribute="trailing" constant="270" id="zsU-AA-1rV"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -282,6 +299,7 @@
                         <outlet property="imagen" destination="UsL-Wp-LJv" id="cAL-Aj-wRX"/>
                         <outlet property="imagenPerfil" destination="YpZ-Bx-Zxb" id="7DG-sR-hH2"/>
                         <outlet property="nicknamelabel" destination="80b-6y-jp7" id="jzw-WH-TTv"/>
+                        <outlet property="shareButton" destination="e8K-Qd-aL2" id="zYL-ef-gsF"/>
                         <outlet property="vistaLabel" destination="MVR-VL-hCe" id="bJ4-h8-Rdv"/>
                     </connections>
                 </viewController>
@@ -1322,14 +1340,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendario" translatesAutoresizingMaskIntoConstraints="NO" id="6FF-ht-Lfj">
-                                <rect key="frame" x="98" y="44" width="218" height="239"/>
+                                <rect key="frame" x="98" y="44" width="218" height="195"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="239" id="BSK-8q-8fI"/>
                                     <constraint firstAttribute="width" constant="218" id="jmc-fw-Xb0"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9F-QE-aPP">
-                                <rect key="frame" x="100" y="587.5" width="214" height="49"/>
+                                <rect key="frame" x="100" y="543.5" width="214" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="2wG-fV-Cdy"/>
                                     <constraint firstAttribute="width" constant="214" id="bNl-jB-OEN"/>
@@ -1340,7 +1358,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hgt-a6-GOB">
-                                <rect key="frame" x="84" y="364" width="246.5" height="115.5"/>
+                                <rect key="frame" x="84" y="320" width="246.5" height="115.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crea tu perfil de " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzq-fK-75N">
                                         <rect key="frame" x="0.0" y="0.0" width="246.5" height="38.5"/>
