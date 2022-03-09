@@ -16,6 +16,7 @@ class MiPerfilPostCollectionViewController: UICollectionViewController {
     let datasource = ["1","2","3","4","5","6"]
     let defaults = UserDefaults.standard
     var imagenPasar:UIImage?
+    /*
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let url = "http://desarrolladorapp.com/inkme/public/api/cargarPerfil"
@@ -34,13 +35,14 @@ class MiPerfilPostCollectionViewController: UICollectionViewController {
         self.collectionView?.dataSource = self
         self.collectionView.reloadData()
     }
+    */
     
     
     
     
     
     
-    
+    //*
     override func viewDidLoad() {
         super.viewDidLoad()
         

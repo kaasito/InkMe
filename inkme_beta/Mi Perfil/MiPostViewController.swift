@@ -10,6 +10,7 @@ import AlamofireImage
 import Alamofire
 class MiPostViewController: UIViewController {
 
+    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var descripcion: UILabel!
     @IBOutlet weak var vista: UIView!
     @IBOutlet weak var usuarioPerfil: UILabel!
@@ -24,6 +25,8 @@ class MiPostViewController: UIViewController {
     var perfilpicurl:String?
     override func viewDidLoad() {
         super.viewDidLoad()
+        shareButton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
+        shareButton.setImageTintColor(UIColor.systemBlue)
         imagenUrl = defaults.string(forKey: "urlMiPerfil")
         let url = URL(string: imagenUrl ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg")
         imagenSeleccionada.af.setImage(withURL: url!)
@@ -59,6 +62,12 @@ class MiPostViewController: UIViewController {
         
     }
 
+    @IBAction func shareButtonTap(_ sender: Any) {
+        let activityVC = UIActivityViewController(activityItems: ["desarrolladorapp.com/inkme/public/post/\(defaults.integer(forKey: "idMiPerfil"))"], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
+        
+    }
 }
 
 
