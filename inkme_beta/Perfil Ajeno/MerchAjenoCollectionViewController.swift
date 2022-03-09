@@ -14,6 +14,8 @@ private let reuseIdentifier = "Cell"
 class MerchAjenoCollectionViewController: UICollectionViewController {
     let defaults = UserDefaults.standard
     var fotos:[MerchAjeno] = []
+    var usuarioFotoPerfil:String?
+    var usuarioNombre:String?
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let url = "http://desarrolladorapp.com/inkme/public/api/cargarMerchLista"
@@ -52,6 +54,20 @@ class MerchAjenoCollectionViewController: UICollectionViewController {
             }
         }
         
+        let url1 = "http://desarrolladorapp.com/inkme/public/api/cargarPerfil"
+        let usuarioId1 = defaults.integer(forKey: "usuarioIdLista")
+        let json1 = ["usuario_id": usuarioId1]
+        AF.request(url1, method: .put, parameters: json1 as Parameters, encoding: JSONEncoding.default).responseDecodable (of: UsuarioMerchAjenoResponse.self) { [self] response in
+            print(response)
+            if (response.value?.status) == 1 {
+                self.usuarioFotoPerfil = (response.value?.usuario?.foto)
+                self.usuarioNombre = (response.value?.usuario?.nombre)
+                collectionView.reloadData()
+            }else{
+                print("no se ha podido hacer fetch")
+            }
+        }
+        
     }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return fotos.count
@@ -60,7 +76,9 @@ class MerchAjenoCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(identifier: "PostAjenoViewController") as? PostAjenoViewController
         defaults.set(fotos[indexPath.row].photo, forKey: "urlPostAjeno")
-        
+        defaults.set(usuarioFotoPerfil, forKey: "profilePicPostAjeno")
+        defaults.set(fotos[indexPath.row].description, forKey: "descriptionPostAjeno")
+        defaults.set(usuarioNombre, forKey: "nicknamePostAjeno")
        performSegue(withIdentifier: "itemmerchajenotap", sender: nil)
      
      }
@@ -99,4 +117,15 @@ struct MerchAjenoResponse:Decodable{
 
 struct MerchAjeno:Decodable{
     let photo:String?
+    let description:String?
+}
+
+struct UsuarioMerchAjenoResponse:Decodable{
+    let status: Int?
+    let usuario: UsuarioMerchAjeno?
+}
+
+struct UsuarioMerchAjeno:Decodable {
+    let foto:String?
+    let nombre:String?
 }

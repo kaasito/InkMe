@@ -13,6 +13,8 @@ private let reuseIdentifier = "Cell"
 class PerfilAjenoCollectionViewController: UICollectionViewController {
     var fotos:[PostGridAjeno] = []
     var usuarioId:Int?
+    var usuarioNombre:String?
+    var usuarioFoto:String?
     let defaults = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,8 @@ class PerfilAjenoCollectionViewController: UICollectionViewController {
             print(response)
             if (response.value?.status) == 1 {
                 self.fotos = (response.value?.usuario?.posts)!
+                self.usuarioNombre = (response.value?.usuario?.nombre)!
+                self.usuarioFoto = (response.value?.usuario?.foto)!
                 collectionView.reloadData()
             }else{
                 print("no se ha podido hacer fetch")
@@ -41,6 +45,10 @@ class PerfilAjenoCollectionViewController: UICollectionViewController {
        
         defaults.set(fotos[indexPath.row].photo, forKey: "urlPostAjeno")
         defaults.set(fotos[indexPath.row].id, forKey: "idPostAjeno")
+        defaults.set(fotos[indexPath.row].title, forKey: "titlePostAjeno")
+        defaults.set(fotos[indexPath.row].description, forKey: "descriptionPostAjeno")
+        defaults.set(usuarioNombre, forKey: "nicknamePostAjeno")
+        defaults.set(usuarioFoto, forKey: "profilePicPostAjeno")
        performSegue(withIdentifier: "itemtapAjeno", sender: nil)
      
      }
@@ -51,6 +59,7 @@ class PerfilAjenoCollectionViewController: UICollectionViewController {
             let url = URL(string: fotos[indexPath.row].photo!)
 
             countryCell.imagenCelda.af.setImage(withURL: url!)
+            
             cell = countryCell
         }
 
@@ -71,9 +80,13 @@ struct ResponseGridPerfilAjeno:Decodable {
 
 struct UsuarioGridAjeno:Decodable {
     let posts: [PostGridAjeno]?
+    let nombre:String?
+    let foto:String?
 }
 
 struct PostGridAjeno:Decodable {
     let photo:String?
     let id:Int?
+    let title:String?
+    let description:String?
 }
