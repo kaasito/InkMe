@@ -10,6 +10,8 @@ import Alamofire
 import AlamofireImage
 
 class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ListaTableViewCellDelgate {
+  
+    
     
     
     var profilepicture = ""
@@ -58,6 +60,21 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         tabla.reloadData()
         refreshControl.endRefreshing()
+    }
+    
+    func callSegueFromCell(_ cell: ListaTableViewCell, didSelectNickName index: Bool) {
+        if index == true{
+            
+            
+            userId = (cell.user?.id)!
+            defaults.set(userId, forKey: "usuarioIdLista")
+            ubicacion = (cell.user?.location)!
+            estilos = (cell.user?.styles)!
+            profilepicture = (cell.user?.profile_picture) ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg"
+            nombreUsuario = (cell.user?.name)!
+            performSegue(withIdentifier: "fromnickname", sender: nil)
+        }
+
     }
  
     func didPressFotoPerfil(_ cell: ListaTableViewCell, didSelecProfilePic index: Bool) {

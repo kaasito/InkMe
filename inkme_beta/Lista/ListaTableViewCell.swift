@@ -11,12 +11,14 @@ import AlamofireImage
 protocol ListaTableViewCellDelgate {
     func listaTableViewCell(_ cell:ListaTableViewCell, didSelectImageAtIndex index: Int)
     func didPressFotoPerfil(_ cell:ListaTableViewCell, didSelecProfilePic index: Bool)
+    func callSegueFromCell(_ cell:ListaTableViewCell, didSelectNickName index: Bool)
 }
 
 
 
 class ListaTableViewCell: UITableViewCell {
     var delegate: ListaTableViewCellDelgate?
+    
     var user: User? {
         didSet {
             renderUI()
@@ -24,6 +26,7 @@ class ListaTableViewCell: UITableViewCell {
     }
     
     var id = 0
+   
     @IBOutlet weak var nickname: UIButton!
     @IBOutlet weak var tarjeta: UIView!
     @IBOutlet weak var img3: UIImageView!
@@ -32,7 +35,6 @@ class ListaTableViewCell: UITableViewCell {
     @IBOutlet weak var vista: UIView!
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var categoria: UILabel!
-    
     
     @IBOutlet weak var location: UILabel!
     override func awakeFromNib() {
@@ -62,6 +64,9 @@ class ListaTableViewCell: UITableViewCell {
     
    
     
+    @IBAction func didpressedButtonNicknAME(_ sender: Any) {
+        delegate?.callSegueFromCell(self, didSelectNickName: true)
+    }
     @objc func imageTappedImg1(tapGestureRecognizer: UITapGestureRecognizer)
     {
         

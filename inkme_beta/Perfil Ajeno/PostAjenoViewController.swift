@@ -8,7 +8,8 @@
 import UIKit
 import AlamofireImage
 class PostAjenoViewController: UIViewController {
-
+    
+    
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var imagenAcARGAR: UIImageView!
     var url: URL?

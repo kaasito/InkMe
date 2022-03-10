@@ -13,6 +13,7 @@ class PostViewController: UIViewController {
 
     
     
+    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var vistaLabel: UIView!
     @IBOutlet weak var desc: UILabel!
@@ -26,6 +27,8 @@ class PostViewController: UIViewController {
         super.viewDidLoad()
         shareButton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
         shareButton.setImageTintColor(UIColor.systemBlue)
+        saveButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        saveButton.setImageTintColor(UIColor.systemBlue)
         vistaLabel.layer.cornerRadius = 10
         imagenPerfil.layer.cornerRadius = imagenPerfil.frame.size.width / 2
         imagenPerfil.clipsToBounds = true
@@ -61,6 +64,14 @@ class PostViewController: UIViewController {
         self.present(activityVC, animated: true, completion: nil)
     }
     
+    @IBAction func favoritoPressed(_ sender: Any) {
+      
+        if saveButton.currentImage == UIImage(systemName: "bookmark"){
+            saveButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+        }else{
+            saveButton.setImage( UIImage(systemName: "bookmark"), for: .normal)
+        }
+    }
 }
 
 struct ResponsePost: Decodable{
