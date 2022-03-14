@@ -11,8 +11,8 @@ import AlamofireImage
 
 class PostViewController: UIViewController {
 
-    
-    
+    var ids:[Int] = []
+    let defaults = UserDefaults.standard
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var vistaLabel: UIView!
@@ -27,8 +27,10 @@ class PostViewController: UIViewController {
         super.viewDidLoad()
         shareButton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
         shareButton.setImageTintColor(UIColor.systemBlue)
-        saveButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        saveButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        saveButton.setImage(UIImage(systemName: "plus"), for: .highlighted)
         saveButton.setImageTintColor(UIColor.systemBlue)
+        print("curretn",saveButton.currentImage)
         vistaLabel.layer.cornerRadius = 10
         imagenPerfil.layer.cornerRadius = imagenPerfil.frame.size.width / 2
         imagenPerfil.clipsToBounds = true
@@ -66,10 +68,17 @@ class PostViewController: UIViewController {
     
     @IBAction func favoritoPressed(_ sender: Any) {
       
-        if saveButton.currentImage == UIImage(systemName: "bookmark"){
-            saveButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+        if defaults.array(forKey: "favoritos") != nil{
+            var nums = UserDefaults.standard.array(forKey: "favoritos") as! [Int]
+            nums.insert(id, at: 0)
+            UserDefaults.standard.set(nums, forKey: "favoritos")
         }else{
-            saveButton.setImage( UIImage(systemName: "bookmark"), for: .normal)
+          defaults.set([Int](), forKey: "favoritos")
+            var nums = UserDefaults.standard.array(forKey: "favoritos") as! [Int]
+            nums.insert(id, at: 0)
+            UserDefaults.standard.set(nums, forKey: "favoritos")
+            
+            
         }
     }
 }
