@@ -45,7 +45,6 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         textView.backgroundColor = #colorLiteral(red: 0.1058823529, green: 0.1058823529, blue: 0.1137254902, alpha: 1)
         imagenSeleccionada.layer.borderWidth = 1
         imagenSeleccionada.layer.borderColor = UIColor.black.cgColor
-        imagenSeleccionada.af.setImage(withURL: URL(string: "https://ps.w.org/wp-s3-smart-upload/assets/icon-128x128.png?rev=2503196")!)
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {

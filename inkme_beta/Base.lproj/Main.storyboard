@@ -345,40 +345,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fYt-t6-6fB">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nube" translatesAutoresizingMaskIntoConstraints="NO" id="fYt-t6-6fB">
                                 <rect key="frame" x="20" y="91" width="374" height="374"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ytf-hl-aMn">
+                                <rect key="frame" x="30" y="508" width="354" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Pulsa para seleccionar una foto">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="abrirGaleria:" destination="LjQ-7W-oMT" eventType="touchUpInside" id="nNq-Vf-vmx"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eui-FU-6wy">
-                                <rect key="frame" x="163" y="661" width="89" height="30"/>
+                                <rect key="frame" x="163" y="731" width="89" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Buscar estilo">
                                     <color key="titleColor" systemColor="linkColor"/>
                                 </state>
                                 <connections>
                                     <action selector="buscarPulsado:" destination="LjQ-7W-oMT" eventType="touchUpInside" id="rDk-6h-wUs"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tAa-qU-6da">
-                                <rect key="frame" x="30" y="568" width="354" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Abrir Cámara" backgroundImage="Button">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="abrirCamara:" destination="LjQ-7W-oMT" eventType="touchUpInside" id="yCm-3y-5VR"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ytf-hl-aMn">
-                                <rect key="frame" x="30" y="508" width="354" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Seleccionar de la galería" backgroundImage="Button">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="abrirGaleria:" destination="LjQ-7W-oMT" eventType="touchUpInside" id="nNq-Vf-vmx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -389,7 +378,6 @@
                     <navigationItem key="navigationItem" id="Ej4-XI-O0O"/>
                     <connections>
                         <outlet property="botonBuscar" destination="eui-FU-6wy" id="ehv-7r-eQb"/>
-                        <outlet property="botonCamara" destination="tAa-qU-6da" id="RHA-ul-rzV"/>
                         <outlet property="botonGaleria" destination="Ytf-hl-aMn" id="ebE-Yj-IPg"/>
                         <outlet property="imagenSeleccionada" destination="fYt-t6-6fB" id="ZUR-e5-PVf"/>
                     </connections>
@@ -1436,7 +1424,7 @@
                                     <action selector="enviarBoton:" destination="Crb-8G-UDB" eventType="touchUpInside" id="j7q-4L-jBP"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ERi-zq-gYt">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nube" translatesAutoresizingMaskIntoConstraints="NO" id="ERi-zq-gYt">
                                 <rect key="frame" x="39" y="50" width="336" height="322"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -2359,6 +2347,7 @@
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="merch" width="334" height="310"/>
+        <image name="nube" width="1000" height="1000"/>
         <image name="perfil" width="351" height="287"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="plus" catalog="system" width="128" height="113"/>
