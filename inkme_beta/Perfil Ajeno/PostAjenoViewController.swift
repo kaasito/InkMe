@@ -10,6 +10,7 @@ import AlamofireImage
 class PostAjenoViewController: UIViewController {
     
     
+    @IBOutlet weak var favbuton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var imagenAcARGAR: UIImageView!
     var url: URL?
@@ -19,6 +20,9 @@ class PostAjenoViewController: UIViewController {
     let defaults = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
+        favbuton.setImage(UIImage(systemName: "plus"), for: .normal)
+        favbuton.setImage(UIImage(systemName: "plus"), for: .highlighted)
+        favbuton.setImageTintColor(UIColor.systemBlue)
         imagenPerfil.layer.cornerRadius = imagenPerfil.frame.size.width / 2
         imagenPerfil.clipsToBounds = true
         shareButton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
@@ -32,6 +36,21 @@ class PostAjenoViewController: UIViewController {
     }
     
 
+    @IBAction func favsbutton(_ sender: Any) {
+        let id = defaults.integer(forKey: "idPostAjeno")
+        if defaults.array(forKey: "favoritos") != nil{
+            var nums = UserDefaults.standard.array(forKey: "favoritos") as! [Int]
+            nums.insert(id, at: 0)
+            UserDefaults.standard.set(nums, forKey: "favoritos")
+        }else{
+          defaults.set([Int](), forKey: "favoritos")
+            var nums = UserDefaults.standard.array(forKey: "favoritos") as! [Int]
+            nums.insert(id, at: 0)
+            UserDefaults.standard.set(nums, forKey: "favoritos")
+            
+            
+        }
+    }
     @IBAction func shareButtonTapped(_ sender: Any) {
         let activityVC = UIActivityViewController(activityItems: ["desarrolladorapp.com/inkme/public/post/\(defaults.integer(forKey: "idPostAjeno"))"], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view

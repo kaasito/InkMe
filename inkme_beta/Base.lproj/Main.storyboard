@@ -2235,6 +2235,23 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVw-Ic-qqH">
+                                        <rect key="frame" x="275" y="56" width="44" height="52"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="8IY-Wk-oC8"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="UlX-9U-Kta"/>
+                                            <constraint firstAttribute="width" constant="44" id="aaK-Nn-BoO"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="52" id="w7x-j4-AOQ"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="favoritoPressed:" destination="xY6-oj-pVV" eventType="touchUpInside" id="AwO-hy-klM"/>
+                                            <action selector="favsbutton:" destination="Gcd-ar-mPn" eventType="touchUpInside" id="gVv-SS-1es"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1058823529" green="0.1058823529" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -2246,8 +2263,10 @@
                                     <constraint firstItem="r70-hf-74n" firstAttribute="top" secondItem="4Nn-Ak-NvG" secondAttribute="bottom" constant="34" id="E3e-fO-5Zr"/>
                                     <constraint firstItem="r70-hf-74n" firstAttribute="centerX" secondItem="4Nn-Ak-NvG" secondAttribute="centerX" constant="9" id="EVv-dk-JJl"/>
                                     <constraint firstItem="r70-hf-74n" firstAttribute="leading" secondItem="NdB-7i-kPR" secondAttribute="leadingMargin" constant="9" id="GJo-oW-TRz"/>
+                                    <constraint firstItem="CVw-Ic-qqH" firstAttribute="trailing" secondItem="JVU-Ig-R4l" secondAttribute="trailing" id="aPR-Xc-E7d"/>
                                     <constraint firstItem="1lq-yR-1cv" firstAttribute="centerY" secondItem="JVU-Ig-R4l" secondAttribute="centerY" id="bjM-cZ-R0l"/>
                                     <constraint firstItem="JVU-Ig-R4l" firstAttribute="top" secondItem="NdB-7i-kPR" secondAttribute="top" constant="18" id="f3x-RG-zUT"/>
+                                    <constraint firstItem="CVw-Ic-qqH" firstAttribute="top" secondItem="JVU-Ig-R4l" secondAttribute="bottom" constant="8" symbolic="YES" id="grc-Z5-6iu"/>
                                     <constraint firstAttribute="trailing" secondItem="4Nn-Ak-NvG" secondAttribute="trailing" constant="74" id="h5S-Ns-Dyh"/>
                                     <constraint firstItem="r70-hf-74n" firstAttribute="leading" secondItem="1lq-yR-1cv" secondAttribute="leading" constant="9" id="kRa-Q6-4Oa"/>
                                     <constraint firstAttribute="trailing" secondItem="JVU-Ig-R4l" secondAttribute="trailing" constant="8" id="yta-9c-M7i"/>
@@ -2270,6 +2289,7 @@
                     <navigationItem key="navigationItem" id="spM-gy-9lW"/>
                     <connections>
                         <outlet property="descripcionajeno" destination="r70-hf-74n" id="kIs-Gx-8IL"/>
+                        <outlet property="favbuton" destination="CVw-Ic-qqH" id="V5o-7u-cjH"/>
                         <outlet property="imagenAcARGAR" destination="N7u-6A-sFG" id="0r2-VE-g79"/>
                         <outlet property="imagenPerfil" destination="1lq-yR-1cv" id="xq0-e1-rye"/>
                         <outlet property="nicknameajeno" destination="4Nn-Ak-NvG" id="qzj-fo-4Jm"/>
