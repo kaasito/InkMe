@@ -21,7 +21,6 @@ class PostAjenoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         favbuton.setImage(UIImage(systemName: "plus"), for: .normal)
-        favbuton.setImage(UIImage(systemName: "plus"), for: .highlighted)
         favbuton.setImageTintColor(UIColor.systemBlue)
         imagenPerfil.layer.cornerRadius = imagenPerfil.frame.size.width / 2
         imagenPerfil.clipsToBounds = true

@@ -11,6 +11,7 @@ import AlamofireImage
 
 class MiPerfilViewController: UIViewController {
 
+    @IBOutlet weak var calendario: UIButton!
     @IBOutlet weak var subirpost: UIButton!
     @IBOutlet weak var subirmerch: UIButton!
     @IBOutlet weak var nombrePerfil: UILabel!
@@ -35,7 +36,8 @@ class MiPerfilViewController: UIViewController {
             segmentado.isHidden = true
         }else{
             tutorial.isHidden = true
-           
+            calendario.setImage(UIImage(systemName: "calendar.badge.plus"), for: .normal)
+            calendario.setImageTintColor(UIColor.systemBlue)
             let url = "http://desarrolladorapp.com/inkme/public/api/cargarPerfil"
             let idUsuario = defaults.integer(forKey: "id")
             let json = ["usuario_id": String(idUsuario)]

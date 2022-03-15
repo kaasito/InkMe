@@ -14,6 +14,10 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     
+    @IBOutlet weak var botonBuscar: UIButton!
+    
+    var apitoken:String? = ""
+    var json: [String: String]?
     var profilepicture = ""
     var estilos = ""
     var ubicacion = ""
@@ -30,14 +34,14 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         refreshControl.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0);
         let attr = [NSAttributedString.Key.foregroundColor:UIColor.white]
-        
+        barraBusca.autocapitalizationType = .none
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: attr)
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         tabla.addSubview(refreshControl) // not required when using UITableViewController
         self.tabla.delegate = self
         self.tabla.dataSource = self
         barraBusca.searchTextField.textColor = .white
-        
+//
         NetWorkingProvider.shared.getUser() { arrayUsuarios in
             self.usuarios = arrayUsuarios
             self.tabla.reloadData()
@@ -50,7 +54,27 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-   
+    @IBAction func didPressedSearch(_ sender: Any) {
+      
+        let url = "http://desarrolladorapp.com/inkme/public/api/fetchFeed"
+        apitoken = defaults.string(forKey: "token")
+        
+        if apitoken == nil{
+            self.json = ["api_token": "", "name": barraBusca.text!]
+        }else{
+            self.json = ["api_token": apitoken!, "name": barraBusca.text!]
+        }
+        
+        AF.request(url, method: .put, parameters: json,encoding: JSONEncoding.default).responseDecodable (of: Response.self) { response in
+            print(response)
+            if (response.value?.usuarios) != nil {
+                self.usuarios = response.value!.usuarios
+                self.tabla.reloadData()
+            }else{
+                print("no se ha podido hacer fetch")
+            }
+        }
+    }
     @objc func refresh(_ sender: AnyObject) {
         NetWorkingProvider.shared.getUser() { arrayUsuarios in
             self.usuarios = arrayUsuarios
@@ -77,6 +101,8 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     }
  
+   
+    
     func didPressFotoPerfil(_ cell: ListaTableViewCell, didSelecProfilePic index: Bool) {
         if index == true{
             
@@ -159,4 +185,26 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+}
+
+
+
+
+
+struct ResponseBusqueda:Decodable {
+    let usuarios:[UserBusqueda]
+}
+struct UserBusqueda:Decodable  {
+    let name: String?
+    let profile_picture: String?
+    let location: String?
+    let styles: String?
+    let posts:[PostBusqueda]?
+    let id:Int?
+    
+}
+
+struct PostBusqueda:Decodable  {
+    let photo:String?
+    let id: Int?
 }

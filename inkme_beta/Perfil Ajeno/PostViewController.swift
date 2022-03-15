@@ -28,9 +28,7 @@ class PostViewController: UIViewController {
         shareButton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
         shareButton.setImageTintColor(UIColor.systemBlue)
         saveButton.setImage(UIImage(systemName: "plus"), for: .normal)
-        saveButton.setImage(UIImage(systemName: "plus"), for: .highlighted)
         saveButton.setImageTintColor(UIColor.systemBlue)
-        print("curretn",saveButton.currentImage)
         vistaLabel.layer.cornerRadius = 10
         imagenPerfil.layer.cornerRadius = imagenPerfil.frame.size.width / 2
         imagenPerfil.clipsToBounds = true

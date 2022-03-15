@@ -42,8 +42,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Buscar perfiles, categorías..." translatesAutoresizingMaskIntoConstraints="NO" id="yf7-2d-DEo">
-                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Buscar perfiles, categorías..." translatesAutoresizingMaskIntoConstraints="NO" id="yf7-2d-DEo">
+                                <rect key="frame" x="0.0" y="88" width="358" height="51"/>
                                 <color key="backgroundColor" systemColor="labelColor"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -188,6 +188,15 @@
                                     <outlet property="dataSource" destination="7gM-Jm-0S5" id="a3G-CW-YQn"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFc-ch-0ir">
+                                <rect key="frame" x="347" y="90" width="62" height="47"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressedSearch:" destination="7gM-Jm-0S5" eventType="touchUpInside" id="ndQ-re-z6T"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3wc-la-uXe"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
@@ -195,16 +204,21 @@
                         <constraints>
                             <constraint firstItem="8ks-J4-Ag2" firstAttribute="leading" secondItem="3wc-la-uXe" secondAttribute="leading" constant="28" id="2gK-v9-d22"/>
                             <constraint firstItem="8ks-J4-Ag2" firstAttribute="top" secondItem="yf7-2d-DEo" secondAttribute="bottom" constant="32" id="5FA-gx-mjP"/>
-                            <constraint firstItem="yf7-2d-DEo" firstAttribute="trailing" secondItem="3wc-la-uXe" secondAttribute="trailing" id="99K-ry-m6n"/>
+                            <constraint firstItem="yf7-2d-DEo" firstAttribute="trailing" secondItem="3wc-la-uXe" secondAttribute="trailing" constant="-56" id="99K-ry-m6n"/>
+                            <constraint firstItem="cFc-ch-0ir" firstAttribute="top" secondItem="3wc-la-uXe" secondAttribute="top" constant="2" id="JCi-h7-2t8"/>
                             <constraint firstItem="yf7-2d-DEo" firstAttribute="leading" secondItem="3wc-la-uXe" secondAttribute="leading" id="JZL-XC-6vz"/>
                             <constraint firstItem="yf7-2d-DEo" firstAttribute="top" secondItem="3wc-la-uXe" secondAttribute="top" id="OL6-VN-yBP"/>
                             <constraint firstItem="3wc-la-uXe" firstAttribute="trailing" secondItem="8ks-J4-Ag2" secondAttribute="trailing" constant="28" id="W2e-Vd-VMD"/>
+                            <constraint firstItem="3wc-la-uXe" firstAttribute="trailing" secondItem="cFc-ch-0ir" secondAttribute="trailing" constant="5" id="ZG5-4d-JVD"/>
                             <constraint firstItem="3wc-la-uXe" firstAttribute="bottom" secondItem="8ks-J4-Ag2" secondAttribute="bottom" constant="28" id="egN-tE-wH5"/>
+                            <constraint firstItem="cFc-ch-0ir" firstAttribute="leading" secondItem="3wc-la-uXe" secondAttribute="leading" constant="347" id="qsw-VX-lH3"/>
+                            <constraint firstItem="cFc-ch-0ir" firstAttribute="centerY" secondItem="yf7-2d-DEo" secondAttribute="centerY" id="tpI-2G-EUy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Lista" id="ase-Uw-VVA"/>
                     <connections>
                         <outlet property="barraBusca" destination="yf7-2d-DEo" id="6V7-HR-rOx"/>
+                        <outlet property="botonBuscar" destination="cFc-ch-0ir" id="oJJ-Fu-J02"/>
                         <outlet property="tabla" destination="8ks-J4-Ag2" id="ZwH-Hj-fad"/>
                         <segue destination="Ps6-Hl-oEe" kind="presentation" identifier="AtutorialUsuario" modalPresentationStyle="fullScreen" id="RBV-Yv-NMu"/>
                         <segue destination="xY6-oj-pVV" kind="show" identifier="post" id="HAR-IC-P06"/>
@@ -220,14 +234,14 @@
             <objects>
                 <viewController id="xY6-oj-pVV" customClass="PostViewController" customModule="inkme_beta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tCi-84-lGj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UsL-Wp-LJv">
-                                <rect key="frame" x="0.0" y="136" width="414" height="321"/>
+                                <rect key="frame" x="0.0" y="136" width="414" height="414"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVR-VL-hCe">
-                                <rect key="frame" x="20" y="491" width="374" height="184"/>
+                                <rect key="frame" x="20" y="584" width="374" height="184"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YpZ-Bx-Zxb">
                                         <rect key="frame" x="8" y="8" width="50" height="51"/>
@@ -328,7 +342,7 @@
             <objects>
                 <viewController id="LjQ-7W-oMT" customClass="CamaraViewController" customModule="inkme_beta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qq7-1y-Tby">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fYt-t6-6fB">
@@ -392,6 +406,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pt9-0A-3qO">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" systemColor="labelColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" systemColor="systemBackgroundColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="xAw-td-xCi" kind="relationship" relationship="rootViewController" id="03W-gO-gmW"/>
@@ -401,16 +421,16 @@
             </objects>
             <point key="canvasLocation" x="1151" y="1295"/>
         </scene>
-        <!--Lista Favoritoss View Controller-->
+        <!--Favoritos-->
         <scene sceneID="n9E-st-Cup">
             <objects>
                 <viewController id="xAw-td-xCi" customClass="ListaFavoritossViewController" customModule="inkme_beta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zch-pO-xJk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pJd-x2-c5I">
-                                <rect key="frame" x="0.0" y="88" width="414" height="632"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavsCell" rowHeight="216" id="9aa-5R-eYn" customClass="FavsTableViewCell" customModule="inkme_beta" customModuleProvider="target">
@@ -504,7 +524,7 @@
                             <constraint firstItem="pJd-x2-c5I" firstAttribute="leading" secondItem="Acl-iQ-saJ" secondAttribute="leading" id="ma4-Sw-SJY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="tj3-B6-Mc0"/>
+                    <navigationItem key="navigationItem" title="Favoritos" id="tj3-B6-Mc0"/>
                     <connections>
                         <outlet property="tabla" destination="pJd-x2-c5I" id="Q1r-Vn-k6P"/>
                         <segue destination="xY6-oj-pVV" kind="show" identifier="fromfavs" id="5Oa-YL-7sx"/>
@@ -1084,6 +1104,16 @@
                                             <color key="titleColor" systemColor="linkColor"/>
                                         </state>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynQ-yv-sae">
+                                        <rect key="frame" x="323" y="8" width="45" height="39"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="a9A-V5-qUC"/>
+                                            <constraint firstAttribute="height" constant="39" id="sZQ-EL-HyY"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.10588235294117647" green="0.10588235294117647" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -1093,13 +1123,17 @@
                                     <constraint firstAttribute="bottom" secondItem="Adx-1t-MOW" secondAttribute="bottom" constant="7" id="EJL-iN-Fea"/>
                                     <constraint firstItem="tBP-xi-6f6" firstAttribute="leading" secondItem="Bxo-Lq-Lol" secondAttribute="leading" constant="8" id="Exh-sG-hcP"/>
                                     <constraint firstItem="8Mb-4p-f6o" firstAttribute="top" secondItem="8Hw-1k-SNV" secondAttribute="bottom" constant="13.5" id="GkX-91-Eo1"/>
+                                    <constraint firstAttribute="bottom" secondItem="ynQ-yv-sae" secondAttribute="bottom" constant="140" id="IBd-D5-naZ"/>
                                     <constraint firstItem="Adx-1t-MOW" firstAttribute="leading" secondItem="Bxo-Lq-Lol" secondAttribute="leading" constant="84" id="NPv-zr-6oZ"/>
                                     <constraint firstAttribute="bottom" secondItem="8Mb-4p-f6o" secondAttribute="bottom" constant="0.5" id="NWd-aW-vFV"/>
+                                    <constraint firstAttribute="trailing" secondItem="ynQ-yv-sae" secondAttribute="trailing" constant="5" id="REU-ZP-wgp"/>
                                     <constraint firstItem="tBP-xi-6f6" firstAttribute="top" secondItem="Bxo-Lq-Lol" secondAttribute="top" constant="8" id="YlJ-IN-8ZY"/>
                                     <constraint firstItem="8Hw-1k-SNV" firstAttribute="leading" secondItem="tBP-xi-6f6" secondAttribute="trailing" constant="19" id="a8Q-mS-7VI"/>
                                     <constraint firstItem="8Mb-4p-f6o" firstAttribute="leading" secondItem="Adx-1t-MOW" secondAttribute="trailing" constant="78" id="aL9-xx-09b"/>
                                     <constraint firstItem="8Hw-1k-SNV" firstAttribute="top" secondItem="Bxo-Lq-Lol" secondAttribute="top" constant="31" id="dtL-mo-zWP"/>
                                     <constraint firstItem="Adx-1t-MOW" firstAttribute="top" secondItem="tBP-xi-6f6" secondAttribute="bottom" constant="14" id="kXJ-Bi-3Co"/>
+                                    <constraint firstItem="ynQ-yv-sae" firstAttribute="leading" secondItem="8Hw-1k-SNV" secondAttribute="trailing" constant="-1" id="qKK-lh-u2I"/>
+                                    <constraint firstItem="ynQ-yv-sae" firstAttribute="top" secondItem="Bxo-Lq-Lol" secondAttribute="top" constant="8" id="uji-EK-yCw"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cs-cd-tpe">
@@ -1151,6 +1185,7 @@
                     <tabBarItem key="tabBarItem" title=" Perfil" image="person" catalog="system" id="Ssm-Jj-anl"/>
                     <navigationItem key="navigationItem" title="Tu Perfil" id="tZj-Y9-nur"/>
                     <connections>
+                        <outlet property="calendario" destination="ynQ-yv-sae" id="113-oy-Xuy"/>
                         <outlet property="estiloLabel" destination="ej9-rh-76X" id="nS6-6m-VQm"/>
                         <outlet property="imagenPerfil" destination="tBP-xi-6f6" id="B8K-Fe-X6N"/>
                         <outlet property="merchView" destination="1cs-cd-tpe" id="IWR-WM-s9L"/>
@@ -2303,10 +2338,10 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="rdm-eZ-Eib"/>
-        <segue reference="XIf-P7-6pM"/>
+        <segue reference="xyM-r6-hTw"/>
         <segue reference="tuK-WS-S6b"/>
         <segue reference="saX-5Z-NEW"/>
-        <segue reference="5Oa-YL-7sx"/>
+        <segue reference="HAR-IC-P06"/>
         <segue reference="tcU-P5-qzQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2322,6 +2357,7 @@
         <image name="explora" width="361" height="281"/>
         <image name="harry2" width="1200" height="800"/>
         <image name="house" catalog="system" width="128" height="106"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="merch" width="334" height="310"/>
         <image name="perfil" width="351" height="287"/>
         <image name="person" catalog="system" width="128" height="117"/>
