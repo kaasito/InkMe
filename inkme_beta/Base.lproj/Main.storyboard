@@ -10,6 +10,28 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Item-->
+        <scene sceneID="uaU-Mp-H0C">
+            <objects>
+                <navigationController id="jbp-fn-jdR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="uIE-nm-TCv"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MRD-HA-T7D">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" systemColor="labelColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="LjQ-7W-oMT" kind="relationship" relationship="rootViewController" id="gKF-HY-uZe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OLb-sl-Vhc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-391" y="1354"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="NpT-cG-wJ9">
             <objects>
@@ -25,7 +47,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="FkO-Va-dDS" kind="relationship" relationship="viewControllers" id="jcN-Sa-EEa"/>
-                        <segue destination="LjQ-7W-oMT" kind="relationship" relationship="viewControllers" id="3uC-Jr-14H"/>
+                        <segue destination="jbp-fn-jdR" kind="relationship" relationship="viewControllers" id="QAe-eE-KzN"/>
                         <segue destination="x5z-ue-sSr" kind="relationship" relationship="viewControllers" id="ulg-jG-EE4"/>
                         <segue destination="Wpq-ZU-GY0" kind="relationship" relationship="viewControllers" id="E9k-7n-Y7P"/>
                     </connections>
@@ -227,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bqs-x3-P4O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-294.20289855072468" y="1338.6160714285713"/>
+            <point key="canvasLocation" x="-1199" y="1339"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="90Y-tK-sOs">
@@ -353,12 +375,106 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qyS-eU-4ru" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="357" y="2117"/>
+            <point key="canvasLocation" x="-259" y="2117"/>
         </scene>
-        <!--AI-->
+        <!--ResultadoML View Controller-->
+        <scene sceneID="ha7-kW-jTW">
+            <objects>
+                <viewController id="Jr4-AV-ncy" customClass="ResultadoMLViewController" customModule="inkme_beta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jhk-3L-QxN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0e-ft-YAj">
+                                <rect key="frame" x="0.0" y="147" width="414" height="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAx-XJ-HSH">
+                                <rect key="frame" x="0.0" y="203" width="414" height="600"/>
+                                <connections>
+                                    <segue destination="XYH-0d-kzg" kind="embed" id="2oL-DW-zrG"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cdM-c2-jXN"/>
+                        <color key="backgroundColor" systemColor="labelColor"/>
+                        <constraints>
+                            <constraint firstItem="cdM-c2-jXN" firstAttribute="trailing" secondItem="zAx-XJ-HSH" secondAttribute="trailing" id="02E-1X-Mm1"/>
+                            <constraint firstItem="cdM-c2-jXN" firstAttribute="bottom" secondItem="zAx-XJ-HSH" secondAttribute="bottom" id="TPq-gw-sLP"/>
+                            <constraint firstItem="w0e-ft-YAj" firstAttribute="centerX" secondItem="jhk-3L-QxN" secondAttribute="centerX" id="fJU-EK-RWr"/>
+                            <constraint firstItem="zAx-XJ-HSH" firstAttribute="leading" secondItem="cdM-c2-jXN" secondAttribute="leading" id="fcc-kf-0Ca"/>
+                            <constraint firstItem="w0e-ft-YAj" firstAttribute="top" secondItem="cdM-c2-jXN" secondAttribute="top" constant="59" id="h5Q-eY-gm1"/>
+                            <constraint firstItem="zAx-XJ-HSH" firstAttribute="top" secondItem="w0e-ft-YAj" secondAttribute="bottom" constant="8" id="lgp-FC-P21"/>
+                            <constraint firstItem="w0e-ft-YAj" firstAttribute="leading" secondItem="cdM-c2-jXN" secondAttribute="leading" id="tee-Ra-qWl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Hu4-gU-4rN"/>
+                    <connections>
+                        <outlet property="estiloMasAccurateLabel" destination="w0e-ft-YAj" id="ehc-a2-wph"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YFb-rc-MZ6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="611.59420289855075" y="2098.6607142857142"/>
+        </scene>
+        <!--ResultadoML Collection View Controller-->
+        <scene sceneID="Ui6-Tx-yOt">
+            <objects>
+                <collectionViewController id="XYH-0d-kzg" customClass="ResultadoMLCollectionViewController" customModule="inkme_beta" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="xdd-ZC-IbC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="labelColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="20" minimumInteritemSpacing="10" id="zLd-LS-VHM">
+                            <size key="itemSize" width="100" height="100"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="20" minY="30" maxX="20" maxY="30"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="celdagridML" id="lXA-9A-Tbs" customClass="ResultadoMLCollectionViewCell" customModule="inkme_beta" customModuleProvider="target">
+                                <rect key="frame" x="20" y="30" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="qEw-sT-nxx">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o5w-pl-Gc8">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="8Y3-HE-e7T"/>
+                                                <constraint firstAttribute="width" constant="100" id="XEC-pf-oh0"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="o5w-pl-Gc8" secondAttribute="bottom" id="AMM-dc-wJx"/>
+                                        <constraint firstItem="o5w-pl-Gc8" firstAttribute="leading" secondItem="qEw-sT-nxx" secondAttribute="leading" id="Gp2-uf-GzX"/>
+                                        <constraint firstItem="o5w-pl-Gc8" firstAttribute="top" secondItem="qEw-sT-nxx" secondAttribute="top" id="SWs-p7-ygD"/>
+                                        <constraint firstAttribute="trailing" secondItem="o5w-pl-Gc8" secondAttribute="trailing" id="uZ8-cu-ttP"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="imagenCelda" destination="o5w-pl-Gc8" id="ErB-J4-aSG"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="XYH-0d-kzg" id="JOq-sG-pLl"/>
+                            <outlet property="delegate" destination="XYH-0d-kzg" id="O5f-Qq-IAu"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="odT-Kq-GSc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1311" y="2661"/>
+        </scene>
+        <!--Inteligencia Artificial-->
         <scene sceneID="sAd-2U-ZUO">
             <objects>
-                <viewController id="LjQ-7W-oMT" customClass="CamaraViewController" customModule="inkme_beta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Inteligencia Artificial" id="LjQ-7W-oMT" customClass="CamaraViewController" customModule="inkme_beta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qq7-1y-Tby">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -393,16 +509,17 @@
                         <color key="backgroundColor" systemColor="labelColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="AI" image="atom" catalog="system" id="v7F-MP-6d9"/>
-                    <navigationItem key="navigationItem" id="Ej4-XI-O0O"/>
+                    <navigationItem key="navigationItem" title="Inteligencia Artificial" id="Ej4-XI-O0O"/>
                     <connections>
                         <outlet property="botonBuscar" destination="eui-FU-6wy" id="ehv-7r-eQb"/>
                         <outlet property="botonGaleria" destination="Ytf-hl-aMn" id="ebE-Yj-IPg"/>
                         <outlet property="imagenSeleccionada" destination="fYt-t6-6fB" id="ZUR-e5-PVf"/>
+                        <segue destination="Jr4-AV-ncy" kind="show" identifier="toResult" id="lNu-cn-5ca"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LId-j7-ygY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="443" y="1295"/>
+            <point key="canvasLocation" x="432" y="1339"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iIl-bJ-MG5">
@@ -425,7 +542,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3a-Ht-KxQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1151" y="1295"/>
+            <point key="canvasLocation" x="1175" y="1339"/>
         </scene>
         <!--Favoritos-->
         <scene sceneID="n9E-st-Cup">
@@ -538,7 +655,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFO-ZZ-OQo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1895.6521739130437" y="1294.7544642857142"/>
+            <point key="canvasLocation" x="1926" y="1339"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oBp-7g-p64">
@@ -1797,7 +1914,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6oe-0t-mPH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1030" y="1339"/>
+            <point key="canvasLocation" x="-1975" y="1339"/>
         </scene>
         <!--Mi Perfil Post Collection View Controller-->
         <scene sceneID="ckN-XX-KDE">
@@ -2132,7 +2249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9OP-Ct-vsc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-929" y="2117"/>
+            <point key="canvasLocation" x="-1475" y="2117"/>
         </scene>
         <!--Mi Post View Controller-->
         <scene sceneID="EBp-ej-t27">
@@ -2377,7 +2494,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="lP1-Bi-Rwx"/>
         <segue reference="XIf-P7-6pM"/>
-        <segue reference="qSR-CO-qfd"/>
+        <segue reference="Zlz-C5-0tl"/>
         <segue reference="7nE-Zo-edU"/>
         <segue reference="tuK-WS-S6b"/>
         <segue reference="saX-5Z-NEW"/>

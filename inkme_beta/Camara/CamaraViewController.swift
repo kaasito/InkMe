@@ -10,7 +10,9 @@ import CoreML
 
 class CamaraViewController: UIViewController {
     
-    let model = InkMeTatooClasifier_1()
+   let model = TattooClasifier_1()
+    var salida:String?
+    let defaults = UserDefaults.standard
     @IBOutlet weak var botonBuscar: UIButton!
     @IBOutlet var imagenSeleccionada: UIImageView!
     @IBOutlet weak var botonGaleria: UIButton!
@@ -87,8 +89,12 @@ class CamaraViewController: UIViewController {
         
         let bufeada = imagenSeleccionada.image?.toBuffer()
         let output = try? model.prediction(image: bufeada!)
+       
         
-        print("jeje",output?.classLabel)
+        salida = output?.classLabel
+        defaults.setValue(salida, forKey: "estiloML")
+        performSegue(withIdentifier: "toResult", sender: nil)
+       
         
     }
 }
@@ -114,5 +120,11 @@ extension CamaraViewController: UIImagePickerControllerDelegate, UINavigationCon
         imagenSeleccionada.image = image
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toResult"{
+            let destinationController = segue.destination as! ResultadoMLViewController
+            destinationController.estiloMasAccurate = salida
+        }
+    }
 }
 
