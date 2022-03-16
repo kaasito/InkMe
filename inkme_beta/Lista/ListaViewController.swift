@@ -122,7 +122,12 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         case 0:
             imageURL = cell.user?.posts![0].photo ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg"//patron delegate/proxy
             postId = cell.user?.posts![0].id
-            
+            userId = (cell.user?.id)!
+            defaults.set(userId, forKey: "usuarioIdLista")
+            ubicacion = (cell.user?.location)!
+            defaults.set(ubicacion, forKey: "ubicacionIdLista")
+            estilos = (cell.user?.styles)!
+            defaults.set(estilos, forKey: "estilosIdLista")
         case 1:
             imageURL = cell.user?.posts![1].photo ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg"//patron delegate/proxy
             postId = cell.user?.posts![1].id

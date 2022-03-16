@@ -50,12 +50,24 @@ class PostAjenoViewController: UIViewController {
             
         }
     }
+    @IBAction func perfilPressed(_ sender: Any) {
+      performSegue(withIdentifier: "toProfileAjeno", sender: nil)
+    }
     @IBAction func shareButtonTapped(_ sender: Any) {
         let activityVC = UIActivityViewController(activityItems: ["desarrolladorapp.com/inkme/public/post/\(defaults.integer(forKey: "idPostAjeno"))"], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
         self.present(activityVC, animated: true, completion: nil)
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toProfileAjeno"{
+            let destinationController = segue.destination as! PerfilAjenoViewController
+            destinationController.id = defaults.integer(forKey: "usuarioAjeno")
+            destinationController.imagenPerfilString = defaults.string(forKey: "profilePicPostAjeno")
+            destinationController.nombre = defaults.string(forKey: "nicknamePostAjeno")
+            destinationController.estilo = defaults.string(forKey: "stylesPostAjeno")
+            destinationController.ubicacion = defaults.string(forKey: "locationPostAjeno")
+        }
+    }
 }
 
 

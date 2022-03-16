@@ -66,6 +66,7 @@ class MiPerfilPostCollectionViewController: UICollectionViewController {
         refreshControl.endRefreshing()
     }
     
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return fotos.count
     }

@@ -12,6 +12,8 @@ private let reuseIdentifier = "Cell"
 
 class PerfilAjenoCollectionViewController: UICollectionViewController {
     var fotos:[PostGridAjeno] = []
+    var ubicacion:String?
+    var estilos:String?
     var usuarioId:Int?
     var usuarioNombre:String?
     var usuarioFoto:String?
@@ -29,7 +31,9 @@ class PerfilAjenoCollectionViewController: UICollectionViewController {
             print(response)
             if (response.value?.status) == 1 {
                 self.fotos = (response.value?.usuario?.posts)!
+                self.ubicacion = (response.value?.usuario?.ubicacion)!
                 self.usuarioNombre = (response.value?.usuario?.nombre)!
+                self.estilos = (response.value?.usuario?.styles)!
                 self.usuarioFoto = (response.value?.usuario?.foto)!
                 collectionView.reloadData()
             }else{
@@ -37,6 +41,7 @@ class PerfilAjenoCollectionViewController: UICollectionViewController {
             }
         }
     }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return fotos.count
     }
@@ -49,6 +54,9 @@ class PerfilAjenoCollectionViewController: UICollectionViewController {
         defaults.set(fotos[indexPath.row].description, forKey: "descriptionPostAjeno")
         defaults.set(usuarioNombre, forKey: "nicknamePostAjeno")
         defaults.set(usuarioFoto, forKey: "profilePicPostAjeno")
+        defaults.set(estilos, forKey: "stylesPostAjeno")
+        defaults.set(ubicacion, forKey: "locationPostAjeno")
+        defaults.set(usuarioId, forKey: "usuarioAjeno")
        performSegue(withIdentifier: "itemtapAjeno", sender: nil)
      
      }
@@ -82,6 +90,8 @@ struct UsuarioGridAjeno:Decodable {
     let posts: [PostGridAjeno]?
     let nombre:String?
     let foto:String?
+    let styles:String?
+    let ubicacion:String?
 }
 
 struct PostGridAjeno:Decodable {

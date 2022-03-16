@@ -9,7 +9,11 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
+
+
 class PostViewController: UIViewController {
+    
+    
 
     var ids:[Int] = []
     let defaults = UserDefaults.standard
@@ -22,9 +26,14 @@ class PostViewController: UIViewController {
     var nombreUsuario: String?
     var url = ""
     var id = 0
+    var profilePic:String?
+    var usuarioId:Int?
+    var ubicacion:String?
+    var estilos:String?
     @IBOutlet weak var imagen: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         shareButton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
         shareButton.setImageTintColor(UIColor.systemBlue)
         saveButton.setImage(UIImage(systemName: "plus"), for: .normal)
@@ -45,6 +54,7 @@ class PostViewController: UIViewController {
                 self.nombreUsuario = response.value?.usuario?.name
                 self.nicknamelabel.text = self.nombreUsuario
                 let url = URL(string: (response.value?.usuario?.profile_picture) ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg")
+                self.profilePic = response.value?.usuario?.profile_picture
                 self.imagenPerfil.af.setImage(withURL: url!)
                 self.desc.text = response.value?.post?.description
                 
@@ -57,12 +67,17 @@ class PostViewController: UIViewController {
         
     }
     
-
+    @IBAction func profilePressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "toProfile2", sender: nil)
+    }
+    
     @IBAction func copartirTapped(_ sender: Any) {
         let activityVC = UIActivityViewController(activityItems: ["desarrolladorapp.com/inkme/public/post/\(id)"], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
         self.present(activityVC, animated: true, completion: nil)
     }
+    
     
     @IBAction func favoritoPressed(_ sender: Any) {
       
@@ -79,7 +94,19 @@ class PostViewController: UIViewController {
             
         }
     }
-}
+    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toProfile2"{
+            let destinationController = segue.destination as! PerfilAjenoViewController
+            destinationController.id = defaults.integer(forKey: "usuarioIdLista")
+            destinationController.imagenPerfilString = profilePic
+            destinationController.nombre = nicknamelabel.text
+            destinationController.estilo = defaults.string(forKey: "estilosIdLista")
+            destinationController.ubicacion = defaults.string(forKey: "ubicacionIdLista")
+        }
+    }
+
 
 struct ResponsePost: Decodable{
     let post: Foto?
@@ -95,5 +122,7 @@ struct Foto:Decodable {
 struct Usuario:Decodable {
     let name: String?
     let profile_picture: String?
+    let id:Int?
 }
 
+}

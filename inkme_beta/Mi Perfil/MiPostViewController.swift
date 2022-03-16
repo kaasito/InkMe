@@ -62,6 +62,9 @@ class MiPostViewController: UIViewController {
         
     }
 
+    @IBAction func aMiperfil(_ sender: Any) {
+        performSegue(withIdentifier: "aMiPerfil", sender: nil)
+    }
     @IBAction func shareButtonTap(_ sender: Any) {
         let activityVC = UIActivityViewController(activityItems: ["desarrolladorapp.com/inkme/public/post/\(defaults.integer(forKey: "idMiPerfil"))"], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
