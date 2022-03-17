@@ -175,7 +175,7 @@ extension SubirViewController: UIImagePickerControllerDelegate, UINavigationCont
         
         picker.dismiss(animated: true, completion: nil)
         
-        
+        info[.phAsset]
         
         let image = info[.imageURL] as? URL
         textoSeleccion.isHidden = true
