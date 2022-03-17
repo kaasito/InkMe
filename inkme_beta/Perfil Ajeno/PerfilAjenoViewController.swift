@@ -37,7 +37,8 @@ class PerfilAjenoViewController: UIViewController {
         compartirBoton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
         compartirBoton.setImageTintColor(UIColor.systemBlue)
         vistaBlanca.layer.cornerRadius = 10
-        nickname.text = nombre
+        let arroba = "@"
+        nickname.text = arroba + nombre!
         ubicacionLabel.text = ubicacion
         estiloLabel.text = estilo
         
@@ -55,8 +56,10 @@ class PerfilAjenoViewController: UIViewController {
         }
     }
     
-    /*
-   
-    */
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "contactar"{
+            let destinationController = segue.destination as! FormularioViewController
+            destinationController.id = id
+        }
+    }
 }
