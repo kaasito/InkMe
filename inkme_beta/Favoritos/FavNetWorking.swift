@@ -14,10 +14,11 @@ final class FavNetWorking {
     let defaults = UserDefaults.standard
     var apitoken:String? = ""
     var json: [String: [Int]]?
+    let op:[Int] = []
     func getUser(success: @escaping (_ posts: [PostFavoritos]) ->(), failure: @escaping (_ error: String) -> ()){
         let url = "http://desarrolladorapp.com/inkme/public/api/listaDeFavs"
        
-        let nums = UserDefaults.standard.array(forKey: "favoritos") as! [Int]
+        let nums = UserDefaults.standard.array(forKey: "favoritos") as! [Int]? ?? op
             self.json = ["ids": nums]
         
          

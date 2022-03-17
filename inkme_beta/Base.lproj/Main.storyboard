@@ -553,7 +553,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pJd-x2-c5I">
-                                <rect key="frame" x="0.0" y="88" width="414" height="632"/>
+                                <rect key="frame" x="0.0" y="68" width="414" height="632"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavsCell" rowHeight="216" id="9aa-5R-eYn" customClass="FavsTableViewCell" customModule="inkme_beta" customModuleProvider="target">
@@ -637,25 +637,37 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flat" translatesAutoresizingMaskIntoConstraints="NO" id="rA3-31-eRu">
+                                <rect key="frame" x="-14" y="300" width="443" height="236"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aquí apareceran tus post favoritos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ULI-mO-mzG">
+                                <rect key="frame" x="0.0" y="574" width="414" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Acl-iQ-saJ"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Acl-iQ-saJ" firstAttribute="bottom" secondItem="pJd-x2-c5I" secondAttribute="bottom" id="AOB-qt-ZEj"/>
-                            <constraint firstItem="pJd-x2-c5I" firstAttribute="top" secondItem="Acl-iQ-saJ" secondAttribute="top" id="KLy-gC-JhN"/>
+                            <constraint firstItem="Acl-iQ-saJ" firstAttribute="bottom" secondItem="pJd-x2-c5I" secondAttribute="bottom" constant="20" id="AOB-qt-ZEj"/>
+                            <constraint firstItem="pJd-x2-c5I" firstAttribute="top" secondItem="Acl-iQ-saJ" secondAttribute="top" constant="-20" id="KLy-gC-JhN"/>
                             <constraint firstItem="Acl-iQ-saJ" firstAttribute="trailing" secondItem="pJd-x2-c5I" secondAttribute="trailing" id="MhZ-n7-6np"/>
                             <constraint firstItem="pJd-x2-c5I" firstAttribute="leading" secondItem="Acl-iQ-saJ" secondAttribute="leading" id="ma4-Sw-SJY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Favoritos" id="tj3-B6-Mc0"/>
                     <connections>
+                        <outlet property="imagenIlu" destination="rA3-31-eRu" id="Kj2-eX-xup"/>
                         <outlet property="tabla" destination="pJd-x2-c5I" id="Q1r-Vn-k6P"/>
+                        <outlet property="textovacio" destination="ULI-mO-mzG" id="cro-tL-TKV"/>
                         <segue destination="xY6-oj-pVV" kind="show" identifier="fromfavs" id="5Oa-YL-7sx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFO-ZZ-OQo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1926" y="1339"/>
+            <point key="canvasLocation" x="1924.6376811594205" y="1338.9508928571429"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oBp-7g-p64">
@@ -2673,7 +2685,7 @@
         <segue reference="qSR-CO-qfd"/>
         <segue reference="tuK-WS-S6b"/>
         <segue reference="saX-5Z-NEW"/>
-        <segue reference="HAR-IC-P06"/>
+        <segue reference="5Oa-YL-7sx"/>
         <segue reference="tcU-P5-qzQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2687,6 +2699,7 @@
         <image name="calendario" width="257" height="239"/>
         <image name="camara" width="327" height="275"/>
         <image name="explora" width="361" height="281"/>
+        <image name="flat" width="700" height="497"/>
         <image name="harry2" width="1200" height="800"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
