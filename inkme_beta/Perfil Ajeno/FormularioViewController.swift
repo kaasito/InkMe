@@ -10,6 +10,7 @@ import Alamofire
 import AlamofireImage
 class FormularioViewController: UIViewController {
 
+    @IBOutlet weak var pickerdate: UIDatePicker!
     @IBOutlet weak var telefono: UITextField!
     @IBOutlet weak var nombre: UITextField!
     @IBOutlet weak var textView: UITextView!
@@ -18,6 +19,8 @@ class FormularioViewController: UIViewController {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action:     #selector(tapGestureHandler))
                view.addGestureRecognizer(tapGesture)
+        pickerdate.setValue(UIColor.white, forKeyPath: "textColor")
+        pickerdate.setValue(false, forKeyPath: "highlightsToday")
         textView.text = "Introduce la información de tu consulta"
         textView.textColor = UIColor.lightGray
         textView.layer.borderWidth = 1
@@ -44,8 +47,12 @@ class FormularioViewController: UIViewController {
         textView.endEditing(true)
     }
     @IBAction func enviarPressed(_ sender: Any) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let selectedDate = dateFormatter.string(from: pickerdate.date)
+    
         let url = "http://desarrolladorapp.com/inkme/public/api/enviarFormulario"
-        let json = ["usuario_id": id, "nombre": nombre.text, "comentario": textView.text, "telefono": telefono.text] as [String : Any]
+        let json = ["usuario_id": id, "nombre": nombre.text, "comentario": textView.text, "telefono": telefono.text, "date": selectedDate] as [String : Any]
         AF.request(url, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: ResponseFormulario.self) { [self] response in
             print(response)
             if (response.value?.status) == 1 {
