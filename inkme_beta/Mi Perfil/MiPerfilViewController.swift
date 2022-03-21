@@ -11,6 +11,7 @@ import AlamofireImage
 
 class MiPerfilViewController: UIViewController {
 
+    @IBOutlet weak var estadisticasBoton: UIButton!
     @IBOutlet weak var calendario: UIButton!
     @IBOutlet weak var subirpost: UIButton!
     @IBOutlet weak var subirmerch: UIButton!
@@ -38,6 +39,8 @@ class MiPerfilViewController: UIViewController {
             tutorial.isHidden = true
             calendario.setImage(UIImage(systemName: "calendar.badge.plus"), for: .normal)
             calendario.setImageTintColor(UIColor.systemBlue)
+            estadisticasBoton.setImage(UIImage(systemName: "chart.bar.xaxis"), for: .normal)
+            estadisticasBoton.setImageTintColor(UIColor.systemBlue)
             let url = "http://desarrolladorapp.com/inkme/public/api/cargarPerfil"
             let idUsuario = defaults.integer(forKey: "id")
             let json = ["usuario_id": String(idUsuario)]

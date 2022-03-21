@@ -20,7 +20,7 @@ final class FavNetWorking {
        
         let nums = UserDefaults.standard.array(forKey: "favoritos") as! [Int]? ?? op
             self.json = ["ids": nums]
-        
+
          
         
         AF.request(url, method: .put, parameters: json,encoding: JSONEncoding.default).responseDecodable (of: ResponseFav.self) { response in
