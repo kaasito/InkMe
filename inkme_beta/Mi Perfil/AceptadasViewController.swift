@@ -12,8 +12,8 @@ class AceptadasViewController: UIViewController, UITableViewDelegate, UITableVie
         self.tabla.delegate = self
         self.tabla.dataSource = self
        
-        AceptadasNetWorking.shared.getUser() { arrayPost in
-            self.posts = arrayPost
+        AceptadasNetWorking.shared.getUser() { arrayCitas in
+            self.citas = arrayCitas
             self.tabla.reloadData()
         } failure: { error in
             print(error)
@@ -24,10 +24,8 @@ class AceptadasViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidAppear(_ animated: Bool) {
         self.tabla.delegate = self
         self.tabla.dataSource = self
-        FavNetWorking.shared.getUser() { arrayPost in
-            self.posts = arrayPost
-          
-            
+        AceptadasNetWorking.shared.getUser() { arrayCitas in
+            self.citas = arrayCitas
             self.tabla.reloadData()
         } failure: { error in
             print(error)
@@ -37,13 +35,15 @@ class AceptadasViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts?.count ?? 0
+        return citas?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FavsCell", for: indexPath) as! FavsTableViewCell
-        cell.post = posts![indexPath.row]
-        cell.delegate = self
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CitasCell", for: indexPath) as! CitasAceptadasTableViewCell
+        cell.nombre.text = citas![indexPath.row].client_name
+        cell.fecha.text = citas![indexPath.row].date
+        cell.telefono.text = citas![indexPath.row].client_tlf
+        cell.comentario.text = citas![indexPath.row].comment
         cell.backgroundColor = .clear
         return cell
     }

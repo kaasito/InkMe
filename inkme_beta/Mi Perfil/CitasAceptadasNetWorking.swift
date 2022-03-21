@@ -30,17 +30,18 @@ final class AceptadasNetWorking {
     
     
     
-    struct ResponseActivos:Decodable{
-        let status:Int?
-        let citas:[CitasActvas]?
-    }
     
-    struct CitasActvas:Decodable{
-        let date:String?
-        let client_tlf:String?
-        let client_name:String?
-        let comment:String?
-        let state:String?
-    }
-    
+}
+
+struct ResponseActivos:Decodable{
+    let status:Int?
+    let citas:[CitasActvas]?
+}
+
+struct CitasActvas:Decodable{
+    let date:String?
+    let client_tlf:String?
+    let client_name:String?
+    let comment:String?
+    let state:String?
 }

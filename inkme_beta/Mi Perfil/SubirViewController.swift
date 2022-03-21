@@ -30,7 +30,7 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
         let tapGesture = UITapGestureRecognizer(target: self, action:     #selector(tapGestureHandler))
-               view.addGestureRecognizer(tapGesture)
+        view.addGestureRecognizer(tapGesture)
         token = defaults.string(forKey: "token")!
         print(token)
         self.pickerStyles.delegate = self
@@ -84,9 +84,12 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     @IBAction func enviarBoton(_ sender: Any) {
+        
+        guard let imageURL = self.imageURL else { return }
+        
         let url = "http://desarrolladorapp.com/inkme/public/api/subirImagen"
         AF.upload(multipartFormData: { multipartformdata in
-            multipartformdata.append(self.imageURL!, withName: "imagen")
+            multipartformdata.append(imageURL, withName: "imagen")
         }, to: url, method: .post).responseDecodable(of: ResponseSubir.self){ response in
             let url = response.value?.url
             let urlpeticion = "http://desarrolladorapp.com/inkme/public/api/crearPost"
@@ -160,7 +163,26 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     
+    private func filePath(forKey key: String = "imagen") -> URL? {
+        let fileManager = FileManager.default
+        guard let documentURL = fileManager.urls(for: .documentDirectory,
+                                                 in: FileManager.SearchPathDomainMask.userDomainMask).first else { return nil }
+        
+        return documentURL.appendingPathComponent(key + ".png")
+    }
     
+    private func saveImage(_ imagen: UIImage) -> URL? {
+        
+        guard let imageURL = filePath() else { return nil }
+        guard let data = imagen.pngData() else { return nil }
+        do {
+            try data.write(to: imageURL)
+            return imageURL
+        }
+        catch {
+            return nil
+        }
+    }
 }
 
 extension SubirViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
@@ -175,7 +197,7 @@ extension SubirViewController: UIImagePickerControllerDelegate, UINavigationCont
         
         picker.dismiss(animated: true, completion: nil)
         
-        info[.phAsset]
+        
         
         let image = info[.imageURL] as? URL
         textoSeleccion.isHidden = true
@@ -183,7 +205,12 @@ extension SubirViewController: UIImagePickerControllerDelegate, UINavigationCont
             return
         }
         
-        imageURL = image
+        if image == nil{
+            imageURL = saveImage(imagen)
+        }else{
+            imageURL = image
+        }
+       
         imagenSeleccionada.image = imagen
     }
     
