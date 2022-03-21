@@ -21,6 +21,7 @@ class CalendarioViewController: UIViewController, FSCalendarDataSource, FSCalend
         calendar.delegate = self
         view.addSubview(calendar)
         self.calendar = calendar
+        vistaPendientes.isHidden = true
     }
     
 

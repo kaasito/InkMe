@@ -50,7 +50,7 @@ class AceptadasViewController: UIViewController, UITableViewDelegate, UITableVie
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let cell = tableView.cellForRow(at: indexPath) as! FavsTableViewCell
+        let cell = tableView.cellForRow(at: indexPath) as! CitasAceptadasTableViewCell
         cell.backgroundColor = .clear
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor.black

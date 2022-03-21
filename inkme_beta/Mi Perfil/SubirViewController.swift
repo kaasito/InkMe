@@ -85,7 +85,10 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBAction func enviarBoton(_ sender: Any) {
         
-        guard let imageURL = self.imageURL else { return }
+        guard let imageURL = self.imageURL else {
+            // saca un alert
+            return
+        }
         
         let url = "http://desarrolladorapp.com/inkme/public/api/subirImagen"
         AF.upload(multipartFormData: { multipartformdata in
