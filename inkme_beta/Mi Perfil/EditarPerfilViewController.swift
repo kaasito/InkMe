@@ -34,11 +34,8 @@ class EditarPerfilViewController: UIViewController {
         nombreField.text = defaults.string(forKey: "name")
         ubicacionField.text = defaults.string(forKey: "location")
         estilosField.text = defaults.string(forKey: "styles")
-        /*
-         defaults.setValue(response.value?.user?.location, forKey:"location")
-         defaults.setValue(response.value?.user?.styles, forKey:"styles")
-         */
-      
+        let tapGesture = UITapGestureRecognizer(target: self, action:     #selector(tapGestureHandler))
+               view.addGestureRecognizer(tapGesture)
         imagenPerfil.layer.cornerRadius = imagenPerfil.frame.size.width / 2
         imagenPerfil.clipsToBounds = true
         let url = "http://desarrolladorapp.com/inkme/public/api/cargarPerfil"
@@ -183,6 +180,14 @@ extension EditarPerfilViewController: UIImagePickerControllerDelegate, UINavigat
         imagenPerfil.image = imagen
     }
     
+    @objc func tapGestureHandler() {
+        passwordField.endEditing(true)
+        ubicacionField.endEditing(true)
+        estilosField.endEditing(true)
+        telefonoField.endEditing(true)
+        emailField.endEditing(true)
+        nombreField.endEditing(true)
+      }
     
 }
 

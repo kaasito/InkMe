@@ -18,6 +18,7 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var apitoken:String? = ""
     var json: [String: String]?
+    var jsonn: [String : Any]?
     var profilepicture = ""
     var estilos = ""
     var ubicacion = ""
@@ -108,6 +109,21 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             
             userId = (cell.user?.id)!
+            let url = "http://desarrolladorapp.com/inkme/public/api/sumarViewPerfil"
+            let apiiitoken = defaults.string(forKey: "token")
+            
+            if apiiitoken == nil{
+                jsonn = ["api_token": "", "user_id": userId]
+               
+            }else{
+                jsonn = ["api_token": apiiitoken!,"user_id": userId]
+               
+            }
+            
+            AF.request(url, method: .put, parameters: jsonn,encoding: JSONEncoding.default).responseDecodable (of: ResponsePrueba.self) { response in
+                print("ashjagsjhags",response)
+            }
+            //sumarViewPerfil
             defaults.set(userId, forKey: "usuarioIdLista")
             ubicacion = (cell.user?.location)!
             estilos = (cell.user?.styles)!
@@ -212,4 +228,8 @@ struct UserBusqueda:Decodable  {
 struct PostBusqueda:Decodable  {
     let photo:String?
     let id: Int?
+}
+struct ResponsePrueba:Decodable {
+    let status:Int?
+    let msg:String?
 }

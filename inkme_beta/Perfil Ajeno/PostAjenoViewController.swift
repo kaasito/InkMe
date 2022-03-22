@@ -10,6 +10,7 @@ import AlamofireImage
 class PostAjenoViewController: UIViewController {
     
     
+    @IBOutlet weak var vista: UIView!
     @IBOutlet weak var favbuton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var imagenAcARGAR: UIImageView!
@@ -20,6 +21,7 @@ class PostAjenoViewController: UIViewController {
     let defaults = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
+        vista.layer.cornerRadius = 10
         favbuton.setImage(UIImage(systemName: "plus"), for: .normal)
         favbuton.setImageTintColor(UIColor.systemBlue)
         imagenPerfil.layer.cornerRadius = imagenPerfil.frame.size.width / 2
