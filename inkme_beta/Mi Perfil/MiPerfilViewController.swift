@@ -11,6 +11,7 @@ import AlamofireImage
 
 class MiPerfilViewController: UIViewController {
 
+    @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var estadisticasBoton: UIButton!
     @IBOutlet weak var calendario: UIButton!
     @IBOutlet weak var subirpost: UIButton!
@@ -35,6 +36,7 @@ class MiPerfilViewController: UIViewController {
             postView.isHidden = true
             merchView.isHidden = true
             segmentado.isHidden = true
+            logOutButton.isHidden = true
         }else{
             tutorial.isHidden = true
             calendario.setImage(UIImage(systemName: "calendar.badge.plus"), for: .normal)
@@ -110,7 +112,14 @@ class MiPerfilViewController: UIViewController {
         merchView.alpha = 0
     }
     
-
+    @IBAction func logOutPressed(_ sender: Any) {
+        performSegue(withIdentifier: "logOut", sender: nil)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "logOut"{
+            defaults.set(nil, forKey: "token")
+        }
+    }
     @IBAction func cambiador(_ sender: UISegmentedControl) {
         
         if sender.selectedSegmentIndex == 0{
