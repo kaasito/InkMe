@@ -43,6 +43,13 @@ class CitasPendientesTableViewCell: UITableViewCell {
     
     
     @IBAction func aceptadoTapped(_ sender: Any) {
+            let token = defaults.string(forKey: "token")
+            let url2 = "http://desarrolladorapp.com/inkme/public/api/aceptarCita"
+            let json = ["api_token": token, "cita_id": id] as [String : Any]
+            AF.request(url2, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: ResponsesPendientes.self) { [self] response in
+                print(response)
+                
+            }
     }
 }
 

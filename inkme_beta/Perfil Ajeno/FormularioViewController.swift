@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 import AlamofireImage
-class FormularioViewController: UIViewController {
+class FormularioViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var pickerdate: UIDatePicker!
     @IBOutlet weak var telefono: UITextField!
@@ -21,12 +21,14 @@ class FormularioViewController: UIViewController {
                view.addGestureRecognizer(tapGesture)
         pickerdate.setValue(UIColor.white, forKeyPath: "textColor")
         pickerdate.setValue(false, forKeyPath: "highlightsToday")
+        self.textView.delegate = self
         textView.text = "Introduce la información de tu consulta"
         textView.textColor = UIColor.lightGray
         textView.layer.borderWidth = 1
         textView.layer.borderColor = UIColor.black.cgColor
         textView.layer.cornerRadius = 9
         textView.backgroundColor = #colorLiteral(red: 0.1058823529, green: 0.1058823529, blue: 0.1137254902, alpha: 1)
+        
     }
     
 
@@ -45,6 +47,8 @@ class FormularioViewController: UIViewController {
     }
     @objc func tapGestureHandler() {
         textView.endEditing(true)
+        nombre.endEditing(true)
+        telefono.endEditing(true)
     }
     @IBAction func enviarPressed(_ sender: Any) {
         let dateFormatter = DateFormatter()
@@ -56,9 +60,37 @@ class FormularioViewController: UIViewController {
         AF.request(url, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: ResponseFormulario.self) { [self] response in
             print(response)
             if (response.value?.status) == 1 {
-                print("enviado")
+                let alert = UIAlertController(title: "Enviado con éxito", message: "El tatuador ha recibido tu petición", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Vale", style: .default, handler: { action in
+                    switch action.style{
+                        case .default:
+                        print("default")
+                        
+                        case .cancel:
+                        print("cancel")
+                        
+                        case .destructive:
+                        print("destructive")
+                        
+                    }
+                }))
+                self.present(alert, animated: true, completion: nil)
             }else{
-                print("no se ha podido hacer fetch")
+                let alert = UIAlertController(title: "Error", message: "No se ha podido mandar la petición, revisa tu conexión", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Vale", style: .destructive, handler: { action in
+                    switch action.style{
+                        case .default:
+                        print("default")
+                        
+                        case .cancel:
+                        print("cancel")
+                        
+                        case .destructive:
+                        print("destructive")
+                        
+                    }
+                }))
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }

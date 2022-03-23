@@ -256,14 +256,14 @@
             <objects>
                 <viewController id="xY6-oj-pVV" customClass="PostViewController" customModule="inkme_beta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tCi-84-lGj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UsL-Wp-LJv">
-                                <rect key="frame" x="0.0" y="136" width="414" height="414"/>
+                                <rect key="frame" x="0.0" y="136" width="414" height="321"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVR-VL-hCe">
-                                <rect key="frame" x="20" y="584" width="374" height="184"/>
+                                <rect key="frame" x="20" y="491" width="374" height="184"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YpZ-Bx-Zxb">
                                         <rect key="frame" x="8" y="8.5" width="50" height="51"/>
@@ -549,11 +549,11 @@
             <objects>
                 <viewController id="xAw-td-xCi" customClass="ListaFavoritossViewController" customModule="inkme_beta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zch-pO-xJk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pJd-x2-c5I">
-                                <rect key="frame" x="0.0" y="68" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="68" width="414" height="632"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavsCell" rowHeight="216" id="9aa-5R-eYn" customClass="FavsTableViewCell" customModule="inkme_beta" customModuleProvider="target">
