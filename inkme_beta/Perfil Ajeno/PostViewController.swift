@@ -105,6 +105,21 @@ class PostViewController: UIViewController {
             destinationController.nombre = nicknamelabel.text
             destinationController.estilo = defaults.string(forKey: "estilosIdLista")
             destinationController.ubicacion = defaults.string(forKey: "ubicacionIdLista")
+            let userId = defaults.integer(forKey: "usuarioIdLista")
+            let url = "http://desarrolladorapp.com/inkme/public/api/sumarViewPerfil"
+            let apiiitoken = defaults.string(forKey: "token")
+            
+            if apiiitoken == nil{
+                jsonn = ["api_token": "", "user_id": userId]
+               
+            }else{
+                jsonn = ["api_token": apiiitoken!,"user_id": userId]
+               
+            }
+            
+            AF.request(url, method: .put, parameters: jsonn,encoding: JSONEncoding.default).responseDecodable (of: ResponsePrueba.self) { response in
+                print("ashjagsjhags",response)
+            }
         }
     }
 

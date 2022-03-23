@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 import AlamofireImage
 class PostAjenoViewController: UIViewController {
     
@@ -15,6 +16,7 @@ class PostAjenoViewController: UIViewController {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var imagenAcARGAR: UIImageView!
     var url: URL?
+    var jsonn: [String:Any]?
     @IBOutlet weak var imagenPerfil: UIImageView!
     @IBOutlet weak var nicknameajeno: UILabel!
     @IBOutlet weak var descripcionajeno: UILabel!
@@ -22,6 +24,7 @@ class PostAjenoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         vista.layer.cornerRadius = 10
+       
         favbuton.setImage(UIImage(systemName: "plus"), for: .normal)
         favbuton.setImageTintColor(UIColor.systemBlue)
         imagenPerfil.layer.cornerRadius = imagenPerfil.frame.size.width / 2
@@ -68,6 +71,21 @@ class PostAjenoViewController: UIViewController {
             destinationController.nombre = defaults.string(forKey: "nicknamePostAjeno")
             destinationController.estilo = defaults.string(forKey: "stylesPostAjeno")
             destinationController.ubicacion = defaults.string(forKey: "locationPostAjeno")
+            let userId = defaults.integer(forKey: "usuarioAjeno")
+            let url = "http://desarrolladorapp.com/inkme/public/api/sumarViewPerfil"
+            let apiiitoken = defaults.string(forKey: "token")
+            
+            if apiiitoken == nil{
+                jsonn = ["api_token": "", "user_id": userId]
+               
+            }else{
+                jsonn = ["api_token": apiiitoken!,"user_id": userId]
+               
+            }
+            
+            AF.request(url, method: .put, parameters: jsonn,encoding: JSONEncoding.default).responseDecodable (of: ResponsePrueba.self) { response in
+                print("ashjagsjhags",response)
+            }
         }
     }
 }
