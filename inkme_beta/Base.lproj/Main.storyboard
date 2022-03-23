@@ -1184,25 +1184,25 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="8Hw-1k-SNV">
-                                        <rect key="frame" x="155" y="31" width="170" height="98.5"/>
+                                        <rect key="frame" x="155" y="31" width="170" height="97"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3r-LF-5vi">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="@nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3r-LF-5vi">
                                                 <rect key="frame" x="0.0" y="0.0" width="170" height="38.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yts-bt-mbi">
-                                                <rect key="frame" x="0.0" y="57.5" width="170" height="41"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yts-bt-mbi">
+                                                <rect key="frame" x="0.0" y="57.5" width="170" height="39.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ubicacion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GtK-EW-c0O">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Ubicacion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GtK-EW-c0O">
                                                         <rect key="frame" x="0.0" y="0.0" width="170" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipo tatoos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ej9-rh-76X">
-                                                        <rect key="frame" x="0.0" y="23" width="170" height="18"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Tipo tatoos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ej9-rh-76X">
+                                                        <rect key="frame" x="0.0" y="23" width="170" height="16.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1212,7 +1212,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Mb-4p-f6o">
-                                        <rect key="frame" x="236" y="143" width="43" height="43.5"/>
+                                        <rect key="frame" x="236" y="141.5" width="43" height="45"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <state key="normal" title="Editar">
                                             <color key="titleColor" systemColor="systemBlueColor"/>
@@ -1231,7 +1231,7 @@
                                             <segue destination="Crb-8G-UDB" kind="presentation" id="UPI-Fo-Z92"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewp-NV-mzV">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewp-NV-mzV">
                                         <rect key="frame" x="83" y="149" width="87" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <state key="normal" title="Subir Merch">
@@ -1278,15 +1278,18 @@
                                     <constraint firstAttribute="bottom" secondItem="8Mb-4p-f6o" secondAttribute="bottom" constant="0.5" id="NWd-aW-vFV"/>
                                     <constraint firstAttribute="trailing" secondItem="ynQ-yv-sae" secondAttribute="trailing" constant="5" id="REU-ZP-wgp"/>
                                     <constraint firstItem="tBP-xi-6f6" firstAttribute="top" secondItem="Adt-pm-bMc" secondAttribute="top" constant="-45" id="Ulk-BJ-BDi"/>
+                                    <constraint firstItem="ewp-NV-mzV" firstAttribute="centerY" secondItem="8Mb-4p-f6o" secondAttribute="centerY" id="VgV-gD-nyN"/>
                                     <constraint firstItem="8Hw-1k-SNV" firstAttribute="top" secondItem="Adt-pm-bMc" secondAttribute="bottom" constant="-61" id="Xkl-IV-WWn"/>
                                     <constraint firstItem="8Mb-4p-f6o" firstAttribute="leading" secondItem="Adx-1t-MOW" secondAttribute="trailing" constant="78" id="aL9-xx-09b"/>
                                     <constraint firstItem="ewp-NV-mzV" firstAttribute="top" secondItem="tBP-xi-6f6" secondAttribute="bottom" constant="13" id="akB-8I-efS"/>
                                     <constraint firstItem="tBP-xi-6f6" firstAttribute="leading" secondItem="Bxo-Lq-Lol" secondAttribute="leadingMargin" id="dI4-mR-ppN"/>
                                     <constraint firstItem="8Hw-1k-SNV" firstAttribute="top" secondItem="Bxo-Lq-Lol" secondAttribute="top" constant="31" id="dtL-mo-zWP"/>
                                     <constraint firstItem="Adt-pm-bMc" firstAttribute="top" secondItem="Bxo-Lq-Lol" secondAttribute="top" constant="53" id="fBG-5j-gOb"/>
+                                    <constraint firstItem="ewp-NV-mzV" firstAttribute="bottom" secondItem="Bxo-Lq-Lol" secondAttribute="bottomMargin" id="k1e-Z5-LLy"/>
                                     <constraint firstItem="ynQ-yv-sae" firstAttribute="leading" secondItem="8Hw-1k-SNV" secondAttribute="trailing" constant="-1" id="qKK-lh-u2I"/>
                                     <constraint firstItem="ynQ-yv-sae" firstAttribute="top" secondItem="Bxo-Lq-Lol" secondAttribute="top" constant="8" id="uji-EK-yCw"/>
                                     <constraint firstItem="8Hw-1k-SNV" firstAttribute="leading" secondItem="tBP-xi-6f6" secondAttribute="trailing" constant="19" id="vEl-Ku-Mnh"/>
+                                    <constraint firstItem="8Mb-4p-f6o" firstAttribute="leading" secondItem="ewp-NV-mzV" secondAttribute="trailing" constant="66" id="ziF-mh-sf9"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cs-cd-tpe">
@@ -1337,9 +1340,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title=" Perfil" image="person" catalog="system" id="Ssm-Jj-anl"/>
                     <navigationItem key="navigationItem" title="Tu Perfil" id="tZj-Y9-nur">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="ZSx-ZS-hHW">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="ZSx-ZS-hHW">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="cRz-YU-wqU">
-                                <rect key="frame" x="20" y="7" width="92" height="30"/>
+                                <rect key="frame" x="302" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="Log Out">
@@ -2538,12 +2541,12 @@
                         <outlet property="shareButton" destination="m9c-O8-OSi" id="V64-U3-wID"/>
                         <outlet property="usuarioPerfil" destination="HSX-M9-UGF" id="Y4r-KO-01B"/>
                         <outlet property="vista" destination="ba9-bw-cSW" id="fw5-Jn-z1U"/>
-                        <segue destination="g6a-jd-GZ5" kind="show" identifier="aMiPerfil" id="qy3-z5-j6y"/>
+                        <segue destination="g6a-jd-GZ5" kind="show" identifier="aMiPerfil" id="QbY-wG-CtJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zrs-iV-HHG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7391" y="-112"/>
+            <point key="canvasLocation" x="7383" y="-82"/>
         </scene>
         <!--Calendario View Controller-->
         <scene sceneID="DE4-ya-wMg">
@@ -2568,6 +2571,7 @@
                             </containerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3OS-wk-QFJ">
                                 <rect key="frame" x="118.5" y="348" width="177" height="32"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <segments>
                                     <segment title="Aceptadas"/>
                                     <segment title="Pendientes"/>
@@ -3319,7 +3323,7 @@
         <segue reference="rdm-eZ-Eib"/>
         <segue reference="xyM-r6-hTw"/>
         <segue reference="Zlz-C5-0tl"/>
-        <segue reference="qy3-z5-j6y"/>
+        <segue reference="QbY-wG-CtJ"/>
         <segue reference="tuK-WS-S6b"/>
         <segue reference="aJ9-Zn-RdZ"/>
         <segue reference="HAR-IC-P06"/>
