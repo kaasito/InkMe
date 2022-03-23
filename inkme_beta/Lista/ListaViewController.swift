@@ -35,6 +35,8 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         refreshControl.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0);
         let attr = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        let tapGesture = UITapGestureRecognizer(target: self, action:     #selector(tapGestureHandler))
+               view.addGestureRecognizer(tapGesture)
         barraBusca.autocapitalizationType = .none
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: attr)
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
@@ -204,6 +206,10 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
             print("App launched first time")
             return false
         }
+    }
+    @objc func tapGestureHandler() {
+        barraBusca.endEditing(true)
+        
     }
     
 }
