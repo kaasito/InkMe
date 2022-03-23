@@ -1579,7 +1579,7 @@
                                     <color key="titleColor" systemColor="linkColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="seleccionarSource:" destination="Crb-8G-UDB" eventType="touchUpInside" id="rW6-En-kDE"/>
+                                    <action selector="selectSource:" destination="Crb-8G-UDB" eventType="touchUpInside" id="rW6-En-kDE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6L-FN-d9C">
@@ -1589,7 +1589,7 @@
                                     <color key="titleColor" systemColor="linkColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="enviarBoton:" destination="Crb-8G-UDB" eventType="touchUpInside" id="j7q-4L-jBP"/>
+                                    <action selector="justPressedSendButton:" destination="Crb-8G-UDB" eventType="touchUpInside" id="j7q-4L-jBP"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nube" translatesAutoresizingMaskIntoConstraints="NO" id="ERi-zq-gYt">
@@ -1633,11 +1633,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imagenSeleccionada" destination="ERi-zq-gYt" id="aOt-KJ-4a6"/>
                         <outlet property="pickerStyles" destination="Tcg-Uy-UE1" id="g1M-Oi-Kko"/>
+                        <outlet property="selectedImage" destination="ERi-zq-gYt" id="aOt-KJ-4a6"/>
                         <outlet property="textView" destination="YjL-B3-ufc" id="1qg-1F-uFg"/>
                         <outlet property="textoSeleccion" destination="NX9-sS-Tft" id="sJ1-eo-ngl"/>
-                        <outlet property="tituloField" destination="cET-yd-u6f" id="VRS-JW-Ymk"/>
+                        <outlet property="titleTextField" destination="cET-yd-u6f" id="VRS-JW-Ymk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rR-ix-cZZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

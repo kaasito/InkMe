@@ -12,93 +12,68 @@ import AlamofireImage
 
 class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate{
     @IBOutlet weak var textoSeleccion: UILabel!
-    @IBOutlet weak var tituloField: UITextField!
+    @IBOutlet weak var titleTextField: UITextField!
     var imageURL: URL?
-    var pickerItemSeleccionado = ""
+    var pickerItemSelected = ""
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var pickerStyles: UIPickerView!
     let defaults = UserDefaults.standard
     var token = ""
     let pickerData = ["BlackWork", "Neotradicional", "Tradicional", "Tradicional Japonés", "Realista"]
-    @IBOutlet weak var imagenSeleccionada: UIImageView!
+    @IBOutlet weak var selectedImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        pickerItemSeleccionado = pickerData[2]
-        tituloField.backgroundColor = #colorLiteral(red: 0.1058823529, green: 0.1058823529, blue: 0.1137254902, alpha: 1)
-        tituloField.attributedPlaceholder = NSAttributedString(
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action:     #selector(tapGestureHandler))
+        view.addGestureRecognizer(tapGesture)
+        
+        self.pickerStyles.delegate = self
+        self.pickerStyles.dataSource = self
+        self.textView.delegate = self
+        
+       
+        titleTextField.attributedPlaceholder = NSAttributedString(
             string: "Título del Post",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
-        let tapGesture = UITapGestureRecognizer(target: self, action:     #selector(tapGestureHandler))
-        view.addGestureRecognizer(tapGesture)
-        token = defaults.string(forKey: "token")!
-        print(token)
-        self.pickerStyles.delegate = self
-        self.pickerStyles.dataSource = self
+       
+        
+        pickerItemSelected = pickerData[2]
         pickerStyles.selectRow(2, inComponent: 0, animated: true)
-        self.textView.delegate = self
+        token = defaults.string(forKey: "token")!
+        titleTextField.backgroundColor = #colorLiteral(red: 0.1058823529, green: 0.1058823529, blue: 0.1137254902, alpha: 1)
         textView.text = "Introduce una descripción"
         textView.textColor = UIColor.lightGray
         textView.layer.borderWidth = 1
         textView.layer.borderColor = UIColor.black.cgColor
         textView.layer.cornerRadius = 9
         textView.backgroundColor = #colorLiteral(red: 0.1058823529, green: 0.1058823529, blue: 0.1137254902, alpha: 1)
-        imagenSeleccionada.layer.borderWidth = 1
-        imagenSeleccionada.layer.borderColor = UIColor.black.cgColor
+        selectedImage.layer.borderWidth = 1
+        selectedImage.layer.borderColor = UIColor.black.cgColor
     }
     
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        return NSAttributedString(string: pickerData[row], attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+    
+    @IBAction func justPressedSendButton(_ sender: Any) {
+        uploadAndPublishPicture()
     }
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.lightGray {
-            textView.text = nil
-            textView.textColor = UIColor.white
-        }
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            textView.text = "Introduce una descripción."
-            textView.textColor = UIColor.lightGray
-        }
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
-    }
-    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 50.0
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
-    }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        pickerItemSeleccionado = pickerData[row]
-    }
-    
-    @IBAction func enviarBoton(_ sender: Any) {
-        
+    func uploadAndPublishPicture(){
         guard let imageURL = self.imageURL else {
             // saca un alert
             return
         }
         
         let url = "http://desarrolladorapp.com/inkme/public/api/subirImagen"
+      
         AF.upload(multipartFormData: { multipartformdata in
-            multipartformdata.append(imageURL, withName: "imagen")
+            multipartformdata.append(imageURL , withName: "imagen")
         }, to: url, method: .post).responseDecodable(of: ResponseSubir.self){ response in
             let url = response.value?.url
             let urlpeticion = "http://desarrolladorapp.com/inkme/public/api/crearPost"
-            let json = ["api_token": self.token, "description": self.textView.text, "photo": url!, "title": self.tituloField.text!, "style": self.pickerItemSeleccionado, "bcolor": 1] as [String : Any]
+            let json = ["api_token": self.token, "description": self.textView.text, "photo": url!, "title": self.titleTextField.text!, "style": self.pickerItemSelected, "bcolor": 1] as [String : Any]
             AF.request(urlpeticion, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: ResponseSubirPost.self) { response in
-                print("pickk",self.pickerItemSeleccionado)
+                print("pickk",self.pickerItemSelected)
                 print(response)
                 if response.value?.status == 1{
                     
@@ -135,11 +110,10 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 }
             }
         }
+
     }
     
-    
-    
-    @IBAction func seleccionarSource(_ sender: Any) {
+    @IBAction func selectSource(_ sender: Any) {
         
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -165,19 +139,18 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         self.present(actionSheet, animated: true, completion: nil)
     }
     
-    
     private func filePath(forKey key: String = "imagen") -> URL? {
         let fileManager = FileManager.default
         guard let documentURL = fileManager.urls(for: .documentDirectory,
                                                  in: FileManager.SearchPathDomainMask.userDomainMask).first else { return nil }
-        
         return documentURL.appendingPathComponent(key + ".png")
     }
     
     private func saveImage(_ imagen: UIImage) -> URL? {
         
         guard let imageURL = filePath() else { return nil }
-        guard let data = imagen.pngData() else { return nil }
+        //guard let data = imagen.pngData() else { return nil }
+        guard let data = imagen.jpegData(compressionQuality: 0.5) else { return nil }
         do {
             try data.write(to: imageURL)
             return imageURL
@@ -186,6 +159,45 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             return nil
         }
     }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        return NSAttributedString(string: pickerData[row], attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.white
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Introduce una descripción."
+            textView.textColor = UIColor.lightGray
+        }
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 50.0
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        pickerItemSelected = pickerData[row]
+    }
+    
 }
 
 extension SubirViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
@@ -193,14 +205,11 @@ extension SubirViewController: UIImagePickerControllerDelegate, UINavigationCont
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         picker.dismiss(animated: true, completion: nil)
-        
-        
         
         let image = info[.imageURL] as? URL
         textoSeleccion.isHidden = true
@@ -214,11 +223,12 @@ extension SubirViewController: UIImagePickerControllerDelegate, UINavigationCont
             imageURL = image
         }
        
-        imagenSeleccionada.image = imagen
+        selectedImage.image = imagen
     }
     
+    
     @objc func tapGestureHandler() {
-        tituloField.endEditing(true)
+        titleTextField.endEditing(true)
         textView.endEditing(true)
     }
 }
