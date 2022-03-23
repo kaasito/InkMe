@@ -20,6 +20,7 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     let defaults = UserDefaults.standard
     var token = ""
     let pickerData = ["BlackWork", "Neotradicional", "Tradicional", "Tradicional Japonés", "Realista"]
+    var imageUploaded:Bool = false
     @IBOutlet weak var selectedImage: UIImageView!
     
     override func viewDidLoad() {
@@ -55,7 +56,26 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     
     @IBAction func justPressedSendButton(_ sender: Any) {
-        uploadAndPublishPicture()
+        if textView.text != "" && titleTextField.text != "" && imageUploaded == true{
+            uploadAndPublishPicture()
+        }else{
+            let alert = UIAlertController(title: "No se ha subido la foto", message: "Tienes que rellenar todo y poner una imagen", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Vale", style: .destructive, handler: { action in
+                switch action.style{
+                case .default:
+                    print("default")
+                    
+                case .cancel:
+                    print("cancel")
+                    
+                case .destructive:
+                    print("destructive")
+                    
+                }
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+       
     }
     
     func uploadAndPublishPicture(){
@@ -224,6 +244,7 @@ extension SubirViewController: UIImagePickerControllerDelegate, UINavigationCont
         }
        
         selectedImage.image = imagen
+        imageUploaded = true
     }
     
     
