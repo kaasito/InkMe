@@ -69,6 +69,47 @@ class MiPerfilViewController: UIViewController {
      
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        subirmerch.isHidden = true
+        postView.layer.cornerRadius = 10
+        if defaults.string(forKey: "token") == nil{
+            vistaInfo.isHidden = true
+            postView.isHidden = true
+            merchView.isHidden = true
+            segmentado.isHidden = true
+        }else{
+            tutorial.isHidden = true
+            calendario.setImage(UIImage(systemName: "calendar.badge.plus"), for: .normal)
+            calendario.setImageTintColor(UIColor.systemBlue)
+            estadisticasBoton.setImage(UIImage(systemName: "chart.bar.xaxis"), for: .normal)
+            estadisticasBoton.setImageTintColor(UIColor.systemBlue)
+            let url = "http://desarrolladorapp.com/inkme/public/api/cargarPerfil"
+            let idUsuario = defaults.integer(forKey: "id")
+            let json = ["usuario_id": String(idUsuario)]
+            print(json)
+            AF.request(url, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: PerfilResponse.self) { [self] response in
+                print("response",response)
+                if (response.value?.status) == 1 {
+                    let valor:String = (response.value?.usuario?.nombre)!
+                    let arroba = "@"
+                    self.nombrePerfil.text = arroba + valor
+                    let url = URL(string: response.value?.usuario?.foto ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg")
+                    self.imagenPerfil.af.setImage(withURL: url!)
+                    self.estiloLabel.text = response.value?.usuario?.styles ?? "sin estilo"
+                    self.ubicacionLabel.text = response.value?.usuario?.ubicacion ?? "sin ubicacion"
+                    
+                }else{
+                    print("no se ha podido hacer fetch")
+                }
+            }
+        }
+        vistaInfo.layer.cornerRadius = 10
+        imagenPerfil.layer.cornerRadius = imagenPerfil.frame.size.width / 2
+        imagenPerfil.clipsToBounds = true
+        postView.alpha = 1
+        merchView.alpha = 0
+    }
+    
 
     @IBAction func cambiador(_ sender: UISegmentedControl) {
         
