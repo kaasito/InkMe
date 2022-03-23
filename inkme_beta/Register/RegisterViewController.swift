@@ -20,6 +20,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var repetir: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        telefono.keyboardType = .phonePad
+        email.keyboardType = .emailAddress
         title = "Registrarse"
         let tapGesture = UITapGestureRecognizer(target: self, action:     #selector(tapGestureHandler))
         view.addGestureRecognizer(tapGesture)

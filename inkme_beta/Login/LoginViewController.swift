@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        email.keyboardType = .emailAddress
         title = "Login"
         let tapGesture = UITapGestureRecognizer(target: self, action:     #selector(tapGestureHandler))
                view.addGestureRecognizer(tapGesture)
