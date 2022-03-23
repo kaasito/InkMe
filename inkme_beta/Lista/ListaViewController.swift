@@ -155,6 +155,19 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         default:
             print("fallo")
         }
+        
+        let url = "http://desarrolladorapp.com/inkme/public/api/sumarViewPost"
+        let apiiitoken = defaults.string(forKey: "token")
+        
+        if apiiitoken == nil{
+            jsonn = ["api_token": "", "post_id": postId]
+        }else{
+            jsonn = ["api_token": apiiitoken!,"post_id": postId]
+        }
+        
+        AF.request(url, method: .put, parameters: jsonn,encoding: JSONEncoding.default).responseDecodable (of: ResponsePrueba.self) { response in
+            print("ashjagsjhags",response)
+        }
         performSegue(withIdentifier: "post", sender: nil)
     }
     

@@ -15,6 +15,7 @@ class MiPerfilPostCollectionViewController: UICollectionViewController {
     @IBOutlet var collectionViewPost: UICollectionView!
     var vSpinner : UIView?
     var fotos:[PostMiGrid] = []
+    var jsonn: [String:Any]?
     let datasource = ["1","2","3","4","5","6"]
     let defaults = UserDefaults.standard
     var imagenPasar:UIImage?
@@ -75,6 +76,19 @@ class MiPerfilPostCollectionViewController: UICollectionViewController {
         let vc = storyboard?.instantiateViewController(identifier: "MiPostViewController") as? MiPostViewController
         defaults.set(fotos[indexPath.row].photo, forKey: "urlMiPerfil")
         defaults.set(fotos[indexPath.row].id, forKey: "idMiPerfil")
+        let postID = defaults.integer(forKey: "idMiPerfil")
+        let url = "http://desarrolladorapp.com/inkme/public/api/sumarViewPost"
+        let apiiitoken = defaults.string(forKey: "token")
+        
+        if apiiitoken == nil{
+            jsonn = ["api_token": "", "post_id": postID]
+        }else{
+            jsonn = ["api_token": apiiitoken!,"post_id": postID]
+        }
+        
+        AF.request(url, method: .put, parameters: jsonn,encoding: JSONEncoding.default).responseDecodable (of: ResponsePrueba.self) { response in
+            print("ashjagsjhags",response)
+        }
         performSegue(withIdentifier: "itemtap", sender: nil)
         
     }

@@ -24,6 +24,7 @@ class PostViewController: UIViewController {
     @IBOutlet weak var imagenPerfil: UIImageView!
     @IBOutlet weak var nicknamelabel: UILabel!
     var nombreUsuario: String?
+    var jsonn: [String:Any]?
     var url = ""
     var id = 0
     var profilePic:String?
@@ -68,7 +69,7 @@ class PostViewController: UIViewController {
     }
     
     @IBAction func profilePressed(_ sender: Any) {
-        
+       
         performSegue(withIdentifier: "toProfile2", sender: nil)
     }
     

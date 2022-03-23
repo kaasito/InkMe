@@ -17,6 +17,7 @@ class PerfilAjenoCollectionViewController: UICollectionViewController {
     var usuarioId:Int?
     var usuarioNombre:String?
     var usuarioFoto:String?
+    var jsonn: [String:Any]?
     let defaults = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +58,19 @@ class PerfilAjenoCollectionViewController: UICollectionViewController {
         defaults.set(estilos, forKey: "stylesPostAjeno")
         defaults.set(ubicacion, forKey: "locationPostAjeno")
         defaults.set(usuarioId, forKey: "usuarioAjeno")
+        let postiD = defaults.integer(forKey: "idPostAjeno")
+        let url = "http://desarrolladorapp.com/inkme/public/api/sumarViewPost"
+        let apiiitoken = defaults.string(forKey: "token")
+        
+        if apiiitoken == nil{
+            jsonn = ["api_token": "", "post_id": postiD]
+        }else{
+            jsonn = ["api_token": apiiitoken!,"post_id": postiD]
+        }
+        
+        AF.request(url, method: .put, parameters: jsonn,encoding: JSONEncoding.default).responseDecodable (of: ResponsePrueba.self) { response in
+            print("ashjagsjhags",response)
+        }
        performSegue(withIdentifier: "itemtapAjeno", sender: nil)
      
      }
