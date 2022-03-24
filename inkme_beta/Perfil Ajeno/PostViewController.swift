@@ -117,7 +117,7 @@ class PostViewController: UIViewController {
                
             }
             
-            AF.request(url, method: .put, parameters: jsonn,encoding: JSONEncoding.default).responseDecodable (of: ResponsePrueba.self) { response in
+            AF.request(url, method: .put, parameters: jsonn,encoding: JSONEncoding.default).responseDecodable (of: ResponseStatusMsg.self) { response in
                 print("ashjagsjhags",response)
             }
         }

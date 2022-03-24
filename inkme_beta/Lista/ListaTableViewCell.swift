@@ -86,7 +86,7 @@ class ListaTableViewCell: UITableViewCell {
         delegate?.listaTableViewCell(self, didSelectImageAtIndex: 2)
     }
     
-    @objc func imageTappedPp(tapGestureRecognizer: UITapGestureRecognizer)
+    @objc func profilePictureTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
         
         delegate?.didPressFotoPerfil(self, didSelecProfilePic: true)

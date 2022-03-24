@@ -27,9 +27,8 @@ class ResultadoMLCollectionViewController: UICollectionViewController {
         let url = "http://desarrolladorapp.com/inkme/public/api/cargarPostPorEstilo"
 
         let style = defaults.string(forKey: "estiloML")
-        let json = ["style": style]
+        let json = [ "style": style ]
         AF.request(url, method: .put, parameters: json as Parameters, encoding: JSONEncoding.default).responseDecodable (of: ResponseGridResultadoML.self) { [self] response in
-            print(response)
             if (response.value?.status) == 1 {
                 self.photos = (response.value?.post)!
                 collectionView.reloadData()
