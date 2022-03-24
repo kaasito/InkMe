@@ -161,42 +161,7 @@ func isAppAlreadyLaunchedOnce()->Bool{
     }
 
 
-struct PerfilResponse:Decodable {
-    let status: Int?
-    let usuario: UsuarioPropio?
-}
-
-struct UsuarioPropio:Decodable{
- 
-    let nombre: String?
-    let email: String?
-    let foto: String?
-    let ubicacion: String?
-    let styles: String?
-}
 
 
-/*
- "nombre": "Lucas",
-         "email": "lucas@gmail.com",
-         "foto": "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2021/01/18/16109969864752.png",
-         "ubicacion": "Madrid",
-         "estudio_id": null,
-         "styles": "blackwork",
-         "posts": [
-             {
-                 "id": 1,
-                 "photo": "https://image-service.onefootball.com/transform?w=280&h=210&dpr=2&image=https%3A%2F%2Findependientehoy.com%2Fwp-content%2Fuploads%2F2021%2F06%2Flucas-romero-en-entrevista.jpg"
-             },
-             {
-                 "id": 2,
-                 "photo": "https://pbs.twimg.com/media/FI1TuXtXoBI9h_E?format=jpg&name=large"
-             },
-             {
-                 "id": 3,
-                 "photo": "https://pbs.twimg.com/media/EY6DDjcXsAM6rB0.jpg"
-             }
-         ]
-     }
- }
- */
+
+

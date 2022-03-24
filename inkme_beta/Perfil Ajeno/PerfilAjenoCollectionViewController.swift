@@ -11,7 +11,7 @@ import AlamofireImage
 private let reuseIdentifier = "Cell"
 
 class PerfilAjenoCollectionViewController: UICollectionViewController {
-    var fotos:[PostGridAjeno] = []
+    var fotos:[Post] = []
     var ubicacion:String?
     var estilos:String?
     var usuarioId:Int?
@@ -95,22 +95,7 @@ class PerfilAjenoCollectionViewController: UICollectionViewController {
 }
 
 
-struct ResponseGridPerfilAjeno:Decodable {
-    let usuario: UsuarioGridAjeno?
-    let status: Int?
-}
 
-struct UsuarioGridAjeno:Decodable {
-    let posts: [PostGridAjeno]?
-    let nombre:String?
-    let foto:String?
-    let styles:String?
-    let ubicacion:String?
-}
 
-struct PostGridAjeno:Decodable {
-    let photo:String?
-    let id:Int?
-    let title:String?
-    let description:String?
-}
+
+

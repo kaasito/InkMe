@@ -14,7 +14,7 @@ import Alamofire
 class MiPerfilPostCollectionViewController: UICollectionViewController {
     @IBOutlet var collectionViewPost: UICollectionView!
     var vSpinner : UIView?
-    var fotos:[PostMiGrid] = []
+    var fotos:[Post] = []
     var jsonn: [String:Any]?
     let datasource = ["1","2","3","4","5","6"]
     let defaults = UserDefaults.standard
@@ -128,13 +128,9 @@ struct ResponseGridMiPerfil:Decodable {
 }
 
 struct UsuarioMiGrid:Decodable {
-    let posts: [PostMiGrid]?
+    let posts: [Post]?
 }
 
-struct PostMiGrid:Decodable {
-    let photo:String?
-    let id: Int?
-}
 
 
 

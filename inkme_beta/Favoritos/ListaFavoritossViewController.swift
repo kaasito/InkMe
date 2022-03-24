@@ -26,7 +26,7 @@ class ListaFavoritossViewController:UIViewController, UITableViewDelegate, UITab
     }
     
     
-    var posts: [PostFavoritos]?
+    var posts: [Post]?
     @IBOutlet weak var tabla: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()

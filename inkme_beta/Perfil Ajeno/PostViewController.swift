@@ -48,7 +48,7 @@ class PostViewController: UIViewController {
         desc.lineBreakMode = NSLineBreakMode.byWordWrapping
         let url2 = "http://desarrolladorapp.com/inkme/public/api/cargarPost"
         let json = ["post_id": id]
-        AF.request(url2, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: ResponsePost.self) { response in
+        AF.request(url2, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: ResponseFoto.self) { response in
             print(response)
             if (response.value?.post) != nil {
                 
@@ -124,21 +124,5 @@ class PostViewController: UIViewController {
     }
 
 
-struct ResponsePost: Decodable{
-    let post: Foto?
-    let usuario: Usuario?
-}
-
-struct Foto:Decodable {
-    let id: Int?
-    let user_id: String?
-    let description: String?
-}
-
-struct Usuario:Decodable {
-    let name: String?
-    let profile_picture: String?
-    let id:Int?
-}
 
 }

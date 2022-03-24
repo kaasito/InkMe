@@ -23,7 +23,7 @@ class FavsTableViewCell: UITableViewCell {
     @IBOutlet weak var corazon: UIButton!
     @IBOutlet weak var vista: UIView!
     @IBOutlet weak var imagenPost: UIImageView!
-    var post: PostFavoritos? {
+    var post: Post? {
         didSet{
             renderUI()
         }

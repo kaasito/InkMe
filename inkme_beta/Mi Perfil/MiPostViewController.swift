@@ -41,7 +41,7 @@ class MiPostViewController: UIViewController {
         let id = defaults.integer(forKey: "idMiPerfil")
         let url2 = "http://desarrolladorapp.com/inkme/public/api/cargarPost"
         let json = ["post_id": id]
-        AF.request(url2, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: ResponseMiPost.self) { [self] response in
+        AF.request(url2, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: ResponseFoto.self) { [self] response in
             print(response)
             if (response.value?.post) != nil {
                 self.descripcionTexto = response.value?.post?.description
@@ -75,18 +75,6 @@ class MiPostViewController: UIViewController {
 
 
 
-struct ResponseMiPost:Decodable{
-    let post: FotoMiPerfil?
-    let usuario: UsuarioMiPerfil?
-}
 
-struct FotoMiPerfil:Decodable {
-    let id: Int?
-    let user_id: String?
-    let description: String?
-}
 
-struct UsuarioMiPerfil:Decodable {
-    let name: String?
-    let profile_picture: String?
-}
+

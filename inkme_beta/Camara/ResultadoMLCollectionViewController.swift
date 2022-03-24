@@ -12,7 +12,7 @@ import AlamofireImage
 
 class ResultadoMLCollectionViewController: UICollectionViewController {
 
-    var fotos:[PostGridML] = []
+    var fotos:[Post] = []
     var ubicacion:String?
     var estilos:String?
     var usuarioId:Int?
@@ -72,14 +72,5 @@ class ResultadoMLCollectionViewController: UICollectionViewController {
 }
 
 
-struct ResponseGridResultadoML:Decodable {
-    let status:Int?
-    let post: [PostGridML]?
-}
 
-struct PostGridML:Decodable {
-    let photo:String?
-    let id:Int?
-    let title:String?
-    let description:String?
-}
+

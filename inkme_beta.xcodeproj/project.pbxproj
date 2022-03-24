@@ -12,6 +12,9 @@
 		0D1B1FB627E88E2500F84FA6 /* CitasAceptadasNetWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1B1FB527E88E2500F84FA6 /* CitasAceptadasNetWorking.swift */; };
 		0D1B1FB827E88E3500F84FA6 /* CitasPendientesNetWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1B1FB727E88E3500F84FA6 /* CitasPendientesNetWorking.swift */; };
 		0D1B1FBA27E8977F00F84FA6 /* AceptadasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1B1FB927E8977F00F84FA6 /* AceptadasViewController.swift */; };
+		0D2ADBC027EC6E640061EB3D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2ADBBF27EC6E640061EB3D /* Post.swift */; };
+		0D2ADBC227EC6E7E0061EB3D /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2ADBC127EC6E7E0061EB3D /* Response.swift */; };
+		0D2ADBC427EC7E6F0061EB3D /* Foto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2ADBC327EC7E6F0061EB3D /* Foto.swift */; };
 		0D5D7C2227E1E63B00DCE1FE /* ResultadoMLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5D7C2127E1E63B00DCE1FE /* ResultadoMLViewController.swift */; };
 		0D5D7C2427E1F01A00DCE1FE /* ResultadoMLCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5D7C2327E1F01A00DCE1FE /* ResultadoMLCollectionViewController.swift */; };
 		0D5D7C2627E1F04800DCE1FE /* ResultadoMLCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5D7C2527E1F04800DCE1FE /* ResultadoMLCollectionViewCell.swift */; };
@@ -72,6 +75,9 @@
 		0D1B1FB527E88E2500F84FA6 /* CitasAceptadasNetWorking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitasAceptadasNetWorking.swift; sourceTree = "<group>"; };
 		0D1B1FB727E88E3500F84FA6 /* CitasPendientesNetWorking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitasPendientesNetWorking.swift; sourceTree = "<group>"; };
 		0D1B1FB927E8977F00F84FA6 /* AceptadasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AceptadasViewController.swift; sourceTree = "<group>"; };
+		0D2ADBBF27EC6E640061EB3D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		0D2ADBC127EC6E7E0061EB3D /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		0D2ADBC327EC7E6F0061EB3D /* Foto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foto.swift; sourceTree = "<group>"; };
 		0D5D7C2127E1E63B00DCE1FE /* ResultadoMLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultadoMLViewController.swift; sourceTree = "<group>"; };
 		0D5D7C2327E1F01A00DCE1FE /* ResultadoMLCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultadoMLCollectionViewController.swift; sourceTree = "<group>"; };
 		0D5D7C2527E1F04800DCE1FE /* ResultadoMLCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultadoMLCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -141,6 +147,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D2ADBBE27EC6E430061EB3D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6B77C9FC27BDB32A00D09B2A /* User.swift */,
+				0D2ADBBF27EC6E640061EB3D /* Post.swift */,
+				0D2ADBC127EC6E7E0061EB3D /* Response.swift */,
+				0D2ADBC327EC7E6F0061EB3D /* Foto.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		6B14FA34278EEDD0008BFF46 = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +177,7 @@
 		6B14FA3F278EEDD0008BFF46 /* inkme_beta */ = {
 			isa = PBXGroup;
 			children = (
+				0D2ADBBE27EC6E430061EB3D /* Models */,
 				6B46366C27D94C3700FD8E1F /* Favoritos */,
 				6B3EE0D627D50EB900B32BF2 /* Register */,
 				6B3EE0D527D50E4700B32BF2 /* Login */,
@@ -184,7 +202,6 @@
 			children = (
 				6B0DFB0D2796310C003DF5EF /* ImagenCircular.swift */,
 				6BDA282727BBD25100C4B2D9 /* NetWorkProvider.swift */,
-				6B77C9FC27BDB32A00D09B2A /* User.swift */,
 				6B0DFB0B279630B9003DF5EF /* ListaViewController.swift */,
 				6B0DFB0F27963186003DF5EF /* ListaTableViewCell.swift */,
 				0DA003CA27E0BF4800A61A3B /* BarraBusquedaNetWorkingProvider.swift */,
@@ -373,6 +390,7 @@
 				6BE315EE27974E92007D4A37 /* TutorialInicialViewController.swift in Sources */,
 				6B1970B827E92DAB00DBBEEB /* CitasPendientesViewController.swift in Sources */,
 				6B0DFB1027963186003DF5EF /* ListaTableViewCell.swift in Sources */,
+				0D2ADBC027EC6E640061EB3D /* Post.swift in Sources */,
 				6B42FEDE279AE3D000575242 /* DeslizaViewController.swift in Sources */,
 				6BBD077B27DB81DF006340CB /* FavsTableViewCell.swift in Sources */,
 				6B14FA41278EEDD0008BFF46 /* AppDelegate.swift in Sources */,
@@ -391,6 +409,7 @@
 				6B14FA7B2790BD4E008BFF46 /* LoginViewController.swift in Sources */,
 				6B3EE05E27C7807100B32BF2 /* PerfilAjenoCollectionViewCell.swift in Sources */,
 				0D8A098127E32FD700FC149F /* FormularioViewController.swift in Sources */,
+				0D2ADBC227EC6E7E0061EB3D /* Response.swift in Sources */,
 				6BDA282827BBD25100C4B2D9 /* NetWorkProvider.swift in Sources */,
 				6B3EE0C627D0BB4300B32BF2 /* MiMerchCollectionViewController.swift in Sources */,
 				6B3EE05C27C77F7E00B32BF2 /* PerfilAjenoCollectionViewController.swift in Sources */,
@@ -404,6 +423,7 @@
 				0DEF3F9527E89CAD00E14299 /* CitasAceptadasTableViewCell.swift in Sources */,
 				0D5D7C2227E1E63B00DCE1FE /* ResultadoMLViewController.swift in Sources */,
 				6B3EE08127CE926D00B32BF2 /* MiPostViewController.swift in Sources */,
+				0D2ADBC427EC7E6F0061EB3D /* Foto.swift in Sources */,
 				0D5D7C3927E21B8600DCE1FE /* TattooClasifier 1.mlmodel in Sources */,
 				6B3EE0C427D0BB3200B32BF2 /* MiMerchCollectionViewCell.swift in Sources */,
 				6B0DFB0C279630BA003DF5EF /* ListaViewController.swift in Sources */,

@@ -83,7 +83,7 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.usuarios = arrayUsuarios
             self.tabla.reloadData()
         } failure: { error in
-            print(error)
+            debugPrint(error)
         }
         tabla.reloadData()
         refreshControl.endRefreshing()

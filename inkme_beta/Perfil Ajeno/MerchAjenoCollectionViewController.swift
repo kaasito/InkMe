@@ -13,7 +13,7 @@ private let reuseIdentifier = "Cell"
 
 class MerchAjenoCollectionViewController: UICollectionViewController {
     let defaults = UserDefaults.standard
-    var fotos:[MerchAjeno] = []
+    var fotos:[Post] = []
     var usuarioFotoPerfil:String?
     var usuarioNombre:String?
     override func viewDidAppear(_ animated: Bool) {
@@ -24,7 +24,7 @@ class MerchAjenoCollectionViewController: UICollectionViewController {
         AF.request(url, method: .put, parameters: json as Parameters, encoding: JSONEncoding.default).responseDecodable (of: MerchAjenoResponse.self) { [self] response in
             print(response)
             if (response.value?.status) == 1 {
-                self.fotos = (response.value?.articulos) as! [MerchAjeno]
+                self.fotos = (response.value?.articulos) as! [Post]
                 collectionView.reloadData()
             }else{
                 print("no se ha podido hacer fetch")
@@ -47,7 +47,7 @@ class MerchAjenoCollectionViewController: UICollectionViewController {
         AF.request(url, method: .put, parameters: json as Parameters, encoding: JSONEncoding.default).responseDecodable (of: MerchAjenoResponse.self) { [self] response in
             print(response)
             if (response.value?.status) == 1 {
-                self.fotos = (response.value?.articulos) as! [MerchAjeno]
+                self.fotos = (response.value?.articulos) as! [Post]
                 collectionView.reloadData()
             }else{
                 print("no se ha podido hacer fetch")
@@ -110,22 +110,7 @@ class MerchAjenoCollectionViewController: UICollectionViewController {
 
     }
 }
-struct MerchAjenoResponse:Decodable{
-    let articulos:[MerchAjeno?]
-    let status:Int?
-}
 
-struct MerchAjeno:Decodable{
-    let photo:String?
-    let description:String?
-}
 
-struct UsuarioMerchAjenoResponse:Decodable{
-    let status: Int?
-    let usuario: UsuarioMerchAjeno?
-}
 
-struct UsuarioMerchAjeno:Decodable {
-    let foto:String?
-    let nombre:String?
-}
+

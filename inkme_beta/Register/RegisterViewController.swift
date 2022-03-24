@@ -75,7 +75,7 @@ class RegisterViewController: UIViewController {
         AF.request(url, method: .put, parameters: json as Parameters, encoding: JSONEncoding.default).responseDecodable (of: RegisterResponse.self) { [self] response in
             print(response)
             if (response.value?.status) == 1 {
-                self.token = (response.value?.api_token)!
+                self.token = (response.value?.apiToken)!
                 defaults.setValue(self.token, forKey: "token")
                 self.userId = (response.value?.id)!
                 defaults.setValue(self.userId, forKey: "id")
@@ -172,8 +172,4 @@ class RegisterViewController: UIViewController {
     
 }
 
-struct RegisterResponse:Decodable{
-    let status: Int?
-    let api_token: String?
-    let id:Int?
-}
+
