@@ -50,7 +50,7 @@ class LoginViewController: UIViewController {
                 defaults.setValue(response.value?.user?.styles, forKey:"styles")
                 performSegue(withIdentifier: "fromLogin", sender: nil)
             }else{
-                print("no se ha podido hacer fetch")
+                print("an error has occured")
             }
         }
     }

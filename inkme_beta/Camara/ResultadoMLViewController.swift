@@ -8,25 +8,14 @@
 import UIKit
 
 class ResultadoMLViewController: UIViewController {
-    @IBOutlet weak var estiloMasAccurateLabel: UILabel!
-    var estiloMasAccurate:String?
+    @IBOutlet weak var mostAccurateStyleLabel: UILabel!
+    var mostAccurateStyle:String?
     let defaults = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        estiloMasAccurateLabel.text = estiloMasAccurate
+        mostAccurateStyleLabel.text = mostAccurateStyle
         
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -70,7 +70,7 @@ class RegisterViewController: UIViewController {
                 defaults.setValue(self.userId, forKey: "id")
                 performSegue(withIdentifier: "AtutorialUsuario", sender: nil)
             }else{
-                print("no se ha podido hacer fetch")
+                print("an error has occured")
             }
         }
     }

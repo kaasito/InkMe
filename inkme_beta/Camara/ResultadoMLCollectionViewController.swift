@@ -12,35 +12,35 @@ import AlamofireImage
 
 class ResultadoMLCollectionViewController: UICollectionViewController {
 
-    var fotos:[Post] = []
-    var ubicacion:String?
-    var estilos:String?
-    var usuarioId:Int?
-    var usuarioNombre:String?
-    var usuarioFoto:String?
+    var photos:[Post] = []
+    var location:String?
+    var styles:String?
+    var userId:Int?
+    var userName:String?
+    var userPhoto:String?
     let defaults = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
-        usuarioId = defaults.integer(forKey: "usuarioIdLista")
+        userId = defaults.integer(forKey: "usuarioIdLista")
         collectionView.delegate = self
         collectionView.dataSource = self
         let url = "http://desarrolladorapp.com/inkme/public/api/cargarPostPorEstilo"
 
-        let estilo = defaults.string(forKey: "estiloML")
-        let json = ["style": estilo]
+        let style = defaults.string(forKey: "estiloML")
+        let json = ["style": style]
         AF.request(url, method: .put, parameters: json as Parameters, encoding: JSONEncoding.default).responseDecodable (of: ResponseGridResultadoML.self) { [self] response in
             print(response)
             if (response.value?.status) == 1 {
-                self.fotos = (response.value?.post)!
+                self.photos = (response.value?.post)!
                 collectionView.reloadData()
             }else{
-                print("no se ha podido hacer fetch")
+                print("an error has occured")
             }
         }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fotos.count
+        return photos.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -53,7 +53,7 @@ class ResultadoMLCollectionViewController: UICollectionViewController {
         var cell = UICollectionViewCell()
 
         if let countryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "celdagridML", for: indexPath) as? ResultadoMLCollectionViewCell{
-            let url = URL(string: fotos[indexPath.row].photo!)
+            let url = URL(string: photos[indexPath.row].photo!)
 
             countryCell.imagenCelda.af.setImage(withURL: url!)
           

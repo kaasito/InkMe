@@ -412,7 +412,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Hu4-gU-4rN"/>
                     <connections>
-                        <outlet property="estiloMasAccurateLabel" destination="w0e-ft-YAj" id="ehc-a2-wph"/>
+                        <outlet property="mostAccurateStyleLabel" destination="w0e-ft-YAj" id="ehc-a2-wph"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YFb-rc-MZ6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

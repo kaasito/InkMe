@@ -126,7 +126,7 @@ extension CameraViewController: UIImagePickerControllerDelegate, UINavigationCon
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toResult"{
             let destinationController = segue.destination as! ResultadoMLViewController
-            destinationController.estiloMasAccurate = modelBestResult
+            destinationController.mostAccurateStyle = modelBestResult
         }
     }
 }
