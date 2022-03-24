@@ -12,7 +12,7 @@ private let reuseIdentifier = "Cell"
 
 class MiMerchCollectionViewController: UICollectionViewController {
     let defaults = UserDefaults.standard
-    var fotos:[MiMerch] = []
+    var fotos:[Merch] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
@@ -26,7 +26,7 @@ class MiMerchCollectionViewController: UICollectionViewController {
             print("response merch",response)
             if (response.value?.status) == 1 {
                 
-                self.fotos = (response.value?.articulos) as! [MiMerch]
+                self.fotos = (response.value?.articulos) as! [Merch]
                 collectionView.reloadData()
             }else{
                 print("no se ha podido hacer fetch")
@@ -45,7 +45,7 @@ class MiMerchCollectionViewController: UICollectionViewController {
             print("response merch",response)
             if (response.value?.status) == 1 {
                 
-                self.fotos = (response.value?.articulos) as! [MiMerch]
+                self.fotos = (response.value?.articulos) as! [Merch]
                 collectionView.reloadData()
             }else{
                 print("no se ha podido hacer fetch")
@@ -59,7 +59,7 @@ class MiMerchCollectionViewController: UICollectionViewController {
         return fotos.count
     }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(identifier: "MiPostViewController") as? MiPostViewController
+        _ = storyboard?.instantiateViewController(identifier: "MiPostViewController") as? MiPostViewController
         defaults.set(fotos[indexPath.row].photo, forKey: "urlMiPerfil")
        performSegue(withIdentifier: "itemmerchtap", sender: nil)
      
@@ -84,11 +84,4 @@ class MiMerchCollectionViewController: UICollectionViewController {
 
 
 
-struct MiMerchResponse:Decodable{
-    let articulos:[MiMerch?]
-    let status:Int?
-}
 
-struct MiMerch:Decodable{
-    let photo:String?
-}

@@ -27,7 +27,6 @@ class ResultadoMLCollectionViewController: UICollectionViewController {
         let url = "http://desarrolladorapp.com/inkme/public/api/cargarPostPorEstilo"
 
         let estilo = defaults.string(forKey: "estiloML")
-        print("estilo",estilo)
         let json = ["style": estilo]
         AF.request(url, method: .put, parameters: json as Parameters, encoding: JSONEncoding.default).responseDecodable (of: ResponseGridResultadoML.self) { [self] response in
             print(response)

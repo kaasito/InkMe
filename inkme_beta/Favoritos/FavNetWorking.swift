@@ -12,10 +12,10 @@ import AlamofireImage
 final class FavNetWorking {
     static let shared = FavNetWorking()
     let defaults = UserDefaults.standard
-    var apitoken:String? = ""
+    var apiToken:String? = ""
     var json: [String: [Int]]?
     let emptyJson:[Int] = []
-    func getUser(success: @escaping (_ posts: [Post]) ->(), failure: @escaping (_ error: String) -> ()){
+    func getFavs(success: @escaping (_ posts: [Post]) ->(), failure: @escaping (_ error: String) -> ()){
         let url = "http://desarrolladorapp.com/inkme/public/api/listaDeFavs"
        
         let nums = UserDefaults.standard.array(forKey: "favoritos") as! [Int]? ?? emptyJson

@@ -9,7 +9,7 @@ import UIKit
 
 class CitasPendientesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
 
-    var citas: [CitasPendientes]?
+    var citas: [Cita]?
     @IBOutlet weak var tabla: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()

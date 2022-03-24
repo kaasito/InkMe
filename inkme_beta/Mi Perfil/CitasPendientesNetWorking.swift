@@ -6,7 +6,7 @@ final class PendientesNetWorking {
     static let shared = PendientesNetWorking()
     let defaults = UserDefaults.standard
     
-    func getUser(success: @escaping (_ citas: [CitasPendientes]) ->(), failure: @escaping (_ error: String) -> ()){
+    func getUser(success: @escaping (_ citas: [Cita]) ->(), failure: @escaping (_ error: String) -> ()){
         let url = "http://desarrolladorapp.com/inkme/public/api/cargarCitasPendientes"
         
         let api_token = defaults.string(forKey: "token")
@@ -14,8 +14,7 @@ final class PendientesNetWorking {
         
         
         
-        AF.request(url, method: .put, parameters: json,encoding: JSONEncoding.default).responseDecodable (of: ResponsePendientes.self) { response in
-            print("hola",response)
+        AF.request(url, method: .put, parameters: json as Parameters,encoding: JSONEncoding.default).responseDecodable (of: ResponseCita.self) { response in
             if  response.value?.status == 1{
                 if let citas = response.value?.citas {
                     success(citas)
@@ -33,16 +32,4 @@ final class PendientesNetWorking {
     
 }
 
-struct ResponsePendientes:Decodable{
-    let status:Int?
-    let citas:[CitasPendientes]?
-}
 
-struct CitasPendientes:Decodable{
-    var id:Int?
-    let date:String?
-    let client_tlf:String?
-    let client_name:String?
-    let comment:String?
-    let state:String?
-}

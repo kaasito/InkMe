@@ -66,3 +66,48 @@ struct PerfilResponse:Decodable {
     let usuario: UsuarioPropio?
 }
 
+struct ResponseGridMiPerfil:Decodable {
+    let usuario: User?
+    let status: Int?
+}
+
+
+struct MiMerchResponse:Decodable{
+    let articulos:[Merch?]
+    let status:Int?
+}
+
+struct ResponseSubir:Decodable{
+    let status: Int?
+    let url: String?
+}
+
+struct ResponseSubirPost:Decodable {
+    let status: Int?
+    let msg: String?
+    let post_id: Int?
+}
+
+struct PerfilResponseEditar:Decodable {
+    let status: Int?
+    let usuario: UsuarioPropio?
+    let msg: String?
+}
+
+struct StatsResponse:Decodable {
+    let status: Int?
+    let total: Int?
+    let clientes: Int?
+    let tatuadores: Int?
+    let top3: [Post]?
+}
+
+
+struct ResponseCita:Decodable{
+    let status:Int?
+    let citas:[Cita]?
+}
+
+struct ResponseBusqueda:Decodable {
+    let usuarios:[User]
+}

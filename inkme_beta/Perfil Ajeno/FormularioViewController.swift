@@ -56,7 +56,7 @@ class FormularioViewController: UIViewController, UITextViewDelegate {
         let selectedDate = dateFormatter.string(from: pickerdate.date)
     
         let url = "http://desarrolladorapp.com/inkme/public/api/enviarFormulario"
-        let json = ["usuario_id": id, "nombre": nombre.text, "comentario": textView.text, "telefono": telefono.text, "date": selectedDate] as [String : Any]
+        let json = ["usuario_id": id!, "nombre": nombre.text!, "comentario": textView.text!, "telefono": telefono.text!, "date": selectedDate] as [String : Any]
         AF.request(url, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: ResponseStatusMsg.self) { [self] response in
             print(response)
             if (response.value?.status) == 1 {
@@ -72,6 +72,8 @@ class FormularioViewController: UIViewController, UITextViewDelegate {
                         case .destructive:
                         print("destructive")
                         
+                    @unknown default:
+                        print("fatalError")
                     }
                 }))
                 self.present(alert, animated: true, completion: nil)
@@ -88,6 +90,8 @@ class FormularioViewController: UIViewController, UITextViewDelegate {
                         case .destructive:
                         print("destructive")
                         
+                    @unknown default:
+                        print("fatalError")
                     }
                 }))
                 self.present(alert, animated: true, completion: nil)

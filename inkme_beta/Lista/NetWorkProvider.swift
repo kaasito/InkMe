@@ -20,10 +20,6 @@ final class NetWorkingProvider{
             print(response)
             if let users = response.value?.usuarios {
                 success(users)
-                for user in users {
-                    print("nombre",user.name)
-                   
-                }
             }else{
                 print("no se ha podido hacer fetch")
             }

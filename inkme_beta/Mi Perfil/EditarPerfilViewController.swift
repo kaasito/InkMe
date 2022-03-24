@@ -93,7 +93,6 @@ class EditarPerfilViewController: UIViewController {
             let email = emailField.text
             let tlf = telefonoField.text
             let tlfint = Int(tlf!)
-            print("telefono",tlf)
             let ubicacion = ubicacionField.text
             let estilos = estilosField.text
             let password = passwordField.text
@@ -125,6 +124,8 @@ class EditarPerfilViewController: UIViewController {
                         case .destructive:
                             print("destructive")
                             
+                        @unknown default:
+                            print("fatalError")
                         }
                     }))
                     self.present(alert, animated: true, completion: nil)
@@ -140,6 +141,8 @@ class EditarPerfilViewController: UIViewController {
                             
                         case .destructive:
                             print("destructive")
+                        @unknown default:
+                            print("fatalError")
                         }
                     }))
                     self.present(alert, animated: true, completion: nil)
@@ -191,17 +194,5 @@ extension EditarPerfilViewController: UIImagePickerControllerDelegate, UINavigat
     
 }
 
-struct PerfilResponseEditar:Decodable {
-    let status: Int?
-    let usuario: UsuarioPropioEditar?
-    let msg: String?
-}
 
-struct UsuarioPropioEditar:Decodable{
- 
-    let nombre: String?
-    let email: String?
-    let foto: String?
-    let ubicacion: String?
-    let styles: String?
-}
+

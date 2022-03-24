@@ -8,20 +8,20 @@
 import UIKit
 import CoreML
 
-class CamaraViewController: UIViewController {
+class CameraViewController: UIViewController {
     
-   let model = TattooClasifier_1()
-    var salida:String?
+    let model = TattooClasifier_1()
+    var modelBestResult:String?
     let defaults = UserDefaults.standard
-    @IBOutlet weak var botonBuscar: UIButton!
-    @IBOutlet var imagenSeleccionada: UIImageView!
-    @IBOutlet weak var botonGaleria: UIButton!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet var selectedImage: UIImageView!
+    @IBOutlet weak var selectResourceButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
      
     }
     
-    @IBAction func abrirGaleria(_ sender: Any) {
+    @IBAction func selectResourcePressed(_ sender: Any) {
         
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -51,8 +51,9 @@ class CamaraViewController: UIViewController {
     
     
     
-    @IBAction func buscarPulsado(_ sender: Any) {
-        if imagenSeleccionada.image == nil{
+    @IBAction func searchButtonPressed(_ sender: Any) {
+       
+        if selectedImage.image == nil{
             let alert = UIAlertController(title: "Error", message: "Tienes que subir una foto para realizar una busqueda", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Vale", style: .default, handler: { action in
                 switch action.style{
@@ -65,12 +66,14 @@ class CamaraViewController: UIViewController {
                     case .destructive:
                     print("destructive")
                     
+                @unknown default:
+                    print("fatalError")
                 }
             }))
             self.present(alert, animated: true, completion: nil)
         }
         
-        let image = imagenSeleccionada.image
+        let image = selectedImage.image
         let targetSize = CGSize(width: 299, height: 299)
 
         // Compute the scaling ratio for the width and height separately
@@ -82,17 +85,17 @@ class CamaraViewController: UIViewController {
 
         // Multiply the original image’s dimensions by the scale factor
         // to determine the scaled image size that preserves aspect ratio
-        let scaledImageSize = CGSize(
+        _ = CGSize(
             width: image!.size.width * scaleFactor,
             height: image!.size.height * scaleFactor
         )
         
-        let bufeada = imagenSeleccionada.image?.toBuffer()
+        let bufeada = selectedImage.image?.toBuffer()
         let output = try? model.prediction(image: bufeada!)
        
         
-        salida = output?.classLabel
-        defaults.setValue(salida, forKey: "estiloML")
+        modelBestResult = output?.classLabel
+        defaults.setValue(modelBestResult, forKey: "estiloML")
         performSegue(withIdentifier: "toResult", sender: nil)
        
         
@@ -100,7 +103,7 @@ class CamaraViewController: UIViewController {
 }
 
 
-extension CamaraViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+extension CameraViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -117,13 +120,13 @@ extension CamaraViewController: UIImagePickerControllerDelegate, UINavigationCon
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else{
             return
         }
-        imagenSeleccionada.image = image
+        selectedImage.image = image
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toResult"{
             let destinationController = segue.destination as! ResultadoMLViewController
-            destinationController.estiloMasAccurate = salida
+            destinationController.estiloMasAccurate = modelBestResult
         }
     }
 }

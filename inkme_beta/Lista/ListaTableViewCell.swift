@@ -42,7 +42,7 @@ class ListaTableViewCell: UITableViewCell {
         let tapGestureRecognizerImg1 = UITapGestureRecognizer(target: self, action: #selector(imageTappedImg1(tapGestureRecognizer:)))
         let tapGestureRecognizerImg2 = UITapGestureRecognizer(target: self, action: #selector(imageTappedImg2(tapGestureRecognizer:)))
         let tapGestureRecognizerImg3 = UITapGestureRecognizer(target: self, action: #selector(imageTappedImg3(tapGestureRecognizer:)))
-        let tapGestureRecognizerPp = UITapGestureRecognizer(target: self, action: #selector(imageTappedPp(tapGestureRecognizer:)))
+        let tapGestureRecognizerPp = UITapGestureRecognizer(target: self, action: #selector(profilePictureTapped(tapGestureRecognizer:)))
         img1.isUserInteractionEnabled = true
         img1.addGestureRecognizer(tapGestureRecognizerImg1)
         img2.isUserInteractionEnabled = true

@@ -10,19 +10,19 @@ import Alamofire
 import AlamofireImage
 
 protocol FavsTableViewCellDelgate {
-    func didPressFotoPerfil(_ cell:FavsTableViewCell, didSelecProfilePic index: Bool)
+    func didPressProfilePicture(_ cell:FavsTableViewCell, didSelecProfilePic index: Bool)
     
 }
 
 class FavsTableViewCell: UITableViewCell {
     var delegate: FavsTableViewCellDelgate?
     var id = 0
-    var url1:String?
-    @IBOutlet weak var descripcion: UILabel!
+    var urlPost:String?
+    @IBOutlet weak var desc: UILabel!
     @IBOutlet weak var username: UILabel!
-    @IBOutlet weak var corazon: UIButton!
-    @IBOutlet weak var vista: UIView!
-    @IBOutlet weak var imagenPost: UIImageView!
+    @IBOutlet weak var heartButton: UIButton!
+    @IBOutlet weak var view: UIView!
+    @IBOutlet weak var postImage: UIImageView!
     var post: Post? {
         didSet{
             renderUI()
@@ -31,31 +31,31 @@ class FavsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        let tapGestureRecognizerPp = UITapGestureRecognizer(target: self, action: #selector(imageTappedPp(tapGestureRecognizer:)))
-        imagenPost.isUserInteractionEnabled = true
-        imagenPost.addGestureRecognizer(tapGestureRecognizerPp)
-        vista.layer.cornerRadius = 10
-        corazon.setImage(UIImage(systemName: "suit.heart.fill"), for: .normal)
-        corazon.setImage(UIImage(systemName: "suit.heart.fill"), for: .highlighted)
-        corazon.setImageTintColor(UIColor.systemRed)
-        descripcion.numberOfLines = 0
-        descripcion.lineBreakMode = NSLineBreakMode.byWordWrapping
+        let tapGestureRecognizerPp = UITapGestureRecognizer(target: self, action: #selector(profilePictureTapped(tapGestureRecognizer:)))
+        postImage.isUserInteractionEnabled = true
+        postImage.addGestureRecognizer(tapGestureRecognizerPp)
+        view.layer.cornerRadius = 10
+        heartButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .normal)
+        heartButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .highlighted)
+        heartButton.setImageTintColor(UIColor.systemRed)
+        desc.numberOfLines = 0
+        desc.lineBreakMode = NSLineBreakMode.byWordWrapping
     }
     
-    @objc func imageTappedPp(tapGestureRecognizer: UITapGestureRecognizer)
+    @objc func profilePictureTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
         
-        delegate?.didPressFotoPerfil(self, didSelecProfilePic: true)
+        delegate?.didPressProfilePicture(self, didSelecProfilePic: true)
     }
     
     private func renderUI() {
         guard let post = post else { return }
         
         let url = URL(string: post.photo!)
-        imagenPost.af.setImage(withURL: url!)
+        postImage.af.setImage(withURL: url!)
         username.text = post.title
-        descripcion.text = post.description
+        desc.text = post.description
         id = post.id!
-        url1 = post.photo!
+        urlPost = post.photo!
     }
 }

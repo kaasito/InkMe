@@ -24,3 +24,4 @@ struct UsuarioMerchAjeno:Decodable {
     let foto:String?
     let nombre:String?
 }
+

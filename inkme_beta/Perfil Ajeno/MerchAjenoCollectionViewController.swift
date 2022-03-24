@@ -74,7 +74,7 @@ class MerchAjenoCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(identifier: "PostAjenoViewController") as? PostAjenoViewController
+        _ = storyboard?.instantiateViewController(identifier: "PostAjenoViewController") as? PostAjenoViewController
         defaults.set(fotos[indexPath.row].photo, forKey: "urlPostAjeno")
         defaults.set(usuarioFotoPerfil, forKey: "profilePicPostAjeno")
         defaults.set(fotos[indexPath.row].description, forKey: "descriptionPostAjeno")
@@ -102,8 +102,6 @@ class MerchAjenoCollectionViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "itemmerchajenotap"{
             if let indexPaths = collectionView.indexPathsForSelectedItems{
-                            let destinationController = segue.destination as! PostAjenoViewController
-//                            destinationController.imagenSeleccionada.image = imagenPasar
                             collectionView.deselectItem(at: indexPaths[0], animated: false)
                         }
         }

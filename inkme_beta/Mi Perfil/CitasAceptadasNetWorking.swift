@@ -6,7 +6,7 @@ final class AceptadasNetWorking {
     static let shared = AceptadasNetWorking()
     let defaults = UserDefaults.standard
     
-    func getUser(success: @escaping (_ citas: [CitasActvas]) ->(), failure: @escaping (_ error: String) -> ()){
+    func getUser(success: @escaping (_ citas: [Cita]) ->(), failure: @escaping (_ error: String) -> ()){
         let url = "http://desarrolladorapp.com/inkme/public/api/cargarCitasActivas"
         
         let api_token = defaults.string(forKey: "token")
@@ -14,7 +14,7 @@ final class AceptadasNetWorking {
         
         
         
-        AF.request(url, method: .put, parameters: json,encoding: JSONEncoding.default).responseDecodable (of: ResponseActivos.self) { response in
+        AF.request(url, method: .put, parameters: json as Parameters,encoding: JSONEncoding.default).responseDecodable (of: ResponseCita.self) { response in
             print("hola",response)
             if  response.value?.status == 1{
                 if let citas = response.value?.citas {
@@ -33,15 +33,4 @@ final class AceptadasNetWorking {
     
 }
 
-struct ResponseActivos:Decodable{
-    let status:Int?
-    let citas:[CitasActvas]?
-}
 
-struct CitasActvas:Decodable{
-    let date:String?
-    let client_tlf:String?
-    let client_name:String?
-    let comment:String?
-    let state:String?
-}

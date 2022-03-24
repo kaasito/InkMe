@@ -10,41 +10,39 @@ import Alamofire
 import AlamofireImage
 
 
-class ListaFavoritossViewController:UIViewController, UITableViewDelegate, UITableViewDataSource, FavsTableViewCellDelgate {
-    @IBOutlet weak var imagenIlu: UIImageView!
-    @IBOutlet weak var textovacio: UILabel!
+class ListaFavoritosViewController:UIViewController, UITableViewDelegate, UITableViewDataSource, FavsTableViewCellDelgate {
+    @IBOutlet weak var emptyListIlustration: UIImageView!
+    @IBOutlet weak var emptyListText: UILabel!
     var id = 0
-    var url1:String?
-    func didPressFotoPerfil(_ cell: FavsTableViewCell, didSelecProfilePic index: Bool) {
+    var cellPostUrl:String?
+    func didPressProfilePicture(_ cell: FavsTableViewCell, didSelecProfilePic index: Bool) {
         if index == true{
-            
-            
             id = (cell.post?.id)!
-            url1 = cell.post?.photo
+            cellPostUrl = cell.post?.photo
             performSegue(withIdentifier: "fromfavs", sender: nil)
         }
     }
     
     
     var posts: [Post]?
-    @IBOutlet weak var tabla: UITableView!
+    @IBOutlet weak var table: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabla.delegate = self
-        self.tabla.dataSource = self
+        self.table.delegate = self
+        self.table.dataSource = self
        
-        FavNetWorking.shared.getUser() { arrayPost in
+        FavNetWorking.shared.getFavs() { arrayPost in
             self.posts = arrayPost
             if self.posts?.count == 0{
-                self.textovacio.isHidden = false
-                self.imagenIlu.isHidden = false
-                self.tabla.isHidden = true
+                self.emptyListText.isHidden = false
+                self.emptyListIlustration.isHidden = false
+                self.table.isHidden = true
             }else{
-                self.textovacio.isHidden = true
-                self.imagenIlu.isHidden = true
-                self.tabla.isHidden = false
+                self.emptyListText.isHidden = true
+                self.emptyListIlustration.isHidden = true
+                self.table.isHidden = false
             }
-            self.tabla.reloadData()
+            self.table.reloadData()
         } failure: { error in
             print(error)
         }
@@ -52,32 +50,32 @@ class ListaFavoritossViewController:UIViewController, UITableViewDelegate, UITab
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.tabla.delegate = self
-        self.tabla.dataSource = self
-        FavNetWorking.shared.getUser() { arrayPost in
+        self.table.delegate = self
+        self.table.dataSource = self
+        FavNetWorking.shared.getFavs() { arrayPost in
             self.posts = arrayPost
             if self.posts?.count == 0{
-                self.textovacio.isHidden = false
-                self.imagenIlu.isHidden = false
-                self.tabla.isHidden = true
+                self.emptyListText.isHidden = false
+                self.emptyListIlustration.isHidden = false
+                self.table.isHidden = true
             }else{
-                self.textovacio.isHidden = true
-                self.imagenIlu.isHidden = true
-                self.tabla.isHidden = false
+                self.emptyListText.isHidden = true
+                self.emptyListIlustration.isHidden = true
+                self.table.isHidden = false
             }
-            self.tabla.reloadData()
+            self.table.reloadData()
         } failure: { error in
             print(error)
         }
         
-        self.tabla.reloadData()
+        self.table.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "fromfavs"{
             let sv = segue.destination as! PostViewController
             sv.id = id
-            sv.url = url1!
+            sv.url = cellPostUrl!
         }
        
     }
@@ -102,16 +100,5 @@ class ListaFavoritossViewController:UIViewController, UITableViewDelegate, UITab
         bgColorView.backgroundColor = UIColor.black
         cell.selectedBackgroundView = bgColorView
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

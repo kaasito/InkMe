@@ -122,7 +122,7 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
                
             }
             
-            AF.request(url, method: .put, parameters: jsonn,encoding: JSONEncoding.default).responseDecodable (of: ResponsePrueba.self) { response in
+            AF.request(url, method: .put, parameters: jsonn,encoding: JSONEncoding.default).responseDecodable (of: ResponseStatusMsg.self) { response in
                 print("ashjagsjhags",response)
             }
             //sumarViewPerfil
@@ -160,12 +160,12 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let apiiitoken = defaults.string(forKey: "token")
         
         if apiiitoken == nil{
-            jsonn = ["api_token": "", "post_id": postId]
+            jsonn = ["api_token": "", "post_id": postId as Any]
         }else{
-            jsonn = ["api_token": apiiitoken!,"post_id": postId]
+            jsonn = ["api_token": apiiitoken!,"post_id": postId as Any]
         }
         
-        AF.request(url, method: .put, parameters: jsonn,encoding: JSONEncoding.default).responseDecodable (of: ResponsePrueba.self) { response in
+        AF.request(url, method: .put, parameters: jsonn,encoding: JSONEncoding.default).responseDecodable (of: ResponseStatusMsg.self) { response in
             print("ashjagsjhags",response)
         }
         performSegue(withIdentifier: "post", sender: nil)
@@ -231,24 +231,3 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
 
 
-struct ResponseBusqueda:Decodable {
-    let usuarios:[UserBusqueda]
-}
-struct UserBusqueda:Decodable  {
-    let name: String?
-    let profile_picture: String?
-    let location: String?
-    let styles: String?
-    let posts:[PostBusqueda]?
-    let id:Int?
-    
-}
-
-struct PostBusqueda:Decodable  {
-    let photo:String?
-    let id: Int?
-}
-struct ResponsePrueba:Decodable {
-    let status:Int?
-    let msg:String?
-}

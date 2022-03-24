@@ -24,10 +24,8 @@ class PerfilAjenoViewController: UIViewController {
     @IBOutlet weak var postView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let sv = PerfilAjenoCollectionViewController()
     
     
-      print("el ide del perfilajeno",id)
         let urlImagen = URL(string: imagenPerfilString ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg")
         imagenPerfil.af.setImage(withURL: urlImagen!)
         imagenPerfil.layer.cornerRadius = imagenPerfil.frame.size.width / 2

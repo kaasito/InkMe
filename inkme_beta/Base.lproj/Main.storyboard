@@ -474,7 +474,7 @@
         <!--Inteligencia Artificial-->
         <scene sceneID="sAd-2U-ZUO">
             <objects>
-                <viewController title="Inteligencia Artificial" id="LjQ-7W-oMT" customClass="CamaraViewController" customModule="inkme_beta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Inteligencia Artificial" id="LjQ-7W-oMT" customClass="CameraViewController" customModule="inkme_beta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qq7-1y-Tby">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -491,7 +491,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="abrirGaleria:" destination="LjQ-7W-oMT" eventType="touchUpInside" id="nNq-Vf-vmx"/>
+                                    <action selector="selectResourcePressed:" destination="LjQ-7W-oMT" eventType="touchUpInside" id="nNq-Vf-vmx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eui-FU-6wy">
@@ -501,7 +501,7 @@
                                     <color key="titleColor" systemColor="linkColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="buscarPulsado:" destination="LjQ-7W-oMT" eventType="touchUpInside" id="rDk-6h-wUs"/>
+                                    <action selector="searchButtonPressed:" destination="LjQ-7W-oMT" eventType="touchUpInside" id="rDk-6h-wUs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -511,9 +511,9 @@
                     <tabBarItem key="tabBarItem" title="AI" image="atom" catalog="system" id="v7F-MP-6d9"/>
                     <navigationItem key="navigationItem" title="Inteligencia Artificial" id="Ej4-XI-O0O"/>
                     <connections>
-                        <outlet property="botonBuscar" destination="eui-FU-6wy" id="ehv-7r-eQb"/>
-                        <outlet property="botonGaleria" destination="Ytf-hl-aMn" id="ebE-Yj-IPg"/>
-                        <outlet property="imagenSeleccionada" destination="fYt-t6-6fB" id="ZUR-e5-PVf"/>
+                        <outlet property="searchButton" destination="eui-FU-6wy" id="ehv-7r-eQb"/>
+                        <outlet property="selectResourceButton" destination="Ytf-hl-aMn" id="ebE-Yj-IPg"/>
+                        <outlet property="selectedImage" destination="fYt-t6-6fB" id="ZUR-e5-PVf"/>
                         <segue destination="Jr4-AV-ncy" kind="show" identifier="toResult" id="lNu-cn-5ca"/>
                     </connections>
                 </viewController>
@@ -547,7 +547,7 @@
         <!--Favoritos-->
         <scene sceneID="n9E-st-Cup">
             <objects>
-                <viewController id="xAw-td-xCi" customClass="ListaFavoritossViewController" customModule="inkme_beta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xAw-td-xCi" customClass="ListaFavoritosViewController" customModule="inkme_beta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zch-pO-xJk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -628,11 +628,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="corazon" destination="WrX-nU-Psa" id="qAl-a8-pT9"/>
-                                            <outlet property="descripcion" destination="FOU-z2-P3o" id="deR-gi-YeG"/>
-                                            <outlet property="imagenPost" destination="DeT-XG-3e9" id="9fw-uH-Cbt"/>
+                                            <outlet property="desc" destination="FOU-z2-P3o" id="deR-gi-YeG"/>
+                                            <outlet property="heartButton" destination="WrX-nU-Psa" id="qAl-a8-pT9"/>
+                                            <outlet property="postImage" destination="DeT-XG-3e9" id="9fw-uH-Cbt"/>
                                             <outlet property="username" destination="irK-Fk-RR9" id="eLd-kZ-ExA"/>
-                                            <outlet property="vista" destination="4aj-Le-eae" id="QZV-eA-XSm"/>
+                                            <outlet property="view" destination="4aj-Le-eae" id="QZV-eA-XSm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -659,9 +659,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Favoritos" id="tj3-B6-Mc0"/>
                     <connections>
-                        <outlet property="imagenIlu" destination="rA3-31-eRu" id="Kj2-eX-xup"/>
-                        <outlet property="tabla" destination="pJd-x2-c5I" id="Q1r-Vn-k6P"/>
-                        <outlet property="textovacio" destination="ULI-mO-mzG" id="cro-tL-TKV"/>
+                        <outlet property="emptyListIlustration" destination="rA3-31-eRu" id="Kj2-eX-xup"/>
+                        <outlet property="emptyListText" destination="ULI-mO-mzG" id="cro-tL-TKV"/>
+                        <outlet property="table" destination="pJd-x2-c5I" id="Q1r-Vn-k6P"/>
                         <segue destination="xY6-oj-pVV" kind="show" identifier="fromfavs" id="5Oa-YL-7sx"/>
                     </connections>
                 </viewController>
@@ -803,7 +803,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Iniciar Sesión" backgroundImage="Button"/>
                                 <connections>
-                                    <action selector="iniciarSesion:" destination="5gJ-Nq-sOe" eventType="touchUpInside" id="M41-4u-jZR"/>
+                                    <action selector="logInPressed:" destination="5gJ-Nq-sOe" eventType="touchUpInside" id="M41-4u-jZR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="274-lf-HNo">
@@ -970,10 +970,10 @@
                     <navigationItem key="navigationItem" id="tR8-jO-LTE"/>
                     <connections>
                         <outlet property="email" destination="lDq-7u-bSy" id="tCN-PK-1Dg"/>
-                        <outlet property="nombre" destination="EZ7-iD-tSy" id="p13-Z7-MzW"/>
+                        <outlet property="name" destination="EZ7-iD-tSy" id="p13-Z7-MzW"/>
                         <outlet property="password" destination="YTw-Tr-keO" id="pv1-7i-Gg1"/>
-                        <outlet property="repetir" destination="vZa-RR-pgh" id="OOe-rn-mc3"/>
-                        <outlet property="telefono" destination="7jN-ur-CIh" id="XVh-jJ-PaT"/>
+                        <outlet property="phone" destination="7jN-ur-CIh" id="XVh-jJ-PaT"/>
+                        <outlet property="repeatedPassword" destination="vZa-RR-pgh" id="OOe-rn-mc3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ai7-dw-G70" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2240,8 +2240,8 @@
                                     <constraint firstAttribute="height" constant="319.5" id="xny-as-MCA"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OiM-4D-zI1">
-                                <rect key="frame" x="184" y="633" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OiM-4D-zI1">
+                                <rect key="frame" x="184" y="633" width="46" height="111"/>
                                 <state key="normal" title="Enviar">
                                     <color key="titleColor" systemColor="linkColor"/>
                                 </state>
@@ -3326,7 +3326,7 @@
         <segue reference="QbY-wG-CtJ"/>
         <segue reference="tuK-WS-S6b"/>
         <segue reference="aJ9-Zn-RdZ"/>
-        <segue reference="HAR-IC-P06"/>
+        <segue reference="5Oa-YL-7sx"/>
         <segue reference="pUB-Rn-4y3"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

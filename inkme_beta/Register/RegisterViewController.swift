@@ -13,24 +13,24 @@ class RegisterViewController: UIViewController {
     let defaults = UserDefaults.standard
     var token = ""
     var userId = 0
-    @IBOutlet weak var nombre: UITextField!
-    @IBOutlet weak var telefono: UITextField!
+    @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var phone: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var repetir: UITextField!
+    @IBOutlet weak var repeatedPassword: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        telefono.keyboardType = .phonePad
+        phone.keyboardType = .phonePad
         email.keyboardType = .emailAddress
         title = "Registrarse"
         let tapGesture = UITapGestureRecognizer(target: self, action:     #selector(tapGestureHandler))
         view.addGestureRecognizer(tapGesture)
         
-        nombre.attributedPlaceholder = NSAttributedString(
+        name.attributedPlaceholder = NSAttributedString(
             string: "| Nickname",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
         )
-        telefono.attributedPlaceholder = NSAttributedString(
+        phone.attributedPlaceholder = NSAttributedString(
             string: "| Telefono",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
         )
@@ -44,7 +44,7 @@ class RegisterViewController: UIViewController {
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
         )
         
-        repetir.attributedPlaceholder = NSAttributedString(
+        repeatedPassword.attributedPlaceholder = NSAttributedString(
             string: "| Repetir Contraseña",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
         )
@@ -54,24 +54,13 @@ class RegisterViewController: UIViewController {
     
     
     @IBAction func botonRegistrar(_ sender: Any) {
-       
-//        validarNickName(field: nombre)
-//        checkTelefono()
-//
-//        if validateEmail(field: email) == nil{
-//            showAlert(error: "Email erróneo", mensaje: "El email es obligatorio, no debe contener espacios en blanco, y debe seguir un formato correcto xxx@xxx.xx")
-//        }
-//
-//        if repetirPassword(field: repetir.text!) == false{
-//            showAlert(error: "La contraseña no coincide", mensaje: "La contraseña repetida no coincide con la contraseña introducida")
-//        }
-        
+
         let url = "http://desarrolladorapp.com/inkme/public/api/register"
-        let name = nombre.text
+        let name = name.text
         let email = email.text
         let password = password.text
-        let numtlf = telefono.text
-        let json = ["name": name, "password": password,"email": email, "numtlf": numtlf]
+        let phoneNumber = phone.text
+        let json = ["name": name, "password": password,"email": email, "numtlf": phoneNumber]
         AF.request(url, method: .put, parameters: json as Parameters, encoding: JSONEncoding.default).responseDecodable (of: RegisterResponse.self) { [self] response in
             print(response)
             if (response.value?.status) == 1 {
@@ -84,24 +73,16 @@ class RegisterViewController: UIViewController {
                 print("no se ha podido hacer fetch")
             }
         }
-      
-        /*
-             "name": "Adri",
-             "email": "adri@gmail.com",
-             "password": "Lui$11",
-             "numtlf": "665679453"
-         */
-      
     }
     
     
     
     func checkTelefono(){
-        let set = CharacterSet(charactersIn: telefono.text!)
+        let set = CharacterSet(charactersIn: phone.text!)
         if !CharacterSet.decimalDigits.isSuperset(of: set){
             showAlert(error: "Teléfono erróneo", mensaje: "El teléfono solo puede contener numeros")
         }
-        if telefono.text!.count > 9 || telefono.text!.count < 9{
+        if phone.text!.count > 9 || phone.text!.count < 9{
             showAlert(error: "Teléfono erróneo", mensaje: "El teléfono no tiene que llevar prefijo y debe de tener 9 caracteres")
         }
     }
@@ -128,7 +109,7 @@ class RegisterViewController: UIViewController {
         return nil
     }
     
-    func validarNickName(field: UITextField){
+    func validateNickname(field: UITextField){
         if field.text!.count == 0{
             showAlert(error: "Nickname erróneo", mensaje: "El nickname no puede estar vacío")
         }
@@ -137,12 +118,12 @@ class RegisterViewController: UIViewController {
         }
     }
     
-    func validarPassword(field: String) -> Bool{
+    func validatePassword(field: String) -> Bool{
         let password = NSPredicate(format: "SELF MATCHES %@ ", "^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z]).{8,}$")
         return password.evaluate(with: field)
     }
     
-    func repetirPassword(field: String) -> Bool{
+    func repeatPassword(field: String) -> Bool{
         if (field == password.text!){
             return true
         }else{
@@ -150,15 +131,12 @@ class RegisterViewController: UIViewController {
         }
     }
     
-    
-    
-    
     @objc func tapGestureHandler() {
-        nombre.endEditing(true)
-        telefono.endEditing(true)
+        name.endEditing(true)
+        phone.endEditing(true)
         email.endEditing(true)
         password.endEditing(true)
-        repetir.endEditing(true)
+        repeatedPassword.endEditing(true)
     }
     
     func showAlert(error: String, mensaje: String){
@@ -168,8 +146,6 @@ class RegisterViewController: UIViewController {
         }))
         present(alert, animated: true)
     }
-    
-    
 }
 
 

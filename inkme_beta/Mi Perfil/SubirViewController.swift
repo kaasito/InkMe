@@ -71,6 +71,8 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 case .destructive:
                     print("destructive")
                     
+                @unknown default:
+                   print("fatalError")
                 }
             }))
             self.present(alert, animated: true, completion: nil)
@@ -91,7 +93,7 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }, to: url, method: .post).responseDecodable(of: ResponseSubir.self){ response in
             let url = response.value?.url
             let urlpeticion = "http://desarrolladorapp.com/inkme/public/api/crearPost"
-            let json = ["api_token": self.token, "description": self.textView.text, "photo": url!, "title": self.titleTextField.text!, "style": self.pickerItemSelected, "bcolor": 1] as [String : Any]
+            let json = ["api_token": self.token, "description": self.textView.text!, "photo": url!, "title": self.titleTextField.text!, "style": self.pickerItemSelected, "bcolor": 1] as [String : Any]
             AF.request(urlpeticion, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: ResponseSubirPost.self) { response in
                 print("pickk",self.pickerItemSelected)
                 print(response)
@@ -109,6 +111,8 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                         case .destructive:
                             print("destructive")
                             
+                        @unknown default:
+                            print("fatalError")
                         }
                     }))
                     self.present(alert, animated: true, completion: nil)
@@ -124,6 +128,8 @@ class SubirViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                             
                         case .destructive:
                             print("destructive")
+                        @unknown default:
+                            print("fatalError")
                         }
                     }))
                     self.present(alert, animated: true, completion: nil)
@@ -256,13 +262,4 @@ extension SubirViewController: UIImagePickerControllerDelegate, UINavigationCont
 
 
 
-struct ResponseSubir:Decodable{
-    let status: Int?
-    let url: String?
-}
 
-struct ResponseSubirPost:Decodable {
-    let status: Int?
-    let msg: String?
-    let post_id: Int?
-}

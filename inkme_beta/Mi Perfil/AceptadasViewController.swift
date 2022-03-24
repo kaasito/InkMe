@@ -5,7 +5,7 @@ class AceptadasViewController: UIViewController, UITableViewDelegate, UITableVie
    
     
 
-    var citas: [CitasActvas]?
+    var citas: [Cita]?
     @IBOutlet weak var tabla: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -73,7 +73,7 @@ class MiPerfilPostCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(identifier: "MiPostViewController") as? MiPostViewController
+        _ = storyboard?.instantiateViewController(identifier: "MiPostViewController") as? MiPostViewController
         defaults.set(fotos[indexPath.row].photo, forKey: "urlMiPerfil")
         defaults.set(fotos[indexPath.row].id, forKey: "idMiPerfil")
         let postID = defaults.integer(forKey: "idMiPerfil")
@@ -86,7 +86,7 @@ class MiPerfilPostCollectionViewController: UICollectionViewController {
             jsonn = ["api_token": apiiitoken!,"post_id": postID]
         }
         
-        AF.request(url, method: .put, parameters: jsonn,encoding: JSONEncoding.default).responseDecodable (of: ResponsePrueba.self) { response in
+        AF.request(url, method: .put, parameters: jsonn,encoding: JSONEncoding.default).responseDecodable (of: ResponseStatusMsg.self) { response in
             print("ashjagsjhags",response)
         }
         performSegue(withIdentifier: "itemtap", sender: nil)
@@ -113,7 +113,6 @@ class MiPerfilPostCollectionViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "itemtap"{
             if let indexPaths = collectionView.indexPathsForSelectedItems{
-                let destinationController = segue.destination as! MiPostViewController
                 collectionView.deselectItem(at: indexPaths[0], animated: false)
             }
         }
@@ -122,14 +121,9 @@ class MiPerfilPostCollectionViewController: UICollectionViewController {
 }
 
 
-struct ResponseGridMiPerfil:Decodable {
-    let usuario: UsuarioMiGrid?
-    let status: Int?
-}
 
-struct UsuarioMiGrid:Decodable {
-    let posts: [Post]?
-}
+
+
 
 
 
