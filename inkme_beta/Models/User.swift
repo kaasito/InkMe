@@ -11,17 +11,3 @@ struct User:Decodable  {
     let posts:[Post]?
    
 }
-
-struct UsuarioPropio:Decodable{
-    let nombre: String?
-    let email: String?
-    let foto: String?
-    let ubicacion: String?
-    let styles: String?
-    let posts: [Post]?
-}
-struct UsuarioMerchAjeno:Decodable {
-    let foto:String?
-    let nombre:String?
-}
-

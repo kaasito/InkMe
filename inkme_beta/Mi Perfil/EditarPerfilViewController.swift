@@ -44,7 +44,7 @@ class EditarPerfilViewController: UIViewController {
         AF.request(url, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: PerfilResponseEditar.self) { [self] response in
             print("response",response)
             if (response.value?.status) == 1 {
-                imagenPerfil.af.setImage(withURL: URL(string: (response.value?.usuario?.foto ??  "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg") )! )
+                imagenPerfil.af.setImage(withURL: URL(string: (response.value?.user?.profile_picture ??  "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg") )! )
                 
             }else{
                 print("no se ha podido hacer fetch")
@@ -157,7 +157,26 @@ class EditarPerfilViewController: UIViewController {
     
     
 }
+private func filePath(forKey key: String = "imagen") -> URL? {
+    let fileManager = FileManager.default
+    guard let documentURL = fileManager.urls(for: .documentDirectory,
+                                             in: FileManager.SearchPathDomainMask.userDomainMask).first else { return nil }
+    return documentURL.appendingPathComponent(key + ".png")
+}
 
+private func saveImage(_ imagen: UIImage) -> URL? {
+    
+    guard let imageURL = filePath() else { return nil }
+    //guard let data = imagen.pngData() else { return nil }
+    guard let data = imagen.jpegData(compressionQuality: 0.5) else { return nil }
+    do {
+        try data.write(to: imageURL)
+        return imageURL
+    }
+    catch {
+        return nil
+    }
+}
 
 extension EditarPerfilViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
@@ -179,7 +198,11 @@ extension EditarPerfilViewController: UIImagePickerControllerDelegate, UINavigat
             return
         }
         
-        imageURL = image
+        if image == nil{
+            imageURL = saveImage(imagen)
+        }else{
+            imageURL = image
+        }
         imagenPerfil.image = imagen
     }
     

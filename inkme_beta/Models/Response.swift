@@ -1,4 +1,3 @@
-
 import Foundation
 
 struct Response:Decodable {
@@ -90,7 +89,7 @@ struct ResponseSubirPost:Decodable {
 
 struct PerfilResponseEditar:Decodable {
     let status: Int?
-    let usuario: UsuarioPropio?
+    let user: User?
     let msg: String?
 }
 
@@ -106,8 +105,4 @@ struct StatsResponse:Decodable {
 struct ResponseCita:Decodable{
     let status:Int?
     let citas:[Cita]?
-}
-
-struct ResponseBusqueda:Decodable {
-    let usuarios:[User]
 }
