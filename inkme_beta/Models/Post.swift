@@ -7,4 +7,6 @@ struct Post:Decodable  {
     let title:String?
     let description:String?
     let viewsTotales: String?
+    let userNick:String?
+    let userProfPic:String?
 }

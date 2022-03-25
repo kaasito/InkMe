@@ -44,8 +44,12 @@ class ResultadoMLCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        
-        
-       performSegue(withIdentifier: "itemtapAjeno", sender: nil)
+        defaults.set(photos[indexPath.row].id, forKey: "idPostAjeno")
+        defaults.set(photos[indexPath.row].photo, forKey: "urlPostAjeno")
+        defaults.set(photos[indexPath.row].userProfPic, forKey: "profilePicPostAjeno")
+        defaults.set(photos[indexPath.row].description, forKey: "descriptionPostAjeno")
+        defaults.set(photos[indexPath.row].userNick, forKey: "nicknamePostAjeno")
+       performSegue(withIdentifier: "itemtapML", sender: nil)
      
      }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

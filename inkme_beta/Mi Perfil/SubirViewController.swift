@@ -243,6 +243,11 @@ extension SubirViewController: UIImagePickerControllerDelegate, UINavigationCont
             return
         }
         
+        if image == nil{
+            imageURL = saveImage(imagen)
+        }else{
+            imageURL = image
+        }
         
        
         selectedImage.image = imagen
