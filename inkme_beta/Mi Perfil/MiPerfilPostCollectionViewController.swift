@@ -37,7 +37,7 @@ class MiPerfilPostCollectionViewController: UICollectionViewController {
             print(response)
             
             if (response.value?.status) == 1 {
-                self.fotos = (response.value?.usuario?.posts)!
+                self.fotos = (response.value?.user?.posts)!
                 collectionView.reloadData()
                 
             }else{
@@ -56,7 +56,7 @@ class MiPerfilPostCollectionViewController: UICollectionViewController {
             print(response)
             
             if (response.value?.status) == 1 {
-                self.fotos = (response.value?.usuario?.posts)!
+                self.fotos = (response.value?.user?.posts)!
                 collectionView.reloadData()
                 
             }else{

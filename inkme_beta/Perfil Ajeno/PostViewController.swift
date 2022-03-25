@@ -52,10 +52,10 @@ class PostViewController: UIViewController {
             print(response)
             if (response.value?.post) != nil {
                 
-                self.nombreUsuario = response.value?.usuario?.name
+                self.nombreUsuario = response.value?.user?.name
                 self.nicknamelabel.text = self.nombreUsuario
-                let url = URL(string: (response.value?.usuario?.profile_picture) ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg")
-                self.profilePic = response.value?.usuario?.profile_picture
+                let url = URL(string: (response.value?.user?.profile_picture) ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg")
+                self.profilePic = response.value?.user?.profile_picture
                 self.imagenPerfil.af.setImage(withURL: url!)
                 self.desc.text = response.value?.post?.description
                 

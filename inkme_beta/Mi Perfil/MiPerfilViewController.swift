@@ -50,13 +50,13 @@ class MiPerfilViewController: UIViewController {
             AF.request(url, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: PerfilResponse.self) { [self] response in
                 print("response",response)
                 if (response.value?.status) == 1 {
-                    let valor:String = (response.value?.usuario?.nombre)!
+                    let valor:String = (response.value?.user?.name)!
                     let arroba = "@"
                     self.nombrePerfil.text = arroba + valor
-                    let url = URL(string: response.value?.usuario?.foto ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg")
+                    let url = URL(string: response.value?.user?.profile_picture ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg")
                     self.imagenPerfil.af.setImage(withURL: url!)
-                    self.estiloLabel.text = response.value?.usuario?.styles ?? "sin estilo"
-                    self.ubicacionLabel.text = response.value?.usuario?.ubicacion ?? "sin ubicacion"
+                    self.estiloLabel.text = response.value?.user?.styles ?? "sin estilo"
+                    self.ubicacionLabel.text = response.value?.user?.location ?? "sin ubicacion"
                     
                 }else{
                     print("no se ha podido hacer fetch")
@@ -92,13 +92,13 @@ class MiPerfilViewController: UIViewController {
             AF.request(url, method: .put, parameters: json, encoding: JSONEncoding.default).responseDecodable (of: PerfilResponse.self) { [self] response in
                 print("response",response)
                 if (response.value?.status) == 1 {
-                    let valor:String = (response.value?.usuario?.nombre)!
+                    let valor:String = (response.value?.user?.name)!
                     let arroba = "@"
                     self.nombrePerfil.text = arroba + valor
-                    let url = URL(string: response.value?.usuario?.foto ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg")
+                    let url = URL(string: response.value?.user?.profile_picture ?? "https://fundaciongaem.org/wp-content/uploads/2016/05/no-foto.jpg")
                     self.imagenPerfil.af.setImage(withURL: url!)
-                    self.estiloLabel.text = response.value?.usuario?.styles ?? "sin estilo"
-                    self.ubicacionLabel.text = response.value?.usuario?.ubicacion ?? "sin ubicacion"
+                    self.estiloLabel.text = response.value?.user?.styles ?? "sin estilo"
+                    self.ubicacionLabel.text = response.value?.user?.location ?? "sin ubicacion"
                     
                 }else{
                     print("no se ha podido hacer fetch")

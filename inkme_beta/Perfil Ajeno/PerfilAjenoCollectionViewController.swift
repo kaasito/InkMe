@@ -31,11 +31,11 @@ class PerfilAjenoCollectionViewController: UICollectionViewController {
         AF.request(url, method: .put, parameters: json as Parameters, encoding: JSONEncoding.default).responseDecodable (of: ResponseGridPerfilAjeno.self) { [self] response in
             print(response)
             if (response.value?.status) == 1 {
-                self.fotos = (response.value?.usuario?.posts)!
-                self.ubicacion = (response.value?.usuario?.ubicacion)!
-                self.usuarioNombre = (response.value?.usuario?.nombre)!
-                self.estilos = (response.value?.usuario?.styles)!
-                self.usuarioFoto = (response.value?.usuario?.foto)!
+                self.fotos = (response.value?.user?.posts)!
+                self.ubicacion = (response.value?.user?.location)!
+                self.usuarioNombre = (response.value?.user?.name)!
+                self.estilos = (response.value?.user?.styles)!
+                self.usuarioFoto = (response.value?.user?.profile_picture)!
                 collectionView.reloadData()
             }else{
                 print("no se ha podido hacer fetch")

@@ -18,7 +18,7 @@ final class NetWorkingProvider{
         
         AF.request(url, method: .put, parameters: json,encoding: JSONEncoding.default).responseDecodable (of: Response.self) { response in
             print(response)
-            if let users = response.value?.usuarios {
+            if let users = response.value?.users {
                 success(users)
             }else{
                 print("no se ha podido hacer fetch")

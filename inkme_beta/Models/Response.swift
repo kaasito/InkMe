@@ -3,7 +3,7 @@ import Foundation
 
 struct Response:Decodable {
     let status:Int?
-    let usuarios:[User]
+    let users:[User]
 }
 
 struct ResponseStatusMsg:Decodable {
@@ -43,37 +43,37 @@ struct ResponseGridResultadoML:Decodable {
 
 struct ResponseFoto: Decodable{
     let post: Foto?
-    let usuario: User?
+    let user: User?
 }
 
 struct ResponseGridPerfilAjeno:Decodable {
-    let usuario: UsuarioPropio?
+    let user: User?
     let status: Int?
 }
 
 struct UsuarioMerchAjenoResponse:Decodable{
     let status: Int?
-    let usuario: UsuarioMerchAjeno?
+    let user: User?
 }
 
 struct MerchAjenoResponse:Decodable{
-    let articulos:[Post?]
+    let articles:[Post?]
     let status:Int?
 }
 
 struct PerfilResponse:Decodable {
     let status: Int?
-    let usuario: UsuarioPropio?
+    let user: User?
 }
 
 struct ResponseGridMiPerfil:Decodable {
-    let usuario: User?
+    let user: User?
     let status: Int?
 }
 
 
 struct MiMerchResponse:Decodable{
-    let articulos:[Merch?]
+    let articles:[Merch?]
     let status:Int?
 }
 
@@ -97,8 +97,8 @@ struct PerfilResponseEditar:Decodable {
 struct StatsResponse:Decodable {
     let status: Int?
     let total: Int?
-    let clientes: Int?
-    let tatuadores: Int?
+    let clients: Int?
+    let tattooist: Int?
     let top3: [Post]?
 }
 

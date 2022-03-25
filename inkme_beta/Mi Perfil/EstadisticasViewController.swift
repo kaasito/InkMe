@@ -50,8 +50,8 @@ class EstadisticasViewController: UIViewController {
             if (response.value?.status) == 1 {
                 /*Recogemos los datos de la llamada por el response*/
                 self.numVisitas.text = String((response.value?.total)!)
-                self.numClientes.text = String((response.value?.clientes)!)
-                self.numTatuadores.text = String((response.value?.tatuadores)!)
+                self.numClientes.text = String((response.value?.clients)!)
+                self.numTatuadores.text = String((response.value?.tattooist)!)
                 self.numPost1.text = String((response.value?.top3?[0].viewsTotales)!)
                 self.numPost2.text = String((response.value?.top3?[1].viewsTotales)!)
                 self.numPost3.text = String((response.value?.top3?[2].viewsTotales)!)

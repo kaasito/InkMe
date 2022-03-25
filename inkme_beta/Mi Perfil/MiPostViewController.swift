@@ -45,8 +45,8 @@ class MiPostViewController: UIViewController {
             print(response)
             if (response.value?.post) != nil {
                 self.descripcionTexto = response.value?.post?.description
-                self.usuarioPerfilTexto = response.value?.usuario?.name
-                self.perfilpicurl = response.value?.usuario?.profile_picture
+                self.usuarioPerfilTexto = response.value?.user?.name
+                self.perfilpicurl = response.value?.user?.profile_picture
                 let urlPP = URL(string: self.perfilpicurl!)
                 imagenperfil.af.setImage(withURL: urlPP!)
                 descripcion.text = descripcionTexto

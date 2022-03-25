@@ -70,8 +70,8 @@ class ListaViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         AF.request(url, method: .put, parameters: json,encoding: JSONEncoding.default).responseDecodable (of: Response.self) { response in
             print(response)
-            if (response.value?.usuarios) != nil {
-                self.usuarios = response.value!.usuarios
+            if (response.value?.users) != nil {
+                self.usuarios = response.value!.users
                 self.tabla.reloadData()
             }else{
                 print("no se ha podido hacer fetch")

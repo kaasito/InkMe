@@ -26,7 +26,7 @@ class MiMerchCollectionViewController: UICollectionViewController {
             print("response merch",response)
             if (response.value?.status) == 1 {
                 
-                self.fotos = (response.value?.articulos) as! [Merch]
+                self.fotos = (response.value?.articles) as! [Merch]
                 collectionView.reloadData()
             }else{
                 print("no se ha podido hacer fetch")
@@ -45,7 +45,7 @@ class MiMerchCollectionViewController: UICollectionViewController {
             print("response merch",response)
             if (response.value?.status) == 1 {
                 
-                self.fotos = (response.value?.articulos) as! [Merch]
+                self.fotos = (response.value?.articles) as! [Merch]
                 collectionView.reloadData()
             }else{
                 print("no se ha podido hacer fetch")

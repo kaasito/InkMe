@@ -24,7 +24,7 @@ class MerchAjenoCollectionViewController: UICollectionViewController {
         AF.request(url, method: .put, parameters: json as Parameters, encoding: JSONEncoding.default).responseDecodable (of: MerchAjenoResponse.self) { [self] response in
             print(response)
             if (response.value?.status) == 1 {
-                self.fotos = (response.value?.articulos) as! [Post]
+                self.fotos = (response.value?.articles) as! [Post]
                 collectionView.reloadData()
             }else{
                 print("no se ha podido hacer fetch")
@@ -47,7 +47,7 @@ class MerchAjenoCollectionViewController: UICollectionViewController {
         AF.request(url, method: .put, parameters: json as Parameters, encoding: JSONEncoding.default).responseDecodable (of: MerchAjenoResponse.self) { [self] response in
             print(response)
             if (response.value?.status) == 1 {
-                self.fotos = (response.value?.articulos) as! [Post]
+                self.fotos = (response.value?.articles) as! [Post]
                 collectionView.reloadData()
             }else{
                 print("no se ha podido hacer fetch")
@@ -60,8 +60,8 @@ class MerchAjenoCollectionViewController: UICollectionViewController {
         AF.request(url1, method: .put, parameters: json1 as Parameters, encoding: JSONEncoding.default).responseDecodable (of: UsuarioMerchAjenoResponse.self) { [self] response in
             print(response)
             if (response.value?.status) == 1 {
-                self.usuarioFotoPerfil = (response.value?.usuario?.foto)
-                self.usuarioNombre = (response.value?.usuario?.nombre)
+                self.usuarioFotoPerfil = (response.value?.user?.profile_picture)
+                self.usuarioNombre = (response.value?.user?.name)
                 collectionView.reloadData()
             }else{
                 print("no se ha podido hacer fetch")
