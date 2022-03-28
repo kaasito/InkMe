@@ -9,5 +9,6 @@ struct User:Decodable  {
     let location: String?
     let styles: String?
     let posts:[Post]?
+    let viewsTotales:String?
    
 }

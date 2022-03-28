@@ -17,6 +17,7 @@ protocol ListaTableViewCellDelgate {
 
 
 class ListaTableViewCell: UITableViewCell {
+    @IBOutlet weak var viewsLabel: UILabel!
     var delegate: ListaTableViewCellDelgate?
     
     var user: User? {
@@ -113,6 +114,7 @@ class ListaTableViewCell: UITableViewCell {
             profilePic.af.setImage(withURL: profilepicurl!)
             location.text = user.location
             categoria.text = user.styles
+            viewsLabel.text = "\(user.viewsTotales!) Views"
             
         }else{
             img1.image = UIImage(named: "harry")

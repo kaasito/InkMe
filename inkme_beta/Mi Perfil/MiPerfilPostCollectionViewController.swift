@@ -46,6 +46,27 @@ class MiPerfilPostCollectionViewController: UICollectionViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if fotos.count < 3{
+            collectionView.dataSource = self
+            collectionView.delegate = self
+            let url = "http://desarrolladorapp.com/inkme/public/api/cargarPerfil"
+            let usuarioId = defaults.integer(forKey: "id")
+            let json = ["usuario_id": usuarioId]
+            AF.request(url, method: .put, parameters: json as Parameters, encoding: JSONEncoding.default).responseDecodable (of: ResponseGridMiPerfil.self) { [self] response in
+                print(response)
+                
+                if (response.value?.status) == 1 {
+                    self.fotos = (response.value?.user?.posts)!
+                    collectionView.reloadData()
+                    
+                }else{
+                    print("no se ha podido hacer fetch")
+                }
+            }
+            collectionView.reloadData()
+        }
+    }
     @objc func refresh(_ sender: AnyObject) {
         collectionView.dataSource = self
         collectionView.delegate = self
