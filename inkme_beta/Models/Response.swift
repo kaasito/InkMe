@@ -18,14 +18,10 @@ struct ResponsePost:Decodable{
 
 struct RegisterResponse:Decodable{
     let status: Int?
-    let apiToken: String?
-    let id:Int?
+    let api_token: String?
+    let user: User?
     
-    enum CodingKeys: String, CodingKey {
-        case status
-        case id
-        case apiToken = "api_token"
-    }
+    
 }
 
 struct LoginPantalla:Decodable{

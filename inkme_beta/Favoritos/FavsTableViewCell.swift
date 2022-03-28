@@ -35,9 +35,6 @@ class FavsTableViewCell: UITableViewCell {
         postImage.isUserInteractionEnabled = true
         postImage.addGestureRecognizer(tapGestureRecognizerPp)
         view.layer.cornerRadius = 10
-        heartButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .normal)
-        heartButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .highlighted)
-        heartButton.setImageTintColor(UIColor.systemRed)
         desc.numberOfLines = 0
         desc.lineBreakMode = NSLineBreakMode.byWordWrapping
     }

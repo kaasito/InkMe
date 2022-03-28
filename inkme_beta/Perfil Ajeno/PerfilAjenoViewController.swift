@@ -19,7 +19,6 @@ class PerfilAjenoViewController: UIViewController {
     @IBOutlet weak var vistaBlanca: UIView!
     @IBOutlet weak var nickname: UILabel!
     @IBOutlet weak var imagenPerfil: UIImageView!
-    @IBOutlet weak var compartirBoton: UIButton!
     @IBOutlet weak var merchView: UIView!
     @IBOutlet weak var postView: UIView!
     override func viewDidLoad() {
@@ -32,8 +31,6 @@ class PerfilAjenoViewController: UIViewController {
         imagenPerfil.clipsToBounds = true
         postView.alpha = 1
         merchView.alpha = 0
-        compartirBoton.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
-        compartirBoton.setImageTintColor(UIColor.systemBlue)
         vistaBlanca.layer.cornerRadius = 10
         let arroba = "@"
         nickname.text = arroba + nombre!

@@ -62,11 +62,11 @@ class RegisterViewController: UIViewController {
         let phoneNumber = phone.text
         let json = ["name": name, "password": password,"email": email, "numtlf": phoneNumber]
         AF.request(url, method: .put, parameters: json as Parameters, encoding: JSONEncoding.default).responseDecodable (of: RegisterResponse.self) { [self] response in
-            print(response)
+            print("sapsioopas",response)
             if (response.value?.status) == 1 {
-                self.token = (response.value?.apiToken)!
+                self.token = (response.value?.api_token)!
                 defaults.setValue(self.token, forKey: "token")
-                self.userId = (response.value?.id)!
+                self.userId = (response.value?.user?.id)!
                 defaults.setValue(self.userId, forKey: "id")
                 performSegue(withIdentifier: "AtutorialUsuario", sender: nil)
             }else{

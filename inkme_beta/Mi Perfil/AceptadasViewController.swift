@@ -6,6 +6,8 @@ class AceptadasViewController: UIViewController, UITableViewDelegate, UITableVie
     
 
     var citas: [Cita]?
+   // @IBOutlet weak var noDatesImage: UIImageView!
+    @IBOutlet weak var noDatesText: UILabel!
     @IBOutlet weak var tabla: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,9 +17,20 @@ class AceptadasViewController: UIViewController, UITableViewDelegate, UITableVie
         AceptadasNetWorking.shared.getUser() { arrayCitas in
             self.citas = arrayCitas
             self.tabla.reloadData()
+            if self.citas?.count == 0{
+                self.noDatesText.isHidden = false
+             //   self.noDatesImage.isHidden = false
+                self.tabla.isHidden = true
+            }else{
+                self.noDatesText.isHidden = true
+               // self.noDatesImage.isHidden = true
+                self.tabla.isHidden = false
+            }
         } failure: { error in
             print(error)
         }
+        
+      
        
     }
     
@@ -27,10 +40,17 @@ class AceptadasViewController: UIViewController, UITableViewDelegate, UITableVie
         AceptadasNetWorking.shared.getUser() { arrayCitas in
             self.citas = arrayCitas
             self.tabla.reloadData()
+            if self.citas?.count == 0{
+                self.noDatesText.isHidden = false
+                self.tabla.isHidden = true
+            }else{
+                self.noDatesText.isHidden = true
+                self.tabla.isHidden = false
+            }
         } failure: { error in
             print(error)
         }
-        
+     
         self.tabla.reloadData()
     }
     
